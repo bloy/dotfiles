@@ -3,9 +3,7 @@ CFGDIR=~/.config
 FILELIST=${CFGDIR}/make_links_files
 DIRLIST=${CFGDIR}/make_links_dirs
 PWD=`pwd`
-echo Getting update from CVS...
 cd ${CFGDIR}
-cvs update
 echo -n creating directories...
 for i in `cat ${DIRLIST}`; do
   if [ ! -d ~/$i ]; then
