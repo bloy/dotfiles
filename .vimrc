@@ -1,11 +1,5 @@
-
-" set runtimepath+=~/.config/.vim
-" set runtimepath+=~/.config/.vim/after
 colorscheme mike
-highlight FoldColumn guibg=darkgrey guifg=white ctermbg=darkgrey ctermfg=white
 syntax on
-
-nmap <F2> :w!<CR>:!aspell check %<CR>:e! %<CR>
 
 set fileformats=unix,dos,mac
 set backupcopy=yes
@@ -39,8 +33,19 @@ set smartindent
 filetype indent on
 filetype plugin on
 
+" key mappings
+:map <c-w><c-t> :WMToggle<cr>
+:map <c-w><c-f> :FirstExplorerWindow<cr>
+:map <c-w><c-b> :BottomExplorerWindow<cr>
+
 " plugin-specific options
-let php_sql_query = 1
+"" php plugin
+let php_sql_query = 0
 let php_folding = 1
 
+"" cvscommand
 let CVSCommandEdit = 'split'
+let CVSCommandDiffOpt = 'ubBw'
+
+"" winmanager
+let persistentBehaviour = 0
