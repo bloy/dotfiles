@@ -1,17 +1,7 @@
 #!/bin/bash
 
-FILELIST=(
-  .bash_complete
-  .bash_logout
-  .bash_profile
-  .bashrc
-  .cvsrc
-  .dircolors
-  .ssh/config
-  .vimrc
-  .vim
-  .Xresources
-)
+FILELIST=(.bash_complete .bash_logout .bash_profile .bashrc .cvsrc \
+  .dircolors .ssh/config .vimrc .vim .Xresources)
 PWD=`pwd`
 
 for i in ${FILELIST[*]}; do
