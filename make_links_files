@@ -1,0 +1,14 @@
+.bash_complete
+.bash_logout
+.bash_profile
+.bashrc
+bin/big-vim 
+bin/keychain-ssh 
+bin/keychain-wrapper 
+.cvsrc 
+.dircolors 
+.ssh/config 
+.vimrc 
+.Xresources 
+etc/LaTeX.Makefile
+

@@ -1,19 +1,19 @@
 #!/bin/bash
-(cd ~/.config; cvs update)
-FILELIST=(.bash_complete .bash_logout .bash_profile .bashrc bin/big-vim \
-bin/keychain-ssh bin/keychain-wrapper .cvsrc .dircolors .ssh/config .vimrc \
-.Xresources etc/LaTeX.Makefile)
-DIRLIST=(bin .ssh etc)
+FILELIST=~/.config/make_links_files
+DIRLIST=~/.config/make_links_dirs
 PWD=`pwd`
-for i in ${DIRLIST[*]}; do
+echo -n creating directories...
+for i in `cat ${DIRLIST}`; do
   if [ ! -d ~/$i ]; then
     mkdir ~/$i
   fi
 done
-for i in ${FILELIST[*]}; do
-  echo $i
+echo done
+echo -n linking files...
+for i in `cat ${FILELIST}`; do
   if [ -e ~/$i ]; then
     rm ~/$i
   fi
   ln ~/.config/$i ~/$i
 done
+echo done
