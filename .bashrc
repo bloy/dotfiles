@@ -28,6 +28,7 @@ export PAGER LESS EDITOR VISUAL
 alias ls='ls -bhF --color=tty'
 alias du='du -h'
 alias df='df -h'
+alias rs='eval `resize -s 24 80`'
 if [ "1$OSTYPE" = "1cygwin" ]; then
   alias start='cygstart'
   alias traceroute='tracert'
