@@ -8,7 +8,22 @@ endif
 colorscheme default
 let g:colors_name = "mike"
 
-"highlight Normal     ctermfg=LightGrey	ctermbg=Black
+" hardcoded colors :
+" GUI Comment : #80a0ff = Light blue
+
+" GUI
+highlight Normal     guifg=Grey80	guibg=Black
+highlight Search     guifg=Black	guibg=Red
+highlight Visual     guifg=Grey25
+highlight Cursor     guifg=Black	guibg=white
+highlight Special    guifg=Orange
+highlight Comment    guifg=#80a0ff			gui=italic
+highlight StatusLine guifg=white	guibg=darkblue
+highlight Statement  guifg=white			gui=bold
+highlight Type						gui=NONE
+highlight FoldColumn guibg=darkgrey guifg=white 
+
+" Console
 highlight Search     ctermfg=Black	ctermbg=Red	cterm=NONE
 highlight Visual					cterm=reverse
 highlight Cursor     ctermfg=Black	ctermbg=white	cterm=bold
@@ -21,3 +36,4 @@ highlight FoldColumn ctermbg=darkgrey ctermfg=white
 highlight StatusLine ctermfg=darkblue ctermbg=lightgrey cterm=NONE
 highlight StatusLineNC ctermfg=darkgrey ctermbg=lightgrey cterm=NONE
 highlight VertSplit cterm=reverse
+
