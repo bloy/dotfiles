@@ -1,9 +1,9 @@
 #!/bin/bash
 CFGDIR=~/.config
-FILELIST=${CFGDIR}/make_links_files
-DIRLIST=${CFGDIR}/make_links_dirs
+FILELIST="${CFGDIR}/make_links_files"
+DIRLIST="${CFGDIR}/make_links_dirs"
 PWD=`pwd`
-cd ${CFGDIR}
+cd "${CFGDIR}"
 echo -n creating directories...
 for i in `cat ${DIRLIST}`; do
   if [ ! -d ~/$i ]; then
