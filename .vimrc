@@ -67,8 +67,8 @@ set laststatus=2
 " editing options {{{
 set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
 set showmatch
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set foldcolumn=0
 set foldmethod=syntax
 set autoindent
