@@ -8,5 +8,6 @@ bin/keychain-wrapper
 .dircolors 
 .ssh/config 
 .vimrc 
+.gvimrc
 .Xresources 
 etc/LaTeX.Makefile
