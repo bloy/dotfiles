@@ -47,6 +47,9 @@ map <c-w><c-f> :FirstExplorerWindow<cr>
 map <c-w><c-b> :BottomExplorerWindow<cr>
 "}}}
 " plugin-specific options {{{
+"" vimspell {{{
+let spell_executable="aspell"
+"}}}
 "" cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
