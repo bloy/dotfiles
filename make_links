@@ -1,13 +1,19 @@
 #!/bin/bash
 
 FILELIST=(.bash_complete .bash_logout .bash_profile .bashrc bin/keychain-ssh \
-  bin/keychain-wrapper .cvsrc .dircolors .ssh/config .vimrc .vim .Xresources)
+  bin/keychain-wrapper .cvsrc .dircolors .ssh/config .vimrc .Xresources)
+SOFTLINKLIST=(.vim)
 PWD=`pwd`
 if [ ! -d ~/bin ]; then
   mkdir ~/bin
 fi
-for i in ${FILELIST[*]}; do
+for i in ${SOFTLINKLIST[*]}; do
   echo $i
   rm ~/$i
   ln -s ${PWD}/$i ~/$i
+done
+for i in ${FILELIST[*]}; do
+  echo $i
+  rm ~/$i
+  ln ${PWD}/$i ~/$i
 done
