@@ -1,6 +1,6 @@
 
-set runtimepath+=~/.config/.vim
-set runtimepath+=~/.config/.vim/after
+" set runtimepath+=~/.config/.vim
+" set runtimepath+=~/.config/.vim/after
 colorscheme mike
 highlight FoldColumn guibg=darkgrey guifg=white ctermbg=darkgrey ctermfg=white
 syntax on
