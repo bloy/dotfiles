@@ -2,7 +2,7 @@
 
 #HOME=%USERPROFILE%\My Documents
 #SHELL=/bin/bash
-#CYGWIN=ntsec
+#CYGWIN=tty ntsec
 #PATH=c:\cygwin\bin;c:\cygwin\usr\X11R6\bin;%PATH%
 
 if [ x${SHELL} == x ]; then
