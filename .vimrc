@@ -16,11 +16,9 @@ let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
 let CVSCommandDeleteOnHide = 1
 "}}}
-"" winmanager {{{
-let persistentBehaviour = 0
-"}}}
 "" php {{{
 let php_folding = 1
+let php_noindent_switch = 1
 "}}}
 "}}}
 
@@ -67,8 +65,8 @@ set laststatus=2
 " editing options {{{
 set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
 set showmatch
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set foldcolumn=0
 set foldmethod=syntax
 set autoindent
