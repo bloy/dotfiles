@@ -1,53 +1,57 @@
+" $Id$
+
+" general setup  {{{
 set runtimepath+=~/.config/.vim
 set runtimepath+=~/.config/.vim/after
 colorscheme mike
 syntax on
-
+"}}}
+" file information {{{
 set fileformats=unix,dos,mac
 set backupcopy=yes
 set nobackup
 set nowritebackup
-
-" viminfo
+"}}}
+" viminfo {{{
 "   200 files marks, global marks, 50 lines per register, no hlsearch
 "   10 search lines, all saved in ~/.viminfo
 set viminfo='200,f1,\"50,h,%,/10,:0,@0,n~/.viminfo
-
-" session options
+"}}}
+" session options  {{{
 set sessionoptions=buffers,curdir,folds,globals,help,localoptions
 set sessionoptions+=options,resize,winpos,slash,unix,winsize
-
-" search options
+"}}}
+" search options {{{
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 set laststatus=2
 set statusline=%f\ %m\ %r%=%y
-
-" editing options
+"}}}
+" editing options {{{
 set showmatch
 set shiftwidth=2
 set softtabstop=2
 set foldcolumn=0
+set foldmethod=marker
 set autoindent
 set smartindent
 filetype indent on
 filetype plugin on
-
-" key mappings
+"}}}
+" key mappings  {{{
 :map <c-w><c-t> :WMToggle<cr>
 :map <c-w><c-f> :FirstExplorerWindow<cr>
 :map <c-w><c-b> :BottomExplorerWindow<cr>
-
-" plugin-specific options
-"" php plugin
-let php_folding = 1
-
-"" cvscommand
+"}}}
+" plugin-specific options {{{
+"" cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
 let CVSCommandDeleteOnHide = 1
-
-"" winmanager
+"}}}
+"" winmanager {{{
 let persistentBehaviour = 0
+"}}}
+"}}}
