@@ -1,5 +1,3 @@
-XTerm*background: black
-XTerm*foreground: grey75
 XTerm*colorMode: true
 XTerm*colorBDMode: true
 XTerm*colorBD: white
@@ -9,26 +7,33 @@ XTerm*cursorColor: white
 XTerm*pointerColor: white
 XTerm*scrollBar: false
 
+XTerm*color0:           #000000
+XTerm*color1:           #800000
+XTerm*color2:           #008000
+XTerm*color3:           #d0d090
+XTerm*color4:           #000080
+XTerm*color5:           #800080
+XTerm*color6:           #a6caf0
+XTerm*color7:           #d0d0d0
+XTerm*color8:           #b0b0b0
+XTerm*color9:           #f08060
+XTerm*color10:          #60f080
+XTerm*color11:          #e0c060
+XTerm*color12:          #80c0e0
+XTerm*color13:          #f0c0f0
+XTerm*color14:          #c0d8f8
+XTerm*color15:          #e0e0e0
+XTerm*cursorColor:      #00f000
+
+! The following are recommended but optional
+XTerm*reverseVideo:     False
+XTerm*background:       #000000
+XTerm*foreground:       #d0d0d0
+XTerm*boldMode:         False
+
 Rxvt*scrollBar_right: true
 Rxvt*loginShell: true
 Rxvt*termName: xterm
 Rxvt*font: "Bitstream Vera Sans Mono-15"
 Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
 Rxvt*visualBell: false
-
-Rxvt*color0: black
-Rxvt*color1: red3
-Rxvt*color2: green3
-Rxvt*color3: yellow3
-Rxvt*color4: blue
-Rxvt*color5: magenta3
-Rxvt*color6: cyan3
-Rxvt*color7: gray75
-Rxvt*color8: gray30
-Rxvt*color9: red
-Rxvt*color10: green
-Rxvt*color11: yellow
-Rxvt*color12: dodgerblue2
-Rxvt*color13: magenta
-Rxvt*color14: cyan
-Rxvt*color15: white

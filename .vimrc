@@ -4,7 +4,7 @@
 " general setup  {{{
 set runtimepath+=~/.config/.vim
 set runtimepath+=~/.config/.vim/after
-colorscheme mike
+colorscheme ps_color
 syntax on
 "}}}
 " file information {{{
