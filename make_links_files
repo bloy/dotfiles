@@ -14,3 +14,4 @@ etc/LaTeX.Makefile
 etc/aimicon.gif
 .subversion/config
 .subversion/servers
+.gnupg/gpg.conf

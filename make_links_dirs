@@ -1,4 +1,5 @@
 bin
 .ssh
 .subversion
+.gnupg
 etc
