@@ -38,6 +38,21 @@ function windowtitle {
   echo -n $*
   echo -ne '\a'
 }
+function big-vim {
+  eval `resize`
+  local OLDLINES=$LINES
+  local OLDCOLUMNS=$COLUMNS
+  eval `resize -s 43 105`
+  clear
+  echo "Loading VIM. Please Wait"
+  echo -en '\e]0;' 
+  echo -n ${HOSTNAME}: VIM
+  echo -ne '\a'
+  vim $*
+  clear
+  eval `resize -s $OLDLINES $OLDCOLUMNS`
+}
+
 
 # aliases
 
