@@ -1,0 +1,21 @@
+#!/bin/bash
+
+FILELIST=(
+  .bash_complete
+  .bash_logout
+  .bash_profile
+  .bashrc
+  .cvsrc
+  .dircolors
+  .ssh/config
+  .vimrc
+  .vim
+  .Xresources
+)
+PWD=`pwd`
+
+for i in ${FILELIST[*]}; do
+  echo $i
+  rm ~/$i
+  ln -s ${PWD}/$i ~/$i
+done
