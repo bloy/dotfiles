@@ -23,6 +23,22 @@ RSYNC_RSH=ssh
 export PATH BASH_ENV USERNAME CVS_RSH RSYNC_RSH
 export PAGER LESS EDITOR VISUAL
 
+function fgcolor { 
+  echo -en '\e]10;' 
+  echo -n $*
+  echo -ne '\a'
+}
+function bgcolor { 
+  echo -en '\e]11;' 
+  echo -n $*
+  echo -ne '\a'
+}
+function windowtitle { 
+  echo -en '\e]0;' 
+  echo -n $*
+  echo -ne '\a'
+}
+
 # aliases
 
 alias ls='ls -bhF --color=tty'
