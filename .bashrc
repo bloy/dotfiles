@@ -9,7 +9,7 @@ fi
 
 PAGER=less
 LESS='-m'
-EDITOR=vi
+EDITOR=vim
 VISUAL=$EDITOR
 PATH=/sbin:$PATH
 PATH=/usr/sbin:$PATH
@@ -60,6 +60,7 @@ alias ls='ls -bhF --color=tty'
 alias du='du -h'
 alias df='df -h'
 alias rs='eval `resize -s 24 80`'
+alias vi=vim
 if [ "1$OSTYPE" = "1cygwin" ]; then
   alias start='cygstart'
   alias traceroute='tracert'
