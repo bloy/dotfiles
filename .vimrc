@@ -1,3 +1,4 @@
+" vim600: set foldmethod=marker:
 " $Id$
 
 " general setup  {{{
@@ -34,7 +35,7 @@ set showmatch
 set shiftwidth=2
 set softtabstop=2
 set foldcolumn=0
-set foldmethod=marker
+set foldmethod=syntax
 set autoindent
 set smartindent
 filetype indent on
@@ -46,6 +47,9 @@ filetype plugin on
 :map <c-w><c-b> :BottomExplorerWindow<cr>
 "}}}
 " plugin-specific options {{{
+"" php {{{
+let php_folding=2
+"}}}
 "" cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
