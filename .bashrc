@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 if [ -f ~/.bashrc-local ]; then
@@ -81,10 +81,6 @@ HISTCONTROL=ignoredups
 
 if [ -f $HOME/.dircolors ]; then
   eval `dircolors --sh $HOME/.dircolors`
-fi
-
-if [ -f $HOME/.bash_complete ]; then
-    . $HOME/.bash_complete
 fi
 
 if [ "PS1" ]; then
