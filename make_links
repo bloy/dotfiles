@@ -6,16 +6,20 @@ PWD=`pwd`
 cd "${CFGDIR}"
 echo -n creating directories...
 for i in `cat ${DIRLIST}`; do
-  if [ ! -d ~/$i ]; then
-    mkdir ~/$i
+  if [ -d ~/.config/$i ]; then
+    if [ ! -d ~/$i ]; then
+      mkdir ~/$i
+    fi
   fi
 done
 echo done
 echo -n linking files...
 for i in `cat ${FILELIST}`; do
-  if [ -e ~/$i ]; then
-    rm ~/$i
-  fi
+  if [ -e ~/.config/$i ]; then
+    if [ -e ~/$i ]; then
+      rm ~/$i
+    fi
   ln ~/.config/$i ~/$i
+  fi
 done
 echo done
