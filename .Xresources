@@ -14,7 +14,7 @@ Rxvt*loginShell: true
 Rxvt*termName: xterm
 Rxvt*font: "Bitstream Vera Sans Mono-15"
 Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
-Rxvt*visualBell: true
+Rxvt*visualBell: false
 
 Rxvt*color0: black
 Rxvt*color1: red3
