@@ -23,7 +23,6 @@ RSYNC_RSH=ssh
 export PATH BASH_ENV USERNAME CVS_RSH RSYNC_RSH
 export PAGER LESS EDITOR VISUAL
 
-#colors work in RXVT only
 function fgcolor { 
   echo -en '\e]39;' 
   echo -n $*
@@ -43,7 +42,7 @@ function big-vim {
   eval `resize`
   local OLDLINES=$LINES
   local OLDCOLUMNS=$COLUMNS
-  eval `resize -s 32 105`
+  eval `resize -s 43 105`
   clear
   echo "Loading VIM. Please Wait"
   echo -en '\e]0;' 
@@ -84,7 +83,9 @@ if [ -f $HOME/.bash_complete ]; then
 fi
 
 if [ "PS1" ]; then
-  PS1_EXTRA="\e]0;\u@\h: [\w]\a";
+  XTERM_TITLE="\[\e]0;\u@\h:\w\a\]";
+  PROMPTCOLOR="\[\e[1m\]"
+  NOCOLOR="\[\e[0m\]"
 
   case $TERM in
     screen)
@@ -94,9 +95,9 @@ if [ "PS1" ]; then
     cygwin)
       ;;
     *)
-      PS1_EXTRA=""
+      XTERM_TITLE=""
       ;;
   esac
   
-  PS1="\[$PS1_EXTRA\e[1;37m\]\h\[\e[0m\] [\w]\[\e[1;37m\]\\\$\[\e[0m\] "
+  PS1="${XTERM_TITLE}${PROMPTCOLOR}\h${NOCOLOR} [\w]${PROMPTCOLOR}\\\$${NOCOLOR} "
 fi
