@@ -1,3 +1,5 @@
+set runtimepath+=~/.config/.vim
+set runtimepath+=~/.config/.vim/after
 colorscheme mike
 syntax on
 
