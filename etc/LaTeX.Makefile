@@ -4,6 +4,8 @@ MAKEINDEX = makeindex -s $(INDEXSTYLE)
 PDFLATEX = pdflatex -shell-escape
 DVIPS = dvips
 EPSTOPDF = epstopdf
+LATEXTOHTML = latex2html
+LATEXTOHTMLOPTS = -show_section_numbers -html_version 4.0,table -local_icons -auto_navigation 
 
 RERUN = "(There were undefined references|Rerun to get (cross-references|the bars) right)"
 RERUNBIB = "No file.*\.bbl|Citation.*undefined"
