@@ -76,7 +76,7 @@
 ### Set enable-auto-props to 'yes' to enable automatic properties
 ### for 'svn add' and 'svn import', it defaults to 'no'.
 ### Automatic properties are defined in the section 'auto-props'.
-# enable-auto-props = yes
+enable-auto-props = yes
 
 ### Section for configuring automatic properties.
 ### The format of the entries is:
@@ -93,6 +93,7 @@
 # *.dsw = svn:eol-style=CRLF
 *.sh = svn:executable
 # *.txt = svn:eol-style=native
+*.php = svn:eol-style=native;svn:keywords=Id Revision Date Author
 
 #binary types
 *.avi = svn:mime-type=application/x-troff-msvideo
