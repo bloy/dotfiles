@@ -39,6 +39,8 @@ set smartindent
 filetype indent on
 filetype plugin on
 
-" language-specific options
+" plugin-specific options
 let php_sql_query = 1
 let php_folding = 1
+
+let CVSCommandEdit = 'split'
