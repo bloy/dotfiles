@@ -1,8 +1,8 @@
 #!/bin/bash
 (cd ~/.config; cvs update)
-FILELIST=(.bash_complete .bash_logout .bash_profile .bashrc bin/keychain-ssh \
-bin/keychain-wrapper .cvsrc .dircolors .ssh/config .vimrc .Xresources \
-etc/LaTeX.Makefile)
+FILELIST=(.bash_complete .bash_logout .bash_profile .bashrc bin/big-vim \
+bin/keychain-ssh bin/keychain-wrapper .cvsrc .dircolors .ssh/config .vimrc \
+.Xresources etc/LaTeX.Makefile)
 DIRLIST=(bin .ssh etc)
 PWD=`pwd`
 for i in ${DIRLIST[*]}; do
