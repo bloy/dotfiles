@@ -11,3 +11,4 @@ bin/keychain-wrapper
 .Xresources 
 .screenrc
 etc/LaTeX.Makefile
+etc/aimicon.gif
