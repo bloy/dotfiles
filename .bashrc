@@ -88,7 +88,11 @@ if [ -f $HOME/.bash_complete ]; then
 fi
 
 if [ "PS1" ]; then
-  XTERM_TITLE="\[\e]0;\u@\h:\w\a\]";
+  if [ "x$WINDOW" != "x" ]; then
+    XTERM_TITLE="\[\e]0;\h: screen $WINDOW: \w\a\]";
+  else
+    XTERM_TITLE="\[\e]0;\h: \w\a\]";
+  fi
   PROMPTCOLOR="\[\e[1m\]"
   NOCOLOR="\[\e[0m\]"
 

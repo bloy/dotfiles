@@ -10,4 +10,5 @@ bin/keychain-wrapper
 .vimrc 
 .gvimrc
 .Xresources 
+.screenrc
 etc/LaTeX.Makefile
