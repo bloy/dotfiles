@@ -12,3 +12,5 @@ bin/keychain-wrapper
 .screenrc
 etc/LaTeX.Makefile
 etc/aimicon.gif
+.subversion/config
+.subversion/servers

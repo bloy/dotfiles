@@ -1,3 +1,4 @@
 bin
 .ssh
+.subversion
 etc
