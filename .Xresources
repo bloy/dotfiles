@@ -27,9 +27,11 @@ XTerm*color15:          white
 XTerm*background:       black
 XTerm*foreground:       grey75
 XTerm*boldMode:         False
+XTerm*font: -b&h-lucidatypewriter-medium-r-*-*-14-*-*-*-*-*-iso8859-1
+XTerm*boldFont: -b&h-lucidatypewriter-medium-r-*-*-14-*-*-*-*-*-iso8859-1
 
 Rxvt*scrollBar_right: true
-Rxvt*loginShell: true
+XTerm*loginShell: true
 Rxvt*termName: xterm
 Rxvt*font: "Bitstream Vera Sans Mono-15"
 Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
