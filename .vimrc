@@ -40,7 +40,6 @@ filetype plugin on
 
 " plugin-specific options
 "" php plugin
-let php_sql_query = 0
 let php_folding = 1
 
 "" cvscommand
