@@ -1,4 +1,4 @@
 #!/bin/bash
-eval `resize -us 43 105`
+eval `resize -s 43 105`
 echo -n "\033]0;VIM\007"
 exec vim $*
