@@ -28,7 +28,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set laststatus=2
-set statusline=%f\ %m\ %r%=%y
+set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
 "}}}
 " editing options {{{
 set showmatch
