@@ -24,16 +24,17 @@ highlight Type						gui=NONE
 highlight FoldColumn guibg=darkgrey guifg=white 
 
 " Console
-highlight Search     ctermfg=Black	ctermbg=Red	cterm=NONE
+highlight Search      ctermfg=Black	ctermbg=Red	cterm=NONE
+highlight IncSearch					cterm=reverse 
 highlight Visual					cterm=reverse
-highlight Cursor     ctermfg=Black	ctermbg=white	cterm=bold
-highlight Special    ctermfg=Brown
-highlight Comment    ctermfg=Blue
-highlight Statement  ctermfg=white			cterm=bold
-highlight Type						cterm=NONE
-highlight FoldColumn ctermbg=darkgrey ctermfg=white
+highlight StatusLine  ctermfg=black	ctermbg=cyan	cterm=NONE
+highlight StatusLineNC ctermfg=black	ctermbg=lightgrey cterm=NONE
+highlight VertSplit   cterm=reverse
 
-highlight StatusLine ctermfg=darkblue ctermbg=lightgrey cterm=NONE
-highlight StatusLineNC ctermfg=darkgrey ctermbg=lightgrey cterm=NONE
-highlight VertSplit cterm=reverse
+highlight Special     ctermfg=Brown
+highlight Comment     ctermfg=Blue
+highlight Statement   ctermfg=white			cterm=bold
+highlight Type						cterm=NONE
+highlight FoldColumn  ctermbg=darkgrey	ctermfg=white
+
 
