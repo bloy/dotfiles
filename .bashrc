@@ -18,9 +18,8 @@ VISUAL=$EDITOR
 PATH=/sbin:$PATH
 PATH=/usr/sbin:$PATH
 PATH=/usr/local/sbin:$PATH
-PATH=$HOME/bin:$PATH
-BASH_ENV=$HOME/.bashrc
-USERNAME=bloy
+PATH="$HOME/bin:$PATH"
+BASH_ENV="$HOME/.bashrc"
 CVS_RSH=ssh
 RSYNC_RSH=ssh
 
@@ -43,7 +42,6 @@ function windowtitle {
   echo -ne '\a'
 }
 
-
 # aliases
 
 alias ls='ls -bhF --color=tty'
@@ -65,8 +63,8 @@ set -o notify
 FIGNORE=~:.o:CVS:RCS
 HISTCONTROL=ignoredups
 
-if [ -f $HOME/.dircolors ]; then
-  eval `dircolors --sh $HOME/.dircolors`
+if [ -f "$HOME/.dircolors" ]; then
+  eval `dircolors --sh "$HOME/.dircolors"`
 fi
 
 if [ "PS1" ]; then
