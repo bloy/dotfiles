@@ -48,9 +48,6 @@ map <c-w><c-b> :BottomExplorerWindow<cr>
 nnoremap <c-z> :shell<cr>
 "}}}
 " plugin-specific options {{{
-"" php {{{
-let php_folding=2
-"}}}
 "" cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
