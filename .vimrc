@@ -42,9 +42,10 @@ filetype indent on
 filetype plugin on
 "}}}
 " key mappings  {{{
-:map <c-w><c-t> :WMToggle<cr>
-:map <c-w><c-f> :FirstExplorerWindow<cr>
-:map <c-w><c-b> :BottomExplorerWindow<cr>
+map <c-w><c-t> :WMToggle<cr>
+map <c-w><c-f> :FirstExplorerWindow<cr>
+map <c-w><c-b> :BottomExplorerWindow<cr>
+nnoremap <c-z> :shell<cr>
 "}}}
 " plugin-specific options {{{
 "" php {{{
