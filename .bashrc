@@ -48,7 +48,7 @@ function big-vim {
   echo -en '\e]0;' 
   echo -n ${HOSTNAME}: VIM
   echo -ne '\a'
-  vim $*
+  vim -c WMToggle $*
   clear
   eval `resize -s $OLDLINES $OLDCOLUMNS`
 }
