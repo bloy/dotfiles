@@ -1,3 +1,4 @@
+cvs -q
 checkout -P
 update -P -d 
 diff -u
