@@ -1,0 +1,34 @@
+XTerm*background: black
+XTerm*foreground: grey75
+XTerm*colorMode: true
+XTerm*colorBDMode: true
+XTerm*colorBD: white
+XTerm*highlightColor: darkblue
+XTerm*dynamicColors: true
+XTerm*cursorColor: white
+XTerm*pointerColor: white
+XTerm*scrollBar: true
+
+Rxvt*scrollBar_right: true
+Rxvt*loginShell: true
+Rxvt*termName: xterm
+Rxvt*font: "Bitstream Vera Sans Mono-15"
+Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
+
+
+Rxvt*color0: black
+Rxvt*color1: red3
+Rxvt*color2: green3
+Rxvt*color3: yellow3
+Rxvt*color4: blue
+Rxvt*color5: magenta3
+Rxvt*color6: cyan3
+Rxvt*color7: gray75
+Rxvt*color8: gray30
+Rxvt*color9: red
+Rxvt*color10: green
+Rxvt*color11: yellow
+Rxvt*color12: dodgerblue
+Rxvt*color13: magenta
+Rxvt*color14: cyan
+Rxvt*color15: white
