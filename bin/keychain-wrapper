@@ -1,4 +1,5 @@
 #!/bin/bash
+. ~/.bashrc
 if [ -f ~/.keychainrc ]; then
   . ~/.keychainrc
 fi

@@ -1,15 +1,11 @@
 " Vim color file
-" Maintainer:	Thorsten Maerz <info@netztorte.de>
-" Last Change:	2001 Jul 23
-" grey on black
-" optimized for TFT panels
 
 set background=dark
 hi clear
 if exists("syntax_on")
   syntax reset
 endif
-"colorscheme default
+colorscheme default
 let g:colors_name = "mike"
 
 " hardcoded colors :
@@ -25,6 +21,7 @@ highlight Comment    guifg=#80a0ff			gui=italic
 highlight StatusLine guifg=white	guibg=darkblue
 highlight Statement  guifg=white			gui=bold
 highlight Type						gui=NONE
+highlight FoldColumn guibg=darkgrey guifg=white 
 
 " Console
 highlight Normal     ctermfg=LightGrey	ctermbg=Black
@@ -33,6 +30,17 @@ highlight Visual					cterm=reverse
 highlight Cursor     ctermfg=Black	ctermbg=white	cterm=bold
 highlight Special    ctermfg=Brown
 highlight Comment    ctermfg=Blue
-highlight StatusLine ctermfg=darkblue	ctermbg=white	cterm=NONE
 highlight Statement  ctermfg=white			cterm=bold
 highlight Type						cterm=NONE
+highlight FoldColumn ctermbg=darkgrey ctermfg=white
+
+highlight StatusLine cterm=reverse
+highlight StatusLine ctermfg=darkgrey
+highlight StatusLine ctermbg=yellow
+highlight StatusLineNC cterm=reverse
+highlight StatusLineNC ctermfg=darkgrey
+highlight StatusLineNC ctermbg=white
+highlight VertSplit cterm=reverse
+highlight VertSplit ctermfg=darkgrey
+highlight VertSplit ctermbg=darkgrey
+highlight NonText ctermfg=darkgrey
