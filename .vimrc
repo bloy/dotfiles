@@ -49,6 +49,7 @@ map <c-w><c-b> :BottomExplorerWindow<cr>
 " plugin-specific options {{{
 "" vimspell {{{
 let spell_executable="aspell"
+let spell_auto_type = ""
 "}}}
 "" cvscommand {{{
 let CVSCommandEdit = 'split'
