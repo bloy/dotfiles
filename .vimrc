@@ -60,3 +60,16 @@ let CVSCommandDeleteOnHide = 1
 let persistentBehaviour = 0
 "}}}
 "}}}
+" functions {{{
+function! ReplaceSmartQuotes()
+  :%s/&/\&amp;/ge " ampersand
+  :%s/‘/\&#8216;/ge " left single quote
+  :%s/’/\&#8217;/ge " right single quote
+  :%s/“/\&#8220;/ge " left double quote
+  :%s/”/\&#8221;/ge " right double quote
+  :%s/…/\&#8230;/ge " elipsis
+  :%s/–/\&#8212;/ge " en dash
+  :%s/—/\&#8211;/ge " em dash
+endfunction
+command! ReplaceSmartQuotes :call ReplaceSmartQuotes()
+"}}}
