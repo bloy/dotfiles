@@ -7,7 +7,7 @@ XTerm*highlightColor: darkblue
 XTerm*dynamicColors: true
 XTerm*cursorColor: white
 XTerm*pointerColor: white
-XTerm*scrollBar: true
+XTerm*scrollBar: false
 
 Rxvt*scrollBar_right: true
 Rxvt*loginShell: true
