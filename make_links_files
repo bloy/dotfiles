@@ -10,4 +10,3 @@ bin/keychain-wrapper
 .vimrc 
 .Xresources 
 etc/LaTeX.Makefile
-

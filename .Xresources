@@ -15,6 +15,7 @@ Rxvt*termName: xterm
 Rxvt*font: "Bitstream Vera Sans Mono-15"
 Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
 Rxvt*visualBell: false
+Rxvt*backgroundPixmap: background.xpm
 
 Rxvt*color0: black
 Rxvt*color1: red3

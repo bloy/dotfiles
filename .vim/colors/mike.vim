@@ -24,7 +24,7 @@ highlight Type						gui=NONE
 highlight FoldColumn guibg=darkgrey guifg=white 
 
 " Console
-highlight Normal     ctermfg=LightGrey	ctermbg=Black
+"highlight Normal     ctermfg=LightGrey	ctermbg=Black
 highlight Search     ctermfg=Black	ctermbg=Red	cterm=NONE
 highlight Visual					cterm=reverse
 highlight Cursor     ctermfg=Black	ctermbg=white	cterm=bold
