@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#HOME=%USERPROFILE%\My Documents
+#SHELL=/bin/bash
+#CYGWIN=ntsec
+#PATH=c:\cygwin\bin;c:\cygwin\usr\X11R6\bin;%PATH%
+
+if [ x${SHELL} == x ]; then
+  echo 'REMEMBER TO SET UP ENVIRONMENT VARIABLES FIRST'
+  exit 1;
+fi
+echo 'Environment set. Proceeding';
+
+chere -1 -t xterm -s bash
+
+mkdir /home
+mkdir "/home/${USER}"
+mount "${HOME}" "/home/${USER}"
+
+mkdir /mnt
+mkdir /mnt/profile
+mkdir /mnt/profile-all
+mount -u "${USERPROFILE}" /mnt/profile
+mount "${ALLUSERSPROFILE}" /mnt/profile-all
+
+mkdir /mnt/local
+mount "C:" /mnt/local
