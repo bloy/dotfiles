@@ -1,27 +1,48 @@
 #!/bin/bash
 
-#HOME=%USERPROFILE%\My Documents
-#SHELL=/bin/bash
-#CYGWIN=tty ntsec
-#PATH=c:\cygwin\bin;c:\cygwin\usr\X11R6\bin;%PATH%
-
-if [ x${SHELL} == x ]; then
-  echo 'REMEMBER TO SET UP ENVIRONMENT VARIABLES FIRST'
+if [ "x${SHELL}" == x -o "x${HOME}" == x -o "x${CYGWIN}" == x ]; then
+  echo 'REMEMBER TO SET UP THE FOLLOWING ENVIRONMENT VARIABLES FIRST'
+  echo 'HOME=%USERPROFILE%\My Documents'
+  echo 'SHELL=/bin/bash'
+  echo 'CYGWIN=tty ntsec'
+  echo 'PATH=c:\cygwin\bin;c:\cygwin\usr\X11R6\bin;%PATH%'
   exit 1;
 fi
 echo 'Environment set. Proceeding';
 
-chere -1 -t xterm -s bash
+echo creating local mounts
 
-mkdir /home
-mkdir "/home/${USER}"
-mount "${HOME}" "/home/${USER}"
+mount > /tmp/mountlist
 
-mkdir /mnt
-mkdir /mnt/profile
-mkdir /mnt/profile-all
-mount -u "${USERPROFILE}" /mnt/profile
-mount "${ALLUSERSPROFILE}" /mnt/profile-all
+if ! (grep "/home/${USERNAME}" /tmp/mountlist > /dev/null); then
+  mkdir -p "/home/${USERNAME}"
+  mount "`cygpath -w \"${HOME}\"`" "/home/${USERNAME}"
+fi
 
-mkdir /mnt/local
-mount "C:" /mnt/local
+if ! (grep /mnt/profile-all /tmp/mountlist > /dev/null); then
+  mkdir -p /mnt/profile-all
+  mount "`cygpath -w \"${ALLUSERSPROFILE}\"`" /mnt/profile-all
+fi
+if ! (grep /mnt/profile /tmp/mountlist > /dev/null); then
+  mkdir -p /mnt/profile
+  mount -u "`cygpath -w \"${USERPROFILE}\"`" /mnt/profile
+fi
+
+if ! (grep /mnt/local /tmp/mountlist > /dev/null); then
+  mkdir -p /mnt/local
+  mount "c:" /mnt/local
+fi
+
+rm /tmp/mountlist
+
+echo setting up 'Bash here' context-menu item
+if ! (chere -l | grep bash > /dev/null); then
+  chere -i -1 -t xterm -s bash
+fi
+
+echo creating X-Windows startup entry
+mkshortcut -a 'XWin -multiwindow -clipboard -silent-dup-error -nowinkill' -i '/usr/X11R6/bin/run.exe' -j 2 -n 'Startup/X-Windows' -w "$HOME" -P '/usr/X11R6/bin/run.exe'
+
+echo '*** REMEMBER TO INSTALL win-ssh-agent OR THERE WILL BE TROUBLE ***'
+
+echo you probably want to exit this shell and start anew
