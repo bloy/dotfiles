@@ -9,14 +9,14 @@ if [ ! -d ~/bin ]; then
 fi
 for i in ${SOFTLINKLIST[*]}; do
   echo $i
-  if [ -f ~/$i ]; then 
+  if [ -e ~/$i ]; then 
     rm ~/$i
   fi
   ln -s ~/.config/$i ~/$i
 done
 for i in ${FILELIST[*]}; do
   echo $i
-  if [ -f ~/$i ]; then
+  if [ -e ~/$i ]; then
     rm ~/$i
   fi
   ln ~/.config/$i ~/$i
