@@ -45,7 +45,6 @@ filetype plugin on
 map <c-w><c-t> :WMToggle<cr>
 map <c-w><c-f> :FirstExplorerWindow<cr>
 map <c-w><c-b> :BottomExplorerWindow<cr>
-nnoremap <c-z> :shell<cr>
 "}}}
 " plugin-specific options {{{
 "" cvscommand {{{

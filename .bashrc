@@ -23,6 +23,7 @@ RSYNC_RSH=ssh
 export PATH BASH_ENV USERNAME CVS_RSH RSYNC_RSH
 export PAGER LESS EDITOR VISUAL
 
+#colors work in RXVT only
 function fgcolor { 
   echo -en '\e]39;' 
   echo -n $*
@@ -42,7 +43,7 @@ function big-vim {
   eval `resize`
   local OLDLINES=$LINES
   local OLDCOLUMNS=$COLUMNS
-  eval `resize -s 43 105`
+  eval `resize -s 32 105`
   clear
   echo "Loading VIM. Please Wait"
   echo -en '\e]0;' 
