@@ -46,6 +46,7 @@ let php_folding = 1
 "" cvscommand
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
+let CVSCommandDeleteOnHide = 1
 
 "" winmanager
 let persistentBehaviour = 0
