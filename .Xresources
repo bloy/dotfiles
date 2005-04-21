@@ -27,12 +27,6 @@ XTerm*color15:          white
 XTerm*background:       black
 XTerm*foreground:       grey75
 XTerm*boldMode:         False
-XTerm*faceName:		Bitstream Vera Sans Mono-13:style=Roman
+XTerm*faceName:		Bitstream Vera Sans Mono-14:style=Roman
 
-
-Rxvt*scrollBar_right: true
 XTerm*loginShell: true
-Rxvt*termName: xterm
-Rxvt*font: "Bitstream Vera Sans Mono-15"
-Rxvt*boldFont: "Bitstream Vera Sans Mono-15"
-Rxvt*visualBell: false
