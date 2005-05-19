@@ -1,5 +1,5 @@
 set clipboard=unnamed
-set guioptions=cgmrLT
-set guifont=Courier_New:h10:cANSI
+set guioptions=cgmrL
+set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
 set lines=43 columns=80
 winpos 614 -1
