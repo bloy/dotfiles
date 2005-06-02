@@ -1,4 +1,4 @@
-*vimspell.txt*   On the fly spell checker with ispell/aspell.         v1.95
+*vimspell.txt*   On the fly spell checker with ispell/aspell.         v171
 
 
                         VIMSPELL REFERENCE MANUAL~
