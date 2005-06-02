@@ -1,4 +1,4 @@
-*vimspell.txt*   On the fly spell checker with ispell/aspell.         v2
+*vimspell.txt*   On the fly spell checker with ispell/aspell.         v1.95
 
 
                         VIMSPELL REFERENCE MANUAL~
@@ -70,11 +70,11 @@ CONTENT                                                    *vimspell-contents*
    <Leader>sl   - switch between languages.
    <Leader>sn   - go to next error.
    <Leader>sp   - go to previous error.
-   <Leader>si   - insert word under cursor into directory.
-   <Leader>su   - insert word under cursor as lowercase into directory.
+   <Leader>si   - insert word under cursor into user dictionary.
+   <Leader>su   - insert word under cursor as lowercase into user dictionary.
    <Leader>sa   - accept word for this session only.
    <Leader>s?   - check for alternatives.
-   <RightMouse> - open a popup menu with alternartives (see |vimspell-popup|).
+   <RightMouse> - open a popup menu with alternatives (see |vimspell-popup|).
 
    See |vimspell-mappings-override| and |vimspell-options| to learn how to
    override those default mappings.
@@ -152,7 +152,7 @@ CONTENT                                                    *vimspell-contents*
     For instance, to override the default mapping for :SpellCheck to set it to
     \sc, add the following to the |vimrc|:
 >
-      nnoremap \sc <Plug>SpellCheck
+      nmap \sc <Plug>SpellCheck
 <
     The default global mappings are as follow:
 
@@ -243,7 +243,7 @@ CONTENT                                                    *vimspell-contents*
       can be found in the standard location, to: >
  	  let spell_language_list = "english,francais"
 <     Note: The first language of this list is the one selected by default.
-      An empty list force vimspell to select dictionnaries installed for the
+      An empty list force vimspell to select dictionaries installed for the
       selected spell checker.
 
 
@@ -259,18 +259,48 @@ CONTENT                                                    *vimspell-contents*
       This variable, if set, defines a list of filetype for which spell check
       is done on the fly by default. Set it to "all" if you want on-the-fly
       spell check for every filetype. You can use the token "none" if you
-      want on-the-fly spell check for file which do not have a filetype.
+      want on-the-fly spell check for files which do not have a filetype.
       Defaults to: >
  	  let spell_auto_type = "tex,mail,text,html,sgml,otl,cvs,none"
 <     Note: the "text" and "otl" filetypes are not defined by vim. Look at
       |new-filetype| to see how you could yourself define a new filetype.
 
 
+    spell_guess_language_ft                          *spell_guess_language_ft*
+      This variable, if set, defines a list of filetype for which vimspell try 
+      to automatically find which language is in use.  Set it to "all" if you 
+      want to use the guess heuristic for every filetype. You can use the 
+      token "none" if you want to use it for files which do not have a 
+      filetype.
+      Defaults to: >
+	  let spell_guess_language_ft = "tex,mail,text,html"
+<     Note: the "text" filetype is not defined by vim. Look at |new-filetype| 
+      to see how you could yourself define a new filetype.
+      
+    
+    spell_guess_max_languages                      *spell_guess_max_languages*
+      This variable if set, set up how many languages are checked against the 
+      current buffer when vimspell try to determines the language in use. At 
+      most 'spell_ispell_sgml_args' are checked, and the one which best 
+      matches the current buffer is selected.
+      Defaults to: >
+	  let spell_guess_max_languages = 3
+<
+
+
+    spell_guess_max_lines                              *spell_guess_max_lines*
+      This variable, if set to a positive number, defines the number of lines
+      considered when guessing the language of the buffer. Otherwise, the
+      entire buffer is considered. Note that this feature makes use of the
+      'head' unix command.
+      Defaults to: >
+ 	  let spell_guess_max_lines = 0
+<
 
     spell_insert_mode                                      *spell_insert_mode*
       This variable if set, set up a hack to allow spell checking in insert
       mode. This is normally not possible by mean of autocommands, but is
-      done with a map to the <Space> key. Each time that <Space> is hitted,
+      done with a map to the <Space> key. Each time that <Space> is hit,
       the current line is spell checked. This feature can slow down vim
       enough but is otherwise very nice.
       Note that the mapping is defined only when spell check is done on the
@@ -286,6 +316,25 @@ CONTENT                                                    *vimspell-contents*
  	  let spell_no_readonly = 1  "no spell check for read only files.
 <
 
+    spell_auto_jump		                             *spell_auto_jump*
+      This variable, if set, make the cursor automatically jump to the next 
+      error after: 
+       - inserting a word in the user dictionary, 
+       - accepting a word for the editing session,
+       - accepting a suggestion from the alternative list.
+      Defaults to: >
+	  let spell_auto_jump = 1
+<
+
+    spell_markup_ft                                          *spell_markup_ft*
+      This variable, if set, defines a list of filetype for which vimspell
+      highlights all errors, and not only those included in the @Spell cluster 
+      (see |syn-cluster|).
+      Defaults to: >
+	  let spell_markup_ft = ",html,php,xhtml,dtml,tex,mail,help,text,,"
+<     Note the beginning and ending commas.
+
+
     spell_{spellchecker}_{filetype}_args
                                *spell_spellchecker_args* *spell_filetype_args*
       Those variables, if set, define the options passed to the "spellchecker"
@@ -299,22 +348,24 @@ CONTENT                                                    *vimspell-contents*
     spell_{language}_iskeyword                               *spell_iskeyword*
       Those variables if set define the characters which are part of a word
       in the selected language. See |iskeyword| for more informations. 
-      Note that the hereafter described variables (the filetype dependant
-      ones) overrides, if exists, the spell_{language}_iskeyword variables.
-      The list must be empty or begin with a comma.
-      The following is defined: >
-	   let spell_francais_iskeyword  =  "39,½,æ,¼,Æ,-"
-<     which says that the quote, the hyphen and dome other digraphs must be
-      considered as being part of words.
+      Note that the hereafter described variables (the filetype and language
+      dependent ones) overrides, if exists, the spell_{language}_iskeyword
+      variables.
+      The following ones are defined: >
+	   let s:spell_francais_iskeyword  = "@,48-57,_,192-255,39,½,æ,¼,Æ,-"
+	   let s:spell_russian_iskeyword = "@,48-57,_,192-255,^a-z,^A-Z" 
+	   let s:spell_english_iskeyword = "@,48-57,_,192-255,^192-255"
+<     which says for example that the quote, the hyphen and some other digraphs
+      must be considered as being part of french words.
 
 
     spell_{language}_{filetype}_iskeyword 
       Those variable have exactly the same impact as the previous one, except
       that they are filetype dependant. 
       The following is defined: >
-	   let s:spell_german_tex_iskeyword  = "34"
-<     which says that the double quote must be considered as being part of
-      words in german tex files.
+	   let s:spell_german_tex_iskeyword  = "@,48-57,192-255,=,\,34"
+<     which says that the double quote (char 34) must be considered as being
+      part of words in german tex files.
 
 
     spell_root_menu                                          *spell_root_menu*
@@ -339,6 +390,14 @@ CONTENT                                                    *vimspell-contents*
       to: >
  	  let spell_menu_priority = "10."
 <     Note the termination dot.
+
+
+    spell_shell                                                  *spell_shell*
+      This variable, if set, gives the name of the shell use for the system
+      calls. Defaults to: >
+ 	  let spell_menu_priority = "/bin/sh"
+<     Note that other shells may not work as expected. For example, tcsh
+      quoting differs from bash.
 
 
 ==============================================================================
@@ -373,6 +432,17 @@ CONTENT                                                    *vimspell-contents*
          let spell_auto_type   = ''
          let spell_insert_mode = 0
 <  
+
+       If you use the automatic guess language feature, you can also limit the
+       number of lines used for guessing (this feature need the external
+       "head" command to work) : >
+         let spell_guess_max_lines = 30
+<
+       Or you can disable this feature by putting the following line in your
+       .vimrc: >
+	 let spell_guess_language_ft = ""
+<
+
    What does this "warning : vimspell doesn't work with csh shells (:help
    'shell')" message mean ?
 
@@ -384,18 +454,34 @@ CONTENT                                                    *vimspell-contents*
        .vimrc: >
          set shell=/bin/sh
 <
+   The number of errors returned by vimspell doesn't match the number of 
+   keywords underlined !
+       
+       Yes. It is a known problem. When calling the SpellCheck function, 
+       [ai]spell is fed with the whole text, even if some parts are not 
+       concerned by error highlighting (for exemple, in shell scripts, only 
+       errors in strings and comments are highlighted).
 
+   Aspell doesn't understand the "oe" ligature, in iso-8859-15 encoding.
+
+       Aspell does understant the ligature, but you must use the good 
+       dictionary. You can get one at : >
+	  http://geodisi.u-strasbg.fr/~daurat/latin9/
+<
 ==============================================================================
 6. Vimspell bugs                                               *vimspell-bugs*
 
-    - problem when opening file with a swap files. Messages are not visibles.
+    I'm not able to reproduce most of those bug with last version of vim and
+    vimspell. If someone has more information about them, I will welcome them.
+
+    - BUG digraphs are not passed to aspell/ispell. Since iskeyword is set
+      globally, they are not underlined in red... 
+    - When not all errors are highlighted, SpellCheck() display an erroneous 
+      error count.
+    - problem when opening file with a swap files. Messages are not visible.
       to be reproduced...
     - ispell doesn't seem to work with word containing iso-8559 encoded
       characters in TeX files...
-    - BUG with spell_insert_mode set, lines doesn't always break as they
-      should and <undo> doesn't work as expected....
-    - BUG digraphs are not passed to aspell/ispell. Since iskeyword is set
-      globally, they are not underlined in red.. In tex mode..
     - BUG reported by Fabio Stumbo <f.stumbo@unife.it>:
       Textual navigation in Plugin submenus doesn't work when pressing <F4>
       with the following .vimrc settings: >
@@ -416,20 +502,20 @@ CONTENT                                                    *vimspell-contents*
       autocomands are dangerous and difficult to test thoroughly).
 
 ==============================================================================
-7. Vimspell TODO list                                          *vimspell-todo*
+7. Vimspell .TODO list                                          *vimspell-todo*
 
+    - Take into account the FileType event to setup buffer correctly.
+    - Add a way to customize the spell checking (so as to not use the syntax
+      highlighting as a way to determine was as to be checked). For example,
+      with the current syntax files, html and xml are badly checked.
+    - Change vimspell so that it works with csh (use of backslash_quote
+      variable) ?
+    - Add a command to spellcheck a visually selected region
     - Add options to prevent some words to be checked (like TODO). If not,
       their highlighting is overwritten by spellcheck's one (depends of TODO
       highlighting definition... To be investigated).
-    - Add actual (potentially user defined) shorcuts in menu (with <Leader>
-      replaced by its value).
-    - Errors did not get highlighted in all other highlight groups (some work
-      done in comments see SpellTuneCommentSyntax function). Need
-      documentation.
     - selection of syntax group for which spelling is done (for example, only
       string and comments are of interest in a C source code..) - Partly done.
-    - When only some syntax group get highlighted for spell errors, <Leader>sn
-      and <Leader>sp don't work as expected.
     - ...
     - reduce this TODO list (I didn't think it would have grown so quickly).
 
