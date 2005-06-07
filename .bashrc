@@ -27,12 +27,17 @@ export PATH BASH_ENV USERNAME CVS_RSH RSYNC_RSH
 export PAGER LESS EDITOR VISUAL
 
 function fgcolor { 
-  echo -en '\e]39;' 
+  echo -en '\e]10;' 
   echo -n $*
   echo -ne '\a'
 }
 function bgcolor { 
-  echo -en '\e]49;' 
+  echo -en '\e]11;' 
+  echo -n $*
+  echo -ne '\a'
+}
+function crcolor { 
+  echo -en '\e]12;' 
   echo -n $*
   echo -ne '\a'
 }
