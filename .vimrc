@@ -20,10 +20,6 @@ let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
 let CVSCommandDeleteOnHide = 1
 "}}}
-"" php {{{
-let php_folding = 1
-let php_noindent_switch = 1
-"}}}
 "}}}
 
 " functions {{{
