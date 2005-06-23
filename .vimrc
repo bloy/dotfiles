@@ -20,6 +20,10 @@ let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
 let CVSCommandDeleteOnHide = 1
 "}}}
+" php {{{
+let php_folding = 1
+let php_sql_query = 1
+"}}}
 "}}}
 
 " functions {{{
@@ -71,6 +75,7 @@ set foldcolumn=0
 set foldmethod=syntax
 set autoindent
 set smartindent
+set cinoptions=(0,W1s
 colorscheme mike
 syntax on
 filetype indent on
