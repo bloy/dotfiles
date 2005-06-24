@@ -6,8 +6,8 @@ set runtimepath+=~/.config/.vim
 set runtimepath+=~/.config/.vim/after
 "}}}
 
-" plugin-specific options {{{
-"" vimspell {{{
+" plugin- and syntax-specific options {{{
+" vimspell {{{
 if has('win32')
 	" only load vimspell for non win-gvim
 	let loaded_vimspell=2
@@ -15,14 +15,19 @@ endif
 let spell_executable="aspell"
 let spell_auto_type = ""
 "}}}
-"" cvscommand {{{
+" cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
 let CVSCommandDeleteOnHide = 1
 "}}}
 " php {{{
 let php_folding = 1
-let php_sql_query = 1
+"}}}
+" python {{{
+let python_highlight_all = 1
+"}}}
+" perl {{{
+let perl_fold = 1
 "}}}
 "}}}
 
