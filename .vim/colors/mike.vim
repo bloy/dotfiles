@@ -22,6 +22,7 @@ highlight StatusLine guifg=white	guibg=darkblue
 highlight Statement  guifg=white			gui=bold
 highlight Type						gui=NONE
 highlight FoldColumn guibg=darkgrey guifg=white 
+highlight Folded guibg=darkgrey guifg=white
 
 " Console
 highlight Search      ctermfg=Black	ctermbg=Red	cterm=NONE
@@ -36,5 +37,6 @@ highlight Comment     ctermfg=Blue
 highlight Statement   ctermfg=white			cterm=bold
 highlight Type						cterm=NONE
 highlight FoldColumn  ctermbg=darkgrey	ctermfg=white
+highlight Folded      ctermbg=darkgrey  ctermfg=white
 
 
