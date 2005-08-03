@@ -55,7 +55,7 @@ set nowritebackup
 " viminfo {{{
 "   200 files marks, global marks, 50 lines per register, no hlsearch
 "   10 search lines, all saved in ~/.viminfo
-set viminfo='200,f1,\"50,h,%,/10,:0,@0,n~/.viminfo
+set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 "}}}
 
 " session options  {{{
