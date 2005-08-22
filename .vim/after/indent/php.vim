@@ -1,0 +1,2 @@
+setlocal indentexpr=
+setlocal cindent
