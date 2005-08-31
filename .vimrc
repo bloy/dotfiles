@@ -4,6 +4,9 @@
 " general setup  {{{
 set runtimepath+=~/.config/.vim
 set runtimepath+=~/.config/.vim/after
+
+" if we're on a GUI or in a good xterm, use the mouse
+set mouse=a
 "}}}
 
 " plugin- and syntax-specific options {{{
