@@ -54,6 +54,7 @@ alias du='du -h'
 alias df='df -h'
 alias rs='eval `resize -s 24 80`'
 alias vi=vim
+alias whois='whois -h whois.geektools.com'
 if [ "1$OSTYPE" = "1cygwin" ]; then
   alias start='cygstart'
   alias traceroute='tracert'
@@ -63,7 +64,6 @@ fi
 
 set -o ignoreeof
 set -o interactive-comments
-set -o noclobber
 set -o notify
 FIGNORE=~:.o:CVS:RCS
 HISTCONTROL=ignoredups
