@@ -1,4 +1,4 @@
-*vimspell.txt*   On the fly spell checker with ispell/aspell.         v171
+*vimspell.txt*   On the fly spell checker with ispell/aspell.         v1.100
 
 
                         VIMSPELL REFERENCE MANUAL~
@@ -65,16 +65,20 @@ CONTENT                                                    *vimspell-contents*
 
    <Leader>ss   - write file, spellcheck file & highlight spelling mistakes.
    <Leader>sA   - start autospell mode.
-   <Leader>sq   - return to normal syntax coloring and disable auto spell
-	  	  checking.
    <Leader>sl   - switch between languages.
+   <Leader>s?   - check for alternatives.
+   <RightMouse> - open a popup menu with alternatives (see |vimspell-popup|).
+
    <Leader>sn   - go to next error.
    <Leader>sp   - go to previous error.
    <Leader>si   - insert word under cursor into user dictionary.
    <Leader>su   - insert word under cursor as lowercase into user dictionary.
    <Leader>sa   - accept word for this session only.
-   <Leader>s?   - check for alternatives.
-   <RightMouse> - open a popup menu with alternatives (see |vimspell-popup|).
+   <Leader>sq   - return to normal syntax coloring and disable auto spell
+	  	  checking.
+
+   Note that those last mappings are only defined once the spelling was 
+   checked.
 
    See |vimspell-mappings-override| and |vimspell-options| to learn how to
    override those default mappings.
@@ -106,8 +110,9 @@ CONTENT                                                    *vimspell-contents*
       aspell or ispell are supported).
 
     :SpellProposeAlternatives                      *:SpellProposeAlternatives*
-      Propose alternative for keyword under cursor. Define mapping used to
-      correct the word under the cursor.
+      Propose alternative for keyword under cursor. If more than 10 
+      alternatives exists, you can choose between the first 9 alternatives by 
+      typing 1 to 9 follow by the 'return' key, or by typing 01 to 09.
 
     :SpellExit                                                    *:SpellExit*
       Remove syntax highlighting and mapping defined for spell checking.
@@ -395,7 +400,7 @@ CONTENT                                                    *vimspell-contents*
     spell_shell                                                  *spell_shell*
       This variable, if set, gives the name of the shell use for the system
       calls. Defaults to: >
- 	  let spell_menu_priority = "/bin/sh"
+ 	  let spell_shell = "/bin/sh"
 <     Note that other shells may not work as expected. For example, tcsh
       quoting differs from bash.
 
@@ -443,17 +448,6 @@ CONTENT                                                    *vimspell-contents*
 	 let spell_guess_language_ft = ""
 <
 
-   What does this "warning : vimspell doesn't work with csh shells (:help
-   'shell')" message mean ?
-
-       It means that [t]csh quoting of double quote is bit strange, as the
-       string "aaaa\"aa" produces an 'unmatch "' error. Instead of writing a
-       different escape function for each shell on the world, I've decided to
-       force the shell to /bin/sh. 
-       You can disable the warning by putting the following line in your
-       .vimrc: >
-         set shell=/bin/sh
-<
    The number of errors returned by vimspell doesn't match the number of 
    keywords underlined !
        
@@ -508,14 +502,14 @@ CONTENT                                                    *vimspell-contents*
     - Add a way to customize the spell checking (so as to not use the syntax
       highlighting as a way to determine was as to be checked). For example,
       with the current syntax files, html and xml are badly checked.
-    - Change vimspell so that it works with csh (use of backslash_quote
-      variable) ?
     - Add a command to spellcheck a visually selected region
     - Add options to prevent some words to be checked (like TODO). If not,
       their highlighting is overwritten by spellcheck's one (depends of TODO
       highlighting definition... To be investigated).
     - selection of syntax group for which spelling is done (for example, only
       string and comments are of interest in a C source code..) - Partly done.
+    - update documentation to explain the logic behind the existence of to way
+      to redefine mappings, deppending on the mapping.
     - ...
     - reduce this TODO list (I didn't think it would have grown so quickly).
 

@@ -10,7 +10,7 @@
 "
 " GetLatestVimScripts: 465 2966 vimspell.vim
 "
-" Last Change:	    04-Jan-2005.
+" Last Change:	    14-Sep-2005.
 "
 " Licence:	    This program is free software; you can redistribute it
 "                   and/or modify it under the terms of the GNU General Public
@@ -98,20 +98,25 @@ let s:spell_english_iskeyword = "@,48-57,_,192-255,^192-255"
 
 " The double quote is used in latex for umlauts (which are written like "a,
 " "o, "u in latex)
-let s:spell_german_tex_iskeyword  = "@,48-57,192-255,=,\,34"
+let s:spell_german_tex_iskeyword  = "@,48-57,192-255,=,92,34"
+let s:spell_francais_tex_iskeyword  =  "@,48-57,_,192-255,39,½,æ,¼,Æ,-,:,\\"
 
 let s:known_spellchecker = "aspell,ispell"
 
 if has("win32") || has("win16")
-  let s:grep="find "
-  let s:find="dir "
+  let s:grep="findstr "
+  let s:find="dir /B "
   let s:findname=" "
   let s:findopt=" "
+  let s:default_spell_shell=&shell
+  let s:os="dos"
 else
   let s:grep="grep "
   let s:find="find "
   let s:findname=" -name "
   let s:findopt=" -print -type f "
+  let s:default_spell_shell="/bin/sh"
+  let s:os="unix"
 endif
 
 
@@ -208,36 +213,31 @@ function! s:SpellProposeAlternatives()
 	  \.": Type 0 for no change, *<number> to replace all or :"
     exe l:alter
     echo ">"
-    let c=getchar()
-    if nr2char(c) == '*'
+    let c=nr2char(getchar())
+    if c == '*'
       let replace="call s:SpellReplaceEverywhere(word)"
-      let c=getchar()
+      let c=nr2char(getchar())
     else
       let replace="call s:SpellReplace(word)"
     endif
-    if c != 0
-      let c=nr2char(c)
-      if c == '0'
-	return 0
-      elseif '1' <= c && c <= '9'
+
+    if '0' <= c && c <= '9'
 	if l:alterNr > 10 " l:alterNr == 10 means 9 alternatives
-	  let ch=c
-	  let c=getchar()
-	  let c=nr2char(c)
-	  if '0' <= c && c <= '9'
-	    let c=ch . c
-	  else
-	    let c=ch
+	let ch=nr2char(getchar())
+	if '0' <= ch && ch <= '9'
+	  let c  = c * 10 + ch
 	  endif
 	endif
+
+      if c > '0' && c < l:alterNr
 	let word=substitute(l:alterValue,'^.*,'.c.': \([^,]\+\),.*', '\1','')
 	if word != l:alterValue
 	  silent exe replace
 	  let l:replaced=1
 	endif
+      endif
 	redraw
       endif
-    endif
   else
     echo "no alternatives"
   endif
@@ -487,6 +487,7 @@ function! s:SpellGuessLanguage()
     let l:spell_options=b:spell_options
   endif
 
+  "TODO : allow the use of anonymous buffer (if expand("%") returns empty)
   while matchstr(l:mlang,",") == "" 
 	\ && l:langnum <= s:SpellGetOption("spell_guess_max_languages",3)
     if (l:maxlines > 0)
@@ -536,9 +537,12 @@ function! s:SpellGetDicoList()
   if b:spell_executable == "ispell"
     " Try to get libdir from ispell -vv
     let l:dirs = s:SpellSystem('ispell -vv | '.s:grep.' LIBDIR')
-    let l:dirs=substitute(l:dirs,'^.*["]\([^"]*\)["]','\1','')
+    let l:dirs=substitute(l:dirs,'^.*["]\([^"]*\)["].*','\1','')
     " else try some standard installation path (for older ispell ?)
     if !isdirectory(l:dirs)
+      if s:os == "dos"
+         let l:dirs = "C:\\ISpell\\lib"
+      endif
       if isdirectory("/usr/lib/ispell/")
 	let l:dirs =  "/usr/lib/ispell/"
       elseif isdirectory("/usr/local/lib/ispell/")
@@ -548,8 +552,15 @@ function! s:SpellGetDicoList()
       endif
     endif
 
-    let l:dirfiles = glob("`".s:find . l:dirs . s:findname . '"*.hash"' . s:findopt ."`")
-    let l:dirfiles = substitute(l:dirfiles,"\/[^\n]*\/","","g")
+    if s:os == "dos"
+        let l:dirs = substitute(l:dirs, "\/", "\\", "g")
+        let l:dirfiles = s:SpellSystem(s:find . l:dirs . "\\" . '*.hash')
+        let l:dirfiles = substitute(l:dirfiles,"[\r\n]*$","","")
+    else
+      let l:dirfiles = glob("`".s:find . l:dirs . s:findname . '"*.hash"' . s:findopt ."`")
+      let l:dirfiles = substitute(l:dirfiles,"\/[^\n]*\/","","g")
+      let l:dirfiles = substitute(l:dirfiles,"[^\\\/]*\/[^\n]*\/","","g")
+    endif
     let l:dirfiles = substitute(l:dirfiles,"[^\n]*-[^\n]*\n","","g")
     let l:dirfiles = substitute(l:dirfiles,"\.hash","","g")
     let l:dirfiles = substitute(l:dirfiles,"\n",",","g")
@@ -559,9 +570,24 @@ function! s:SpellGetDicoList()
     let l:dirs = system('aspell config dict-dir')
     "don't know, why there is a <NUL> char at the end of line ? Get rid of it.
     let l:dirs = substitute(l:dirs,".$","","")
+       " Do you know how find base directory for the dictionary?
+       " Unfortunately, "aspell config dict-dir" return only
+       " relative path, not absolut. :( At me: "dicts"
+       " I have aspell 0.50.4.1 version. At this moment 05.01.2005 it's the
+       " last one. At DOS/Windows C:\Aspell is the default install directory,
+       " so we can try to get this one. :(
+    if !isdirectory(l:dirs) && s:os == "dos" 
+      let l:dirs = "C:\\ASpell\\" . l:dirs
+    endif
 
-    let l:dirfiles = glob("`".s:find . l:dirs . s:findname . '"*.multi"' . s:findopt ."`")
-    let l:dirfiles = substitute(l:dirfiles,"\/[^\n]*\/","","g")
+    if s:os == "dos"
+        let l:dirs = substitute(l:dirs, "\/", "\\", "g")
+        let l:dirfiles = s:SpellSystem(s:find . l:dirs . "\\" . '*.multi')
+        let l:dirfiles = substitute(l:dirfiles,"[\r\n]*$","","")
+    else
+      let l:dirfiles = glob("`".s:find . l:dirs . s:findname . '"*.multi"' . s:findopt ."`")
+      let l:dirfiles = substitute(l:dirfiles,"\/[^\n]*\/","","g")
+    endif
     let l:dirfiles = substitute(l:dirfiles,"[^\n]*-[^\n]*\n","","g")
     let l:dirfiles = substitute(l:dirfiles,"\.multi","","g")
     let l:dirfiles = substitute(l:dirfiles,"\n",",","g")
@@ -595,7 +621,6 @@ endfunction
 "
 function! s:SpellChangeFileType(ft)
   if !exists("b:spell_syntax_ft") || b:spell_syntax_ft != a:ft
-    let b:spell_syntax_ft = a:ft
     call s:SpellTuneCommentSyntax(a:ft)
     unlet! b:spell_buffer_setup
     call s:SpellSetupBuffer()
@@ -671,7 +696,7 @@ function! s:SpellTuneCommentSyntax(ft)
     "but not for markup languages, where spelling errors must be also 
     "highlighted outside of the Spell cluster.
     if stridx(s:SpellGetOption("spell_markup_ft",
-	  \ ",html,php,xhtml,dtml,tex,mail,text,help,,"), ",".a:ft.",") > -1
+	  \ ",html,php,xhtml,dtml,tex,mail,text,help,Wikipedia,,"), ",".a:ft.",") > -1
       let b:spell_syntax_options = ""
     endif
   endif
@@ -699,7 +724,7 @@ function! s:SpellSetupBuffer()
     return
   endif
 
-  let b:spell_shell=s:SpellGetOption("spell_shell","/bin/sh")
+  let b:spell_shell=s:SpellGetOption("spell_shell",s:default_spell_shell)
 
   call s:SpellSetSpellchecker(s:SpellGetOption("spell_executable","ispell"))
 
@@ -928,14 +953,10 @@ function! s:SpellAddTriggerMapping(key)
   if a:key != "÷"
     " Many, many thanks to Hari Krishna Dara who shows me how to map a
     " function call without leaving insert mode !
-    echomsg 'imap <buffer><silent> '.a:key.' ' .l:oldmap
-	\. '<C-R>='.s:sid.'SpellCheckLine("'.a:key.'")<CR>'
-    exec 'imap <buffer> '.a:key.' ' .l:oldmap
+    silent exec 'imap <buffer><silent> '.a:key.' ' .l:oldmap
 	  \. '<C-R>=<SID>SpellCheckLine("'.a:key.'")<CR>'
   else
-    echomsg 'imap <buffer><silent> <CR> ' 
-	\. '<C-R>='.s:sid.'SpellCheckLine("")<CR><CR>'
-    exec 'inoremap <buffer> <CR> ' 
+    silent exec 'inoremap <buffer><silent> <CR> ' 
 	  \. '<C-R>=<SID>SpellCheckLine("")<CR><CR>'
   end
 endfunction
@@ -1178,14 +1199,20 @@ endfunction
 "
 function! s:SpellCheckLine(char)
 
-  let l:linepos = line(".") 
-  let l:colpos = col(".")
-  "echomsg 'exe :.s/\%'.l:colpos.'c./'. a:char . '/'
   if a:char != ""
-    exe ':.s/.\%' . l:colpos.'c/'. a:char . '/'
+   let l:linepos = line(".") 
+   let l:colpos = col(".")
+   "echomsg 'exe :.s/\%'.l:colpos.'c./'. a:char . '/'
+    silent! exe  ':.s/.\%' . l:colpos.'c/'. a:char . '/'
+    if strpart(&encoding, 0, 1) == "u"
+      " ugly hack - l:colpos - 1 prevents incorrect cursor positioning when 
+      " <Space> is pressed within a line. This applies only to Unicode  
+      " encodings.
+      let l:colpos = l:colpos - 1
+    end
+   "echomsg "call cursor(". l:linepos.", ".l:colpos.")"
+   call cursor(l:linepos, l:colpos)
   end
-  "echomsg "call cursor(". l:linepos.", ".l:colpos.")"
-  call cursor(l:linepos, l:colpos)
 
   " return if there is not a word character before the cursor
   " or if there is a one character word (use -3 instead of -2, to prevent
@@ -1731,16 +1758,20 @@ CONTENT                                                    *vimspell-contents*
 
    <Leader>ss   - write file, spellcheck file & highlight spelling mistakes.
    <Leader>sA   - start autospell mode.
-   <Leader>sq   - return to normal syntax coloring and disable auto spell
-	  	  checking.
    <Leader>sl   - switch between languages.
+   <Leader>s?   - check for alternatives.
+   <RightMouse> - open a popup menu with alternatives (see |vimspell-popup|).
+
    <Leader>sn   - go to next error.
    <Leader>sp   - go to previous error.
    <Leader>si   - insert word under cursor into user dictionary.
    <Leader>su   - insert word under cursor as lowercase into user dictionary.
    <Leader>sa   - accept word for this session only.
-   <Leader>s?   - check for alternatives.
-   <RightMouse> - open a popup menu with alternatives (see |vimspell-popup|).
+   <Leader>sq   - return to normal syntax coloring and disable auto spell
+	  	  checking.
+
+   Note that those last mappings are only defined once the spelling was 
+   checked.
 
    See |vimspell-mappings-override| and |vimspell-options| to learn how to
    override those default mappings.
@@ -1772,8 +1803,9 @@ CONTENT                                                    *vimspell-contents*
       aspell or ispell are supported).
 
     :SpellProposeAlternatives                      *:SpellProposeAlternatives*
-      Propose alternative for keyword under cursor. Define mapping used to
-      correct the word under the cursor.
+      Propose alternative for keyword under cursor. If more than 10 
+      alternatives exists, you can choose between the first 9 alternatives by 
+      typing 1 to 9 follow by the 'return' key, or by typing 01 to 09.
 
     :SpellExit                                                    *:SpellExit*
       Remove syntax highlighting and mapping defined for spell checking.
@@ -2061,7 +2093,7 @@ CONTENT                                                    *vimspell-contents*
     spell_shell                                                  *spell_shell*
       This variable, if set, gives the name of the shell use for the system
       calls. Defaults to: >
- 	  let spell_menu_priority = "/bin/sh"
+ 	  let spell_shell = "/bin/sh"
 <     Note that other shells may not work as expected. For example, tcsh
       quoting differs from bash.
 
@@ -2109,17 +2141,6 @@ CONTENT                                                    *vimspell-contents*
 	 let spell_guess_language_ft = ""
 <
 
-   What does this "warning : vimspell doesn't work with csh shells (:help
-   'shell')" message mean ?
-
-       It means that [t]csh quoting of double quote is bit strange, as the
-       string "aaaa\"aa" produces an 'unmatch "' error. Instead of writing a
-       different escape function for each shell on the world, I've decided to
-       force the shell to /bin/sh. 
-       You can disable the warning by putting the following line in your
-       .vimrc: >
-         set shell=/bin/sh
-<
    The number of errors returned by vimspell doesn't match the number of 
    keywords underlined !
        
@@ -2174,14 +2195,14 @@ CONTENT                                                    *vimspell-contents*
     - Add a way to customize the spell checking (so as to not use the syntax
       highlighting as a way to determine was as to be checked). For example,
       with the current syntax files, html and xml are badly checked.
-    - Change vimspell so that it works with csh (use of backslash_quote
-      variable) ?
     - Add a command to spellcheck a visually selected region
     - Add options to prevent some words to be checked (like TODO). If not,
       their highlighting is overwritten by spellcheck's one (depends of TODO
       highlighting definition... To be investigated).
     - selection of syntax group for which spelling is done (for example, only
       string and comments are of interest in a C source code..) - Partly done.
+    - update documentation to explain the logic behind the existence of to way
+      to redefine mappings, deppending on the mapping.
     - ...
     - reduce this TODO list (I didn't think it would have grown so quickly).
 
