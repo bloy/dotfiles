@@ -1,4 +1,4 @@
-# .bashrc
+# vim: set sw=2 sts=2:
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -54,7 +54,6 @@ alias du='du -h'
 alias df='df -h'
 alias rs='eval `resize -s 24 80`'
 alias vi=vim
-alias whois='whois -h whois.geektools.com'
 if [ "1$OSTYPE" = "1cygwin" ]; then
   alias start='cygstart'
   alias traceroute='tracert'
@@ -64,6 +63,7 @@ fi
 
 set -o ignoreeof
 set -o interactive-comments
+set -o noclobber
 set -o notify
 FIGNORE=~:.o:CVS:RCS
 HISTCONTROL=ignoredups
@@ -74,10 +74,11 @@ fi
 
 if [ "PS1" ]; then
   if [ "x$WINDOW" != "x" ]; then
-    XTERM_TITLE="\[\e]0;\h: screen $WINDOW: \w\a\]";
+    XTERM_SCREEN_TITLE="screen $WINDOW: "
   else
-    XTERM_TITLE="\[\e]0;\h: \w\a\]";
+    XTERM_SCREEN_TITLE=""
   fi
+  XTERM_TITLE="\e]0;\h: ${XTERM_SCREEN_TITLE}\w\a";
   PROMPTCOLOR="\[\e[1m\]"
   NOCOLOR="\[\e[0m\]"
 
@@ -93,5 +94,5 @@ if [ "PS1" ]; then
       ;;
   esac
   
-  PS1="${XTERM_TITLE}${PROMPTCOLOR}\h${NOCOLOR} [\w]${PROMPTCOLOR}\\\$${NOCOLOR} "
+  PS1="${PROMPTCOLOR}${XTERM_TITLE}\h:\w\$ ${NOCOLOR}"
 fi
