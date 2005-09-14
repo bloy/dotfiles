@@ -74,13 +74,13 @@ fi
 
 if [ "PS1" ]; then
   if [ "x$WINDOW" != "x" ]; then
-    XTERM_SCREEN_TITLE="screen $WINDOW: "
+    SCREENTITLE="screen $WINDOW: "
   else
-    XTERM_SCREEN_TITLE=""
+    SCREENTITLE=""
   fi
-  XTERM_TITLE="\e]0;\h: ${XTERM_SCREEN_TITLE}\w\a";
-  PROMPTCOLOR="\[\e[1m\]"
-  NOCOLOR="\[\e[0m\]"
+  TITLEBAR="\[\e]0;\h: ${SCREENTITLE}\w\a\]";
+  PROMPTCOLOR="\[\033[1m\]"
+  NOCOLOR="\[\033[0m\]"
 
   case $TERM in
     screen)
@@ -90,9 +90,9 @@ if [ "PS1" ]; then
     cygwin)
       ;;
     *)
-      XTERM_TITLE=""
+      TITLEBAR=""
       ;;
   esac
   
-  PS1="${PROMPTCOLOR}${XTERM_TITLE}\h:\w\$ ${NOCOLOR}"
+  PS1="$TITLEBAR\h [\w]\$ "
 fi
