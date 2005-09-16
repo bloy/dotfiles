@@ -115,5 +115,21 @@ enable-auto-props = yes
 *.swf = svn:mime-type=application/x-shockwave-flash
 *.tar = svn:mime-type=application/x-tar
 *.xls = svn:mime-type=application/vnd.ms-excel
+*.odm = svn:mime-type=application/vnd.oasis.opendocument.text-master
+*.odt = svn:mime-type=application/vnd.oasis.opendocument.text
+*.odg = svn:mime-type=application/vnd.oasis.opendocument.graphics
+*.odp = svn:mime-type=application/vnd.oasis.opendocument.presentation
+*.ods = svn:mime-type=application/vnd.oasis.opendocument.spreadsheet
+*.odc = svn:mime-type=application/vnd.oasis.opendocument.chart
+*.odi = svn:mime-type=application/vnd.oasis.opendocument.image
+*.odf = svn:mime-type=application/vnd.oasis.opendocument.formula
+*.ott = svn:mime-type=application/vnd.oasis.opendocument.text-template
+*.otg = svn:mime-type=application/vnd.oasis.opendocument.graphics-template
+*.otp = svn:mime-type=application/vnd.oasis.opendocument.presentation-template
+*.ots = svn:mime-type=application/vnd.oasis.opendocument.spreadsheet-template
+*.otc = svn:mime-type=application/vnd.oasis.opendocument.chart-template
+*.oti = svn:mime-type=application/vnd.oasis.opendocument.image-template
+*.otf = svn:mime-type=application/vnd.oasis.opendocument.formula-template
+*.oth = svn:mime-type=application/vnd.oasis.opendocument.text-web
 # Makefile = svn:eol-style=native
 
