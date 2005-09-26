@@ -82,6 +82,7 @@ set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
 set showmatch
 set shiftwidth=8
 set softtabstop=8
+set expandtab
 set foldcolumn=0
 set foldmethod=syntax
 set autoindent
