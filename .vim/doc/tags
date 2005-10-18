@@ -726,11 +726,14 @@ fwrite()	php_manual.txt	/*fwrite()*
 g%	matchit.txt	/*g%*
 g:bufExplorerDetailedHelp	bufexplorer.txt	/*g:bufExplorerDetailedHelp*
 g:bufExplorerOpenMode	bufexplorer.txt	/*g:bufExplorerOpenMode*
+g:bufExplorerShowDirectories	bufexplorer.txt	/*g:bufExplorerShowDirectories*
 g:bufExplorerSortBy	bufexplorer.txt	/*g:bufExplorerSortBy*
 g:bufExplorerSortDirection	bufexplorer.txt	/*g:bufExplorerSortDirection*
 g:bufExplorerSplitBelow	bufexplorer.txt	/*g:bufExplorerSplitBelow*
+g:bufExplorerSplitHorzSize	bufexplorer.txt	/*g:bufExplorerSplitHorzSize*
 g:bufExplorerSplitOutPathName	bufexplorer.txt	/*g:bufExplorerSplitOutPathName*
 g:bufExplorerSplitType	bufexplorer.txt	/*g:bufExplorerSplitType*
+g:bufexplorersplitvertsize	bufexplorer.txt	/*g:bufexplorersplitvertsize*
 gd_info()	php_manual.txt	/*gd_info()*
 get_browser()	php_manual.txt	/*get_browser()*
 get_cfg_var()	php_manual.txt	/*get_cfg_var()*

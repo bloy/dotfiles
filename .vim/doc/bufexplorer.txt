@@ -1,7 +1,7 @@
-*bufexplorer.txt*          Buffer Explorer        Last Change: 09 October 2003
+*bufexplorer.txt*              Buffer Explorer       Last Change: 18 Oct 2005
 
 Buffer Explorer                                *buffer-explorer* *bufexplorer*
-                              Version 6.2.1
+                                Version 7.0.5
 
 Plugin for easily exploring (or browsing) open buffers
 
@@ -90,10 +90,22 @@ To control the type of split when creating a new window, use: >
   let g:bufExplorerSplitType='v'       " Split vertically.
 The default is to split horizontally.
 
+                                                   *g:bufexplorersplitvertsize*
+To control the width of the window when opening a new window vertically
+use: >
+  let g:bufexplorersplitvertsize = [width]
+The default is 0, which is to use half the existing width.
+
+                                                   *g:bufExplorerSplitHorzSize*
+To control the height of the window When opening a new window horizontally
+use: >
+  let g:bufExplorerSplitHorzSize = [height]
+The default is 0, which is to use half the existing height.
+
                                                         *g:bufExplorerOpenMode*
 To control how the selected buffer is opened in 'split mode', use: >
-  let g:bufExplorerOpenMode=1       " Open using current window.
-  let g:bufExplorerOpenMode=0       " Open in new window.
+  let g:bufExplorerOpenMode=1          " Open using current window.
+  let g:bufExplorerOpenMode=0          " Open in new window.
 The default is to use a new window.
 
                                                    *g:bufExplorerSortDirection*
@@ -105,13 +117,58 @@ The default is to sort forwards.
                                                 *g:bufExplorerSplitOutPathName*
 To control whether to split out the path and file name or not, use: >
   let g:bufExplorerSplitOutPathName=1  " Split the path and file name.
-  let g:bufExplorerSplitOutPathName=-1 " Don't split the path and file
+  let g:bufExplorerSplitOutPathName=0  " Don't split the path and file
                                        " name.
 The default is to split the path and file name.
+
+                                                 *g:bufExplorerShowDirectories*
+Directories usually show up in the list from using a command like ":e .".
+To control whether to show directories in the buffer list or not, use: >
+  let g:bufExplorerShowDirectories=1   " Show directories.
+  let g:bufExplorerShowDirectories=0   " Don't show directories.
+Note: This is only available when using vim 7.0 and above.
 
 ===============================================================================
 CHANGE LOG                                              *bufexplorer-changelog*
 
+7.0.5  - Thanks to Mun Johl for pointing out a bug that if a buffer was
+         modified, the '+' was not showing up correctly.
+7.0.4  - Fixed a problem discovered first by Xiangjiang Ma. Well since I've
+         been using vim 7.0 and not 6.3, I started using a function (getftype)
+         that is not in 6.3. So for backward compatibility, I conditionaly use
+         this function now.  Thus, the g:bufExplorerShowDirectories feature is
+         only available when using vim 7.0 and above.
+7.0.3  - Thanks to Erwin Waterlander for finding a problem when the last
+         buffer was deleted. This issue got me to rewrite the buffer display
+         logic (which I've wanted to do for sometime now).
+         Also great thanks to Dave Eggum for coming up with idea for
+         g:bufExplorerShowDirectories. Read the above information about this
+         feature.
+7.0.2  - Thanks to Thomas Arendsen Hein for finding a problem when a user
+         has the default help turned off and then brought up the explorer. An
+         E493 would be displayed.
+7.0.1  - Thanks to Erwin Waterlander for finding a couple problems.
+         The first problem allowed a modified buffer to be deleted.  Opps! The
+         second problem occured when several files were opened, BufExplorer
+         was started, the current buffer was deleted using the 'd' option, and
+         then BufExplorer was exited. The deleted buffer was still visible
+         while it is not in the buffers list. Opps again!
+7.0.0  - Thanks to Shankar R. for suggesting to add the ability to set
+         the fixed width (g:bufExplorerSplitVertSize) of a new window
+         when opening bufexplorer vertically and fixed height
+         (g:bufExplorerSplitHorzSize) of a new window when opening
+         bufexplorer horizontally. By default, the windows are normally
+         split to use half the existing width or height.
+6.3.0  - Added keepjumps so that the jumps list would not get clutered with
+         bufexplorer related stuff.
+6.2.3  - Thanks to Jay Logan for finding a bug in the vertical split postion
+         of the code. When selecting that the window was to be split
+         vertically by doing a '\bv', from then on, all splits, i.e. '\bs',
+         were split vertically, even though g:bufExplorerSplitType was not set
+         to 'v'.
+6.2.2  - Thanks to Patrik Modesto for adding a small improvement. For some
+         reason his bufexplorer window was always showing up folded. He added
+         'setlocal nofoldenable' and it was fixed.
 6.2.1  - Thanks goes out to Takashi Matsuo for added the 'fullPath' sorting
          logic and option.
 6.2.0  - Thanks goes out to Simon Johann-Günter for spotting and fixing a
@@ -186,7 +243,7 @@ Improve performance even more.
 ===============================================================================
 CREDITS                                                   *bufexplorer-credits*
 
-Author: Jeff Lanzarotta <jefflanzarotta at yahoo dot com>
+Author: Jeff Lanzarotta <delux256-vim at yahoo dot com>
 
 Credit must go out to Bram Moolenaar and all the Vim developers for
 making the world's best editor (IMHO). I also want to thank everyone who
