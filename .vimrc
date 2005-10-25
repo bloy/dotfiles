@@ -13,14 +13,6 @@ set mouse=a
 "}}}
 
 " plugin- and syntax-specific options {{{
-" vimspell {{{
-if has('win32')
-	" only load vimspell for non win-gvim
-	let loaded_vimspell=2
-endif
-let spell_executable="aspell"
-let spell_auto_type = ""
-"}}}
 " cvscommand {{{
 let CVSCommandEdit = 'split'
 let CVSCommandDiffOpt = 'u'
