@@ -2,8 +2,11 @@
 " $Id$
 
 " general setup  {{{
-set runtimepath+=~/.config/.vim
-set runtimepath+=~/.config/.vim/after
+let s:cur_rtp = &runtimepath
+let s:new_rtp = "~/.config/.vim," . s:cur_rtp . ",~/.config/.vim/after"
+let &runtimepath = s:new_rtp
+"set runtimepath+=~/.config/.vim
+"set runtimepath+=~/.config/.vim/after
 if has('win32') 
 	set shell=bash.exe
 endif
