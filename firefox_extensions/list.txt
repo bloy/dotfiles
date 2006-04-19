@@ -1,0 +1,10 @@
+IE Tab
+Live HTTP Headers
+Status Buttons
+HTML Validator
+Web Developer
+Dom Inspector
+Adblock
+Colorzilla
+Link Toolbar
+Tab Mix Plus
