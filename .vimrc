@@ -3,7 +3,7 @@
 
 " general setup  {{{
 let s:cur_rtp = &runtimepath
-let s:new_rtp = "~/.config/.vim," . s:cur_rtp . ",~/.config/.vim/after"
+let s:new_rtp = "~/.svnconfig/.vim," . s:cur_rtp . ",~/.svnconfig/.vim/after"
 let &runtimepath = s:new_rtp
 "set runtimepath+=~/.config/.vim
 "set runtimepath+=~/.config/.vim/after
