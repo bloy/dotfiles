@@ -9,11 +9,11 @@ OUTPUT=xplanet.png
 APPEND=2
 
 GEOMETRY=2560x768
-LONGITUDE=15
-LATITUDE=30
+LONGITUDE=-90
+LATITUDE=0
 #default is no projection,i.e. render a globe
 #rectangular is the flat world map. also try ancient, azimuthal,  mercator,..
-PROJECTION=mercator  
+PROJECTION=rectangular  
 
 #rename background image so Gnome realises image has changed - thx to dmbasso
 
@@ -31,7 +31,7 @@ xplanet -num_times 1 -output "$PREFIX$OUTPUT" -geometry $GEOMETRY -longitude $LO
 fi
 
 #update Gnome backgound
-gconftool -t str -s /desktop/gnome/background/picture_filename "$PREFIX$OUTPUT"
+gconftool-2 -t str -s /desktop/gnome/background/picture_filename "$PREFIX$OUTPUT"
 
 #sleep $DELAY
 #exec $0
