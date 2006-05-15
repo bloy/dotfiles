@@ -98,5 +98,5 @@ if [ "PS1" ]; then
       ;;
   esac
   
-  PS1="$TITLEBAR\h [\w]\\\$ "
+  PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]$PROMPTCOLOR\\\$$NOCOLOR "
 fi
