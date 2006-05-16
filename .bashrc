@@ -49,7 +49,7 @@ function windowtitle {
 
 # aliases
 
-alias ls='ls -bhF --color=tty'
+alias ls='ls -bhF'
 alias du='du -h'
 alias df='df -h'
 alias rs='eval `resize -s 24 80`'
@@ -67,10 +67,6 @@ set -o noclobber
 set -o notify
 FIGNORE=~:.o:CVS:RCS
 HISTCONTROL=ignoredups
-
-if [ -f "$HOME/.dircolors" ]; then
-  eval `dircolors --sh "$HOME/.dircolors"`
-fi
 
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
