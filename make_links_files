@@ -4,7 +4,6 @@
 bin/keychain-ssh 
 bin/keychain-wrapper 
 .cvsrc 
-.dircolors 
 .ssh/config 
 .vimrc 
 .gvimrc
