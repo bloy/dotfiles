@@ -1,9 +1,8 @@
 .bash_logout
 .bash_profile
 .bashrc
-bin/keychain-ssh 
-bin/keychain-wrapper 
 .cvsrc 
+.dircolors
 .ssh/config 
 .vimrc 
 .gvimrc

@@ -59,6 +59,19 @@ if [ "1$OSTYPE" = "1cygwin" ]; then
   alias traceroute='tracert'
 fi
 
+# color ls -- if dircolors is present, assume we've got a recent gnu ls also
+founddc=0
+for dir in /bin /usr/bin /usr/local/bin; do
+  if [ -e $dir/dircolors ]; then
+    founddc=1
+  fi
+done
+if [ "x"$founddc == "x1" ]; then
+  eval `dircolors ~/.dircolors`
+  alias ls='ls -bhF --color'
+fi
+unset founddc
+
 # shell behavior
 
 set -o ignoreeof
