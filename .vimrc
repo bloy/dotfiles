@@ -46,6 +46,10 @@ endfunction
 command! ReplaceSmartQuotes :call ReplaceSmartQuotes() " }}}
 "}}}
 
+" mappings {{{
+map <F9> :new<CR>:read !svn diff<CR>:set syntax=diff buftype=nofile<CR>gg
+"}}} 
+
 " file information {{{
 set fileformats=unix,dos,mac
 set backupcopy=yes
