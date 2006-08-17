@@ -1,0 +1,8 @@
+mode=java
+brackets=attach
+indent=spaces=4
+indent-classes
+indent-switches
+indent-namespaces
+break-blocks
+convert-tabs
