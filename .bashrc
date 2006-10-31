@@ -96,6 +96,7 @@ if [ "PS1" ]; then
   TITLEBAR="\[\e]0;\h: ${SCREENTITLE}\w\a\]";
   PROMPTCOLOR="\[\033[1m\]"
   NOCOLOR="\[\033[0m\]"
+  PROMPT_COMMAND=
 
   case $TERM in
     screen)

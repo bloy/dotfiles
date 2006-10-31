@@ -1,7 +1,8 @@
 mode=java
-brackets=attach
+style=java
 indent=spaces=4
 indent-classes
 indent-switches
 indent-namespaces
 convert-tabs
+unpad=paren
