@@ -87,18 +87,20 @@ enable-auto-props = yes
 ### is typically done by setting the 'enable-auto-props' option.
 [auto-props]
 *.sh = svn:executable
-*.txt = svn:eol-style=native
-*.php = svn:eol-style=native;svn:keywords=Id
-*.pl = svn:eol-style=native;svn:keywords=Id
-*.c = svn:eol-style=native;svn:keywords=Id
-*.cpp = svn:eol-style=native;svn:keywords=Id
-*.h = svn:eol-style=native;svn:keywords=Id
-*.hpp = svn:eol-style=native;svn:keywords=Id
-*.C = svn:eol-style=native;svn:keywords=Id
-*.H = svn:eol-style=native;svn:keywords=Id
-*.java = svn:eol-style=native;svn:keywords=Id
-*.xml = svn:eol-style=native
-*.properties = svn:eol-style=native
+*.txt = svn:eol-style=native;svn:mime-type=text/plain
+*.php = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/plain
+*.pl = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-script.perl
+*.c = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.cpp = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.h = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.hpp = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.C = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.H = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-c
+*.java = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/x-java-source
+*.css = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/css
+*.html = svn:eol-style=native;svn:keywords=Id;svn:mime-type=text/html
+*.xml = svn:eol-style=native;svn:mime-type=text/xml
+*.properties = svn:eol-style=native;svn:mime-type=text/plain
 
 #binary types
 *.avi = svn:mime-type=application/x-troff-msvideo
