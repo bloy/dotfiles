@@ -86,14 +86,19 @@ enable-auto-props = yes
 ### Note that auto-props functionality must be enabled, which
 ### is typically done by setting the 'enable-auto-props' option.
 [auto-props]
-# *.c = svn:eol-style=native
-# *.cpp = svn:eol-style=native
-# *.h = svn:eol-style=native
-# *.dsp = svn:eol-style=CRLF
-# *.dsw = svn:eol-style=CRLF
 *.sh = svn:executable
-# *.txt = svn:eol-style=native
+*.txt = svn:eol-style=native
 *.php = svn:eol-style=native;svn:keywords=Id
+*.pl = svn:eol-style=native;svn:keywords=Id
+*.c = svn:eol-style=native;svn:keywords=Id
+*.cpp = svn:eol-style=native;svn:keywords=Id
+*.h = svn:eol-style=native;svn:keywords=Id
+*.hpp = svn:eol-style=native;svn:keywords=Id
+*.C = svn:eol-style=native;svn:keywords=Id
+*.H = svn:eol-style=native;svn:keywords=Id
+*.java = svn:eol-style=native;svn:keywords=Id
+*.xml = svn:eol-style=native
+*.properties = svn:eol-style=native
 
 #binary types
 *.avi = svn:mime-type=application/x-troff-msvideo
