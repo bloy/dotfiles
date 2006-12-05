@@ -80,7 +80,7 @@ set -o ignoreeof
 set -o interactive-comments
 set -o noclobber
 set -o notify
-FIGNORE=~:.o:CVS:RCS
+FIGNORE=~:.o:CVS:RCS:.svn:~
 HISTCONTROL=ignoredups
 
 if [ -f /etc/bash_completion ]; then
