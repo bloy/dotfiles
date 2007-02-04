@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site name="SQL Explorer" url="http://eclipsesql.sourceforge.net/" web="false" selected="false" local="false"/>
+   <site name="Ivy" url="http://www.jayasoft.fr/org/updatesite" web="false" selected="true" local="false"/>
+   <site name="findbugs" url="http://findbugs.cs.umd.edu/eclipse" web="false" selected="true" local="false"/>
+   <site name="JDepend/AnyEdit" url="http://andrei.gmxhome.de/eclipse/" web="false" selected="true" local="false"/>
+   <site name="PMD" url="http://pmd.sourceforge.net/eclipse" web="false" selected="true" local="false"/>
+   <site name="Web Tools Platform (WTP) Updates" url="http://download.eclipse.org/webtools/updates" web="false" selected="false" local="false"/>
+   <site name="Eclipse Modeling Framework (EMF) Updates" url="http://download.eclipse.org/tools/emf/updates/" web="false" selected="false" local="false"/>
+   <site name="Eclipse Modeling Framework Technologies (EMFT) Updates" url="http://download.eclipse.org/technology/emft/updates/" web="false" selected="false" local="false"/>
+   <site name="Andrei Loskutov plugins site" url="http://andrei.gmxhome.de/eclipse/" web="false" selected="false" local="false"/>
+   <site name="Visual Editor update site" url="http://update.eclipse.org/tools/ve/updates/1.0/" web="false" selected="false" local="false"/>
+   <site name="Subversive update site" url="http://www.polarion.org/projects/subversive/download/1.1/update-site" web="false" selected="false" local="false"/>
+   <site name="The Eclipse Project Updates" url="http://update.eclipse.org/updates/3.2" web="false" selected="false" local="false"/>
+   <site name="Callisto Discovery Site" url="http://download.eclipse.org/callisto/releases" web="false" selected="false" local="false"/>
+</bookmarks>
