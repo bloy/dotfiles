@@ -1,0 +1,6 @@
+AnyEdit
+J2EE Web tools
+SQL Explorer
+Ivy
+PMD
+Subversive
