@@ -4,3 +4,4 @@ SQL Explorer
 Ivy
 PMD
 Subversive
+Spring IDE
