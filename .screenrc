@@ -1,5 +1,4 @@
 nethack off
-escape ^Zz
 defhstatus "^EH: screen ^En: ^Et"
 deflogin on
 autodetach on
