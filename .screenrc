@@ -4,3 +4,4 @@ deflogin on
 autodetach on
 startup_message off
 vbell off
+hardstatus alwayslastline "%{= KW}%-w%{= wk}%50>%n %t%{-}%+w%<"
