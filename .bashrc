@@ -3,6 +3,11 @@
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
+# redhat
+fi
+if [ -f /etc/bash.bashrc ]; then
+  . /etc/bash.bashrc  
+# debian
 fi
 
 if [ -f ~/.bashrc-local ]; then
@@ -88,12 +93,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "PS1" ]; then
-  if [ "x$WINDOW" != "x" ]; then
-    SCREENTITLE="screen $WINDOW: "
-  else
-    SCREENTITLE=""
-  fi
-  TITLEBAR="\[\e]0;\h: ${SCREENTITLE}\w\a\]";
+  TITLEBAR="\[\e]0;\h: \w\a\]";
   PROMPTCOLOR="\[\033[1m\]"
   NOCOLOR="\[\033[0m\]"
   PROMPT_COMMAND=

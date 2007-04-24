@@ -1,7 +1,6 @@
 nethack off
-defhstatus "^EH: screen ^En: ^Et"
 deflogin on
 autodetach on
 startup_message off
 vbell off
-hardstatus alwayslastline "%{= KW}%-w%{= wk}%50>%n %t%{-}%+w%<"
+hardstatus string "[screen %n%?: %t%?] %h" 
