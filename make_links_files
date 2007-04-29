@@ -5,6 +5,7 @@
 .cvsrc 
 .dircolors
 etc/aimicon.gif
+etc/aimicon2.png
 etc/LaTeX.Makefile
 .gnupg/gpg.conf
 .gvimrc
