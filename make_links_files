@@ -9,6 +9,7 @@ etc/aimicon2.png
 etc/LaTeX.Makefile
 .gnupg/gpg.conf
 .gvimrc
+.inputrc
 .perltidyrc
 .screenrc
 .ssh/config 

@@ -84,6 +84,7 @@ unset founddc
 set -o ignoreeof
 set -o interactive-comments
 set -o notify
+shopt -s histappend
 FIGNORE=~:.o:CVS:RCS:.svn:~
 HISTCONTROL=ignoredups
 
@@ -110,4 +111,5 @@ if [ "PS1" ]; then
   esac
   
   PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]$PROMPTCOLOR\\\$$NOCOLOR "
+  PROMPT_COMMAND='history -a'
 fi
