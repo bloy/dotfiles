@@ -2,6 +2,7 @@
 .bash_logout
 .bash_profile
 .bashrc
+.conkyrc
 .cvsrc 
 .dircolors
 etc/aimicon.gif

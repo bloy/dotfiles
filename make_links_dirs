@@ -2,4 +2,5 @@ bin
 .ssh
 .subversion
 .gnupg
+.conky
 etc
