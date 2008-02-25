@@ -31,27 +31,6 @@ RSYNC_RSH=ssh
 export PATH BASH_ENV USERNAME CVS_RSH RSYNC_RSH
 export PAGER LESS EDITOR VISUAL
 
-function fgcolor { 
-  echo -en '\e]10;' 
-  echo -n $*
-  echo -ne '\a'
-}
-function bgcolor { 
-  echo -en '\e]11;' 
-  echo -n $*
-  echo -ne '\a'
-}
-function crcolor { 
-  echo -en '\e]12;' 
-  echo -n $*
-  echo -ne '\a'
-}
-function windowtitle { 
-  echo -en '\e]0;' 
-  echo -n $*
-  echo -ne '\a'
-}
-
 # aliases
 
 alias ls='ls -bhF'
@@ -65,6 +44,12 @@ if [ "1$OSTYPE" = "1cygwin" ]; then
 else
   alias start='kfmclient exec'
 fi
+
+# functions
+
+svndiff() {
+        svn diff "${@}" | colordiff
+}
 
 # color ls -- if dircolors is present, assume we've got a recent gnu ls also
 founddc=0
