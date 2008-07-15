@@ -17,7 +17,7 @@ fi
 # Environment
 
 PAGER=less
-LESS='-m'
+LESS='-m -R'
 EDITOR=vim
 VISUAL=$EDITOR
 PATH=/sbin:$PATH
