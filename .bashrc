@@ -41,8 +41,6 @@ alias vi=vim
 if [ "1$OSTYPE" = "1cygwin" ]; then
   alias start='cygstart'
   alias traceroute='tracert'
-else
-  alias start='kfmclient exec'
 fi
 
 # functions
