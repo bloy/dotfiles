@@ -76,13 +76,14 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "PS1" ]; then
-  TITLEBAR="\[\e]0;\h: \w\a\]";
+  TITLEBAR="\[\e]0;\h: \w\a\]"
   PROMPTCOLOR="\[\033[1m\]"
   NOCOLOR="\[\033[0m\]"
   PROMPT_COMMAND=
 
   case $TERM in
     screen)
+      TITLEBAR='\[\ek\h: \w\e\\\]'
       ;;
     xterm*)
       ;;
