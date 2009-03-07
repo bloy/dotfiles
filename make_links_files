@@ -1,6 +1,7 @@
 .astylerc
 .bash_logout
 .bash_profile
+.bash_completion
 .bashrc
 .conkyrc
 .cvsrc 
