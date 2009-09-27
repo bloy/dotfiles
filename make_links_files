@@ -3,12 +3,12 @@
 .bash_profile
 .bash_completion
 .bashrc
-.conkyrc
 .cvsrc 
 .dircolors
 etc/aimicon.gif
 etc/aimicon2.png
 etc/LaTeX.Makefile
+.gitconfig
 .gnupg/gpg.conf
 .gvimrc
 .inputrc
