@@ -59,6 +59,10 @@ done
 if [ "x"$founddc == "x1" ]; then
   eval `dircolors -b ~/.dircolors`
   alias ls='ls -bhF --color'
+  alias rgrep='rgrep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
 fi
 unset founddc
 
