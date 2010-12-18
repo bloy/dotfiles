@@ -4,10 +4,11 @@ deflogin on
 autodetach on
 startup_message off
 vbell off
-hardstatus string "[screen %n%?: %t%?] %h" 
+hardstatus string "[s%n%?: %t%?] %h" 
 termcapinfo xterm* ti@:te@
 caption always 
 #caption string '%-Lw%{= bW}%50>%n%f* %t%{-}%+Lw%<'
 caption string '%{= KW}%t %-37= | %{= KY}%d %M%{-} | %{= KY}%0c:%s%{-} | %{= KY}%l%{-}%{= dd}'
-#screen
-#exec !!! $HOME/bin/screen-ssh-setup
+screen irssi
+screen
+exec !!! $HOME/bin/screen-ssh-setup
