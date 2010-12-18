@@ -1,9 +1,0 @@
-Dom Inspector
-Adblock
-Firebug
-HTML Validator
-Link Widgets
-Live HTTP Headers
-Web Developer
-IE Tab
-Colorzilla
