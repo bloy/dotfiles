@@ -9,6 +9,6 @@ termcapinfo xterm* ti@:te@
 caption always 
 #caption string '%-Lw%{= bW}%50>%n%f* %t%{-}%+Lw%<'
 caption string '%{= KW}%t %-37= | %{= KY}%d %M%{-} | %{= KY}%0c:%s%{-} | %{= KY}%l%{-}%{= dd}'
-screen irssi
-screen
-exec !!! $HOME/bin/screen-ssh-setup
+#screen irssi
+#screen
+#exec !!! $HOME/bin/screen-ssh-setup
