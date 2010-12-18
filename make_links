@@ -1,12 +1,13 @@
 #!/bin/bash
-CFGDIR=~/.svnconfig
+CFGDIR=`dirname $0`
+CFGDIR=`(cd "$CFGDIR"; pwd -P)`
 FILELIST="${CFGDIR}/make_links_files"
 DIRLIST="${CFGDIR}/make_links_dirs"
 PWD=`pwd`
 cd "${CFGDIR}"
 echo -n creating directories...
 for i in `cat ${DIRLIST}`; do
-  if [ -d ~/.svnconfig/$i ]; then
+  if [ -d "${CFGDIR}/$i" ]; then
     if [ ! -d ~/$i ]; then
       mkdir ~/$i
     fi
@@ -15,11 +16,11 @@ done
 echo done
 echo -n linking files...
 for i in `cat ${FILELIST}`; do
-  if [ -e ~/.svnconfig/$i ]; then
+  if [ -e "${CFGDIR}/$i" ]; then
     if [ -e ~/$i ]; then
       rm ~/$i
     fi
-  ln ~/.svnconfig/$i ~/$i
+  ln "${CFGDIR}/$i" ~/$i
   fi
 done
 echo done
