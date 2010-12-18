@@ -10,10 +10,6 @@ if [ -f /etc/bash.bashrc ]; then
 # debian
 fi
 
-if [ -f ~/.bashrc-local ]; then
-  . ~/.bashrc-local
-fi
-
 # Environment
 
 PAGER=less
@@ -26,10 +22,9 @@ PATH=/usr/local/sbin:$PATH
 PATH="$HOME/bin:$PATH"
 BASH_ENV="$HOME/.bashrc"
 RSYNC_RSH=ssh
-MAVEN_OPTS="-Xms256m -Xmx700m -XX:MaxPermSize=1024m"
 
 export PATH BASH_ENV USERNAME RSYNC_RSH
-export PAGER LESS EDITOR VISUAL MAVEN_OPTS
+export PAGER LESS EDITOR VISUAL 
 
 # aliases
 
@@ -100,4 +95,8 @@ if [ "PS1" ]; then
   
   PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]$PROMPTCOLOR\\\$$NOCOLOR "
   PROMPT_COMMAND='history -a'
+fi
+
+if [ -f ~/.bashrc-local ]; then
+  . ~/.bashrc-local
 fi
