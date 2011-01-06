@@ -17,5 +17,6 @@ etc/LaTeX.Makefile
 .ssh/config 
 .subversion/config
 .subversion/servers
+.tigrc
 .vimrc 
 .Xresources 
