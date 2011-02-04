@@ -18,5 +18,6 @@ etc/LaTeX.Makefile
 .subversion/config
 .subversion/servers
 .tigrc
+.tmuxrc
 .vimrc 
 .Xresources 
