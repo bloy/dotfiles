@@ -3,6 +3,8 @@
 .bash_profile
 .bash_completion
 .bashrc
+bin/tmux-attach.sh
+bin/tmux-clean-sessions.sh
 .cvsrc 
 .dircolors
 etc/aimicon.gif
