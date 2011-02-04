@@ -44,6 +44,38 @@ svndiff() {
         svn diff "${@}" | colordiff
 }
 
+scm_prompt() {
+        SCM_PROMPT_DIRTY=' ✗'
+        SCM_PROMPT_CLEAN=' ✓'
+        gitstat=$(git status -s 2>/dev/null)
+        if [ $? -eq 0 ]; then 
+                SCM='git'
+                SCM_CHAR=' ±'
+                if [[ -n $gitstat ]]; then
+                        state=$SCM_PROMPT_DIRTY
+                else
+                        state=$SCM_PROMPT_CLEAN
+                fi
+                ref=$(git symbolic-ref HEAD 2> /dev/null)
+                SCM_INFO="$state |${ref#refs/heads/}|"
+        elif [[ -d .svn ]]; then
+                SCM='svn'
+                SCM_CHAR=' σ'
+                if [[ -n $(svn status 2> /dev/null) ]]; then 
+                        state=$SCM_PROMPT_DIRTY
+                else
+                        state=$SCM_PROMPT_CLEAN
+                fi
+                ref=$(svn info 2> /dev/null | awk -F/ '/^URL:/ { for (i=0; i<=NF; i++) { if ($i == "branches" || $i == "tags" ) { print $(i+1); break }; if ($i == "trunk") { print $i; break } } }') || return
+                SCM_INFO="$state |$ref|"
+        else 
+                SCM='NONE'
+                SCM_CHAR=''
+                SCM_INFO=''
+        fi
+        echo -n "$SCM_CHAR$SCM_INFO"
+}
+
 # color ls -- if dircolors is present, assume we've got a recent gnu ls also
 founddc=0
 for dir in /bin /usr/bin /usr/local/bin; do
@@ -75,26 +107,12 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "PS1" ]; then
-  TITLEBAR="\[\e]0;\h: \w\a\]"
+  TITLEBAR='\[\e]2;\h: \w\e\\\]'
   PROMPTCOLOR="\[\033[1m\]"
   NOCOLOR="\[\033[0m\]"
-  PROMPT_COMMAND=
-
-  case $TERM in
-    screen)
-      TITLEBAR='\[\ek\h: \w\e\\\]'
-      ;;
-    xterm*)
-      ;;
-    cygwin)
-      ;;
-    *)
-      TITLEBAR=""
-      ;;
-  esac
-  
-  PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]$PROMPTCOLOR\\\$$NOCOLOR "
   PROMPT_COMMAND='history -a'
+
+  PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]\$(scm_prompt)$PROMPTCOLOR\\\$$NOCOLOR "
 fi
 
 if [ -f ~/.bashrc-local ]; then
