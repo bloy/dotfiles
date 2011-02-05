@@ -20,6 +20,6 @@ etc/LaTeX.Makefile
 .subversion/config
 .subversion/servers
 .tigrc
-.tmuxrc
+.tmux.conf
 .vimrc 
 .Xresources 
