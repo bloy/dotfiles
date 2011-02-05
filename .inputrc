@@ -1,3 +1,4 @@
 set show-all-if-ambiguous on
+set bell-style none
 "\e[A": history-search-backward
 "\e[B": history-search-forward
