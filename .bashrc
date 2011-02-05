@@ -1,5 +1,9 @@
 # vim: set sw=2 sts=2:
 
+if [ -d ~/.keychain ]; then
+        eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
+fi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
