@@ -119,6 +119,8 @@ if [ "PS1" ]; then
   PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]\$(scm_prompt)$PROMPTCOLOR\\\$$NOCOLOR "
 fi
 
+. ~/.dotfiles/.bash/bash_completion_tmux.sh
+
 if [ -f ~/.bashrc-local ]; then
   . ~/.bashrc-local
 fi
