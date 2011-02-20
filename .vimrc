@@ -23,7 +23,7 @@ let python_highlight_all = 1
 " perl 
 let perl_fold = 1
 
-
+set modeline
 
 " functions 
 function! ReplaceSmartQuotes() " 
