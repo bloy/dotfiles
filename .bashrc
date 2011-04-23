@@ -116,6 +116,18 @@ if [ "PS1" ]; then
   NOCOLOR="\[\033[0m\]"
   PROMPT_COMMAND='history -a'
 
+  case $TERM in
+    screen)
+      TITLEBAR='\[\ek\h: \w\e\\\]'
+      ;;
+    xterm*)
+      ;;
+    cygwin)
+      ;;
+    *)
+      TITLEBAR=""
+      ;;
+  esac
   PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]\$(scm_prompt)$PROMPTCOLOR\\\$$NOCOLOR "
 fi
 
