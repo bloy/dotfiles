@@ -49,12 +49,12 @@ svndiff() {
 }
 
 scm_prompt() {
-        SCM_PROMPT_DIRTY=' ✗'
-        SCM_PROMPT_CLEAN=' ✓'
+        SCM_PROMPT_DIRTY=' x'
+        SCM_PROMPT_CLEAN=' o'
         gitstat=$(git status -s 2>/dev/null)
         if [ $? -eq 0 ]; then 
                 SCM='git'
-                SCM_CHAR=' ±'
+                SCM_CHAR=' (g)'
                 if [[ -n $gitstat ]]; then
                         state=$SCM_PROMPT_DIRTY
                 else
@@ -64,7 +64,7 @@ scm_prompt() {
                 SCM_INFO="$state |${ref#refs/heads/}|"
         elif [[ -d .svn ]]; then
                 SCM='svn'
-                SCM_CHAR=' σ'
+                SCM_CHAR=' (s)'
                 if [[ -n $(svn status 2> /dev/null) ]]; then 
                         state=$SCM_PROMPT_DIRTY
                 else
