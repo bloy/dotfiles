@@ -1,5 +1,9 @@
 # vim: set sw=2 sts=2:
 
+if [ -d ~/.keychain ]; then
+        eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
+fi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
@@ -112,8 +116,22 @@ if [ "PS1" ]; then
   NOCOLOR="\[\033[0m\]"
   PROMPT_COMMAND='history -a'
 
+  case $TERM in
+    screen)
+      TITLEBAR='\[\ek\h: \w\e\\\]'
+      ;;
+    xterm*)
+      ;;
+    cygwin)
+      ;;
+    *)
+      TITLEBAR=""
+      ;;
+  esac
   PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]\$(scm_prompt)$PROMPTCOLOR\\\$$NOCOLOR "
 fi
+
+. ~/.dotfiles/.bash/bash_completion_tmux.sh
 
 if [ -f ~/.bashrc-local ]; then
   . ~/.bashrc-local

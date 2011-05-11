@@ -5,6 +5,7 @@
 .bashrc
 bin/tmux-attach.sh
 bin/tmux-clean-sessions.sh
+bin/tmux-default.sh
 .cvsrc 
 .dircolors
 etc/aimicon.gif
@@ -20,6 +21,6 @@ etc/LaTeX.Makefile
 .subversion/config
 .subversion/servers
 .tigrc
-.tmuxrc
+.tmux.conf
 .vimrc 
 .Xresources 
