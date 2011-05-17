@@ -102,7 +102,7 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
-export GIT_PS1_SHOWUPSTREAM="auto verbose"
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 . ~/.dotfiles/.bash/bash_completion_tmux.sh
 
