@@ -13,17 +13,9 @@ endif
 set mouse=a
 
 
-" plugin- and syntax-specific options 
-" php 
-let php_folding = 1
-
 " python 
 let python_highlight_all = 1
 
-" perl 
-let perl_fold = 1
-
-set modeline
 
 " functions 
 function! ReplaceSmartQuotes() " 
@@ -36,18 +28,20 @@ function! ReplaceSmartQuotes() "
   :%s/–/\&#8212;/ge " en dash
   :%s/—/\&#8211;/ge " em dash
 endfunction
-command! ReplaceSmartQuotes :call ReplaceSmartQuotes() " }}}
+command! ReplaceSmartQuotes :call ReplaceSmartQuotes() " 
 
 
 " mappings 
-map <F9> :new<CR>:read !svn diff<CR>:set syntax=diff buftype=nofile<CR>gg
+map <F9> :new<CR>:read !git diff<CR>:set syntax=diff buftype=nofile<CR>gg
  
 
+
 " file information 
+set modeline
 set fileformats=unix,dos,mac
 set backupcopy=yes
 set nobackup
-set nowritebackup
+set writebackup
 
 
 " viminfo 
@@ -58,7 +52,7 @@ set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 
 " session options  
 set sessionoptions=buffers,curdir,folds,globals,help,localoptions
-set sessionoptions+=options,resize,winpos,slash,unix,winsize
+set sessionoptions+=options,sesdir,resize,slash,unix,winsize
 
 
 " search options 
@@ -66,10 +60,10 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set laststatus=2
 
 
 " editing options 
+set laststatus=2
 set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
 set showmatch
 set shiftwidth=8
@@ -78,7 +72,7 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
-colorscheme mike
+colorscheme desert
 syntax on
 filetype indent on
 filetype plugin on
