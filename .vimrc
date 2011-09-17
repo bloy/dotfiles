@@ -55,7 +55,7 @@ set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 
 " session options  
 set sessionoptions=buffers,curdir,folds,globals,help,localoptions
-set sessionoptions+=options,sesdir,resize,slash,unix,winsize
+set sessionoptions+=options,resize,slash,unix,winsize
 
 
 " search options 
@@ -75,7 +75,7 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
-colorscheme desert
+colorscheme mike
 syntax on
 filetype indent on
 filetype plugin on
