@@ -9,6 +9,9 @@ if has('win32')
 	set shell=bash.exe
 endif
 
+call pathogen#infect()
+call pathogen#helptags()
+
 " if we're on a GUI or in a good xterm, use the mouse
 set mouse=a
 
