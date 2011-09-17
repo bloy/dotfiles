@@ -1,2 +1,0 @@
-setlocal indentexpr=
-setlocal cindent
