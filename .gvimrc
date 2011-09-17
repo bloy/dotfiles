@@ -5,4 +5,3 @@ else
         set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 endif
 set lines=43 columns=80
-winpos 614 -1
