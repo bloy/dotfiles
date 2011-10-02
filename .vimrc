@@ -1,5 +1,4 @@
 " vim600: set foldmethod=marker:
-" $Id$
 
 " general setup  
 let s:cur_rtp = &runtimepath
