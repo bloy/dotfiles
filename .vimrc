@@ -19,7 +19,6 @@ set mouse=a
 " python 
 let python_highlight_all = 1
 
-
 " functions 
 function! ReplaceSmartQuotes() " 
   :%s/&/\&amp;/ge " ampersand
@@ -37,7 +36,9 @@ command! ReplaceSmartQuotes :call ReplaceSmartQuotes() "
 " mappings 
 map <F9> :new<CR>:read !git diff<CR>:set syntax=diff buftype=nofile<CR>gg
  
-
+" tab complete
+set wildmenu
+set wildmode=longest,list:full
 
 " file information 
 set modeline
