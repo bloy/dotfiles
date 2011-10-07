@@ -3,3 +3,5 @@
 	email = mike@bloy.org
 [color]
 	ui = true
+[core]
+	excludesfile = /home/mike/.dotfiles/git-global-ignore
