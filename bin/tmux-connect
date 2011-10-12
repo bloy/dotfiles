@@ -1,0 +1,10 @@
+#!/bin/sh
+session=$1
+if [ "x$session" = "x" ]; then
+        session=default
+fi
+tmux has-session -t "$session"
+if [ $? -eq 1 ]; then
+        tmux -u new-session -s "$session" -d
+fi
+exec tmux -u -2 attach-session -t "$session"

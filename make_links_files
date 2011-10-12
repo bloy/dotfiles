@@ -6,6 +6,7 @@
 bin/tmux-attach.sh
 bin/tmux-clean-sessions.sh
 bin/tmux-default.sh
+bin/tmux-connect
 .cvsrc 
 .dircolors
 etc/aimicon.gif
