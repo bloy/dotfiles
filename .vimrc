@@ -14,6 +14,13 @@ call pathogen#helptags()
 " if we're on a GUI or in a good xterm, use the mouse
 set mouse=a
 
+" taglist settings
+let Tlist_Close_On_Select = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Inc_Winwidth = 0
+let Tlist_Show_Menu = 1
 
 " python 
 let python_highlight_all = 1
