@@ -67,7 +67,7 @@ set smartcase
 
 " editing options 
 set laststatus=2
-set statusline=%f\ %m\ %r%h%w%=%l/%L(%P)\ %y
+set statusline=%f\ %m\ %r%h%w%=%l,%c/%L(%P)\ %y
 set showmatch
 set shiftwidth=8
 set softtabstop=8
