@@ -3,9 +3,9 @@
 .bash_profile
 .bash_completion
 .bashrc
-bin/tmux-attach.sh
-bin/tmux-clean-sessions.sh
-bin/tmux-default.sh
+bin/tmux-attach
+bin/tmux-clean-sessions
+bin/tmux-default
 bin/tmux-connect
 .cvsrc 
 .dircolors
