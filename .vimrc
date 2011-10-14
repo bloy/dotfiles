@@ -24,7 +24,6 @@ let Tlist_Show_Menu = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
-call SuperTabSetDefaultCompletionType("context")
 
 " python 
 let python_highlight_all = 1
