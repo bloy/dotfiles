@@ -22,6 +22,10 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Inc_Winwidth = 0
 let Tlist_Show_Menu = 1
 
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
+call SuperTabSetDefaultCompletionType("context")
+
 " python 
 let python_highlight_all = 1
 
