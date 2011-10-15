@@ -85,7 +85,7 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
-colorscheme desert
+colorscheme vividchalk
 syntax on
 filetype indent on
 filetype plugin on
