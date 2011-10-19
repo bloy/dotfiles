@@ -28,6 +28,13 @@ let g:SuperTabDefaultCompletionType = "context"
 " python 
 let python_highlight_all = 1
 
+" NERDtree
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+
+map <Leader>tt :TlistToggle<CR>
+map <Leader>tn :NERDTreeToggle<CR>
+
 " functions 
 function! ReplaceSmartQuotes() " 
   :%s/&/\&amp;/ge " ampersand
