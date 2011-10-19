@@ -4,4 +4,4 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /home/mike/.dotfiles/git-global-ignore
+	excludesfile = ~/.dotfiles/git-global-ignore
