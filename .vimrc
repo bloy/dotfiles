@@ -86,8 +86,9 @@ set smartcase
 set laststatus=2
 set statusline=%f\ %m\ %r%h%w%=%l,%c/%L(%P)\ %y
 set showmatch
-set shiftwidth=8
-set softtabstop=8
+set shiftwidth=2
+set softtabstop=2
+set tabstop=8
 set expandtab
 set autoindent
 set smartindent
