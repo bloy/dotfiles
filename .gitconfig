@@ -5,3 +5,5 @@
 	ui = true
 [core]
 	excludesfile = ~/.dotfiles/git-global-ignore
+[init]
+	templatedir = /home/mike/.dotfiles/git_template
