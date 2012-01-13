@@ -1,0 +1,3 @@
+[submodule "vim/bundle/bufexplorer"]
+	path = vim/bundle/bufexplorer
+	url = git://github.com/edsono/vim-bufexplorer.git
