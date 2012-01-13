@@ -25,8 +25,8 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
-[submodule "vim/bundle/endwise"]
-	path = vim/bundle/endwise
+[submodule "vim/bundle/vim-endwise"]
+	path = vim/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
 [submodule "vim/bundle/vim-rake"]
 	path = vim/bundle/vim-rake
