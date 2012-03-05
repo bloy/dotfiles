@@ -46,3 +46,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "secure"]
+	path = secure
+	url = git@git.bloy.org:dotfiles-mike-secure.git
