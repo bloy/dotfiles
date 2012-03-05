@@ -94,7 +94,7 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
-colorscheme vividchalk
+colorscheme molokai
 syntax on
 filetype indent on
 filetype plugin on
