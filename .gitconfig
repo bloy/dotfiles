@@ -6,4 +6,4 @@
 [core]
 	excludesfile = ~/.dotfiles/git-global-ignore
 [init]
-	templatedir = /home/mike/.dotfiles/git_template
+	templatedir = ~/.dotfiles/git_template
