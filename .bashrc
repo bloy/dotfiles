@@ -89,6 +89,9 @@ if [ "PS1" ]; then
     screen)
       TITLEBAR='\[\ek\h: \w\e\\\]'
       ;;
+    screen-256color)
+      TITLEBAR='\[\ek\h: \w\e\\\]'
+      ;;
     xterm*)
       ;;
     cygwin)
