@@ -80,8 +80,8 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "PS1" ]; then
-  PROMPTCOLOR="\[\033[1m\]"
-  NOCOLOR="\[\033[0m\]"
+  PROMPTCOLOR=""
+  NOCOLOR=""
   PROMPT_COMMAND='history -a'
 
   PS1="$PROMPTCOLOR\h$NOCOLOR [\w]\$(__git_ps1 ' |%s|')$PROMPTCOLOR\\\$$NOCOLOR "
