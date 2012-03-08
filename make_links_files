@@ -25,3 +25,4 @@ etc/LaTeX.Makefile
 .tmux.conf
 .vimrc 
 .Xresources 
+.zshrc
