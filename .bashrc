@@ -80,27 +80,11 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ "PS1" ]; then
-  TITLEBAR='\[\e]2;\h: \w\e\\\]'
   PROMPTCOLOR="\[\033[1m\]"
   NOCOLOR="\[\033[0m\]"
   PROMPT_COMMAND='history -a'
 
-  case $TERM in
-    screen)
-      TITLEBAR='\[\ek\h: \w\e\\\]'
-      ;;
-    screen-256color)
-      TITLEBAR='\[\ek\h: \w\e\\\]'
-      ;;
-    xterm*)
-      ;;
-    cygwin)
-      ;;
-    *)
-      TITLEBAR=""
-      ;;
-  esac
-  PS1="$TITLEBAR$PROMPTCOLOR\h$NOCOLOR [\w]\$(__git_ps1 ' |%s|')$PROMPTCOLOR\\\$$NOCOLOR "
+  PS1="$PROMPTCOLOR\h$NOCOLOR [\w]\$(__git_ps1 ' |%s|')$PROMPTCOLOR\\\$$NOCOLOR "
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
