@@ -8,6 +8,8 @@ if has('win32')
 	set shell=bash.exe
 endif
 
+set t_Co=256
+
 call pathogen#infect()
 "call pathogen#helptags()
 
