@@ -18,7 +18,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt incappendhistory sharehistory extendedhistory histallowclobber
 setopt histignoredups histexpiredupsfirst histsavenodups histfindnodups
-setopt notify noclobber
+setopt notify noclobber promptsubst
 unsetopt beep
 bindkey -v
 
@@ -55,6 +55,11 @@ fi
 svndiff() {
   svn diff "${0}" | colordiff
 }
+
+autoload -Uz colors && colors
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git svn
 
 autoload -Uz promptinit && promptinit
 prompt mike

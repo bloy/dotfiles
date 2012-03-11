@@ -1,33 +1,40 @@
+# vim: ft=zsh:
 # mike prompt theme
+
+autoload -Uz vcs_info
+autoload -Uz colors && colors
 
 prompt_mike_help () {
   cat <<'EOF'
-This prompt is color-scheme-able.  You can invoke it thus:
-
-  prompt mike [<color1> [<color2> [<color3>] [<color4>]]
-
-where the colors are for the time, current directory, user@host,
-and user input bits respectively.  The default colors are cyan, green,
-cyan, and white.  This theme works best with a dark background.
+  prompt mike
 EOF
 }
 
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* ]]; then
     prompt_terminators='%(!.#.ᐅ)'
+    vcs_staged_changes='✚'
+    vcs_unstaged_changes='✭'
   else
     prompt_terminators='%#'
+    vcs_staged_changes='+'
+    vcs_unstaged_changes='*'
   fi
 
-  # Colour scheme
-  prompt_mike_color_host=${1:-'green'}    # host
-  prompt_mike_color_cwd=${2:-'cyan'}  # current directory
-  prompt_mike_color_terminator=${3:-'white'}   # user@host
-  prompt_host="%F{$prompt_mike_color_host}%m%f"
-  prompt_cwd="%F{$prompt_mike_color_cwd}%2~%f"
-  prompt_terminator="%B%F{$prompt_mike_color_terminator}${prompt_terminators}%f%b"
+  prompt_host="%F{green}%m%f"
+  prompt_cwd="%F{cyan}%2~%f"
+  prompt_terminator="%B%F{white}${prompt_terminators}%f%b"
+
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' formats '%B%F{black}|%s:%b|%f%%b%F{red}%u%F{green}%c%f'
+  zstyle ':vcs_info:*' stagedstr "$vcs_staged_changes"
+  zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged_changes"
+
 
   PS1="${prompt_host}:${prompt_cwd} ${prompt_terminator} "
+  RPS1='${vcs_info_msg_0_}'
 }
+
+precmd () { vcs_info }
 
 prompt_mike_setup "$@"
