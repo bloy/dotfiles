@@ -21,8 +21,9 @@ prompt_mike_setup () {
     vcs_unstaged_changes='*'
   fi
 
+  prompt_user="%F{green}%n%f"
   prompt_host="%F{green}%m%f"
-  prompt_cwd="%F{cyan}%2~%f"
+  prompt_cwd="%F{cyan}[%~]%f"
   prompt_terminator="%B%F{white}${prompt_terminators}%f%b"
 
   zstyle ':vcs_info:*' check-for-changes true
@@ -31,7 +32,8 @@ prompt_mike_setup () {
   zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged_changes"
 
 
-  PS1="${prompt_host}:${prompt_cwd} ${prompt_terminator} "
+  PS1="${prompt_cwd}
+${prompt_user}@${prompt_host} ${prompt_terminator} "
   RPS1='${vcs_info_msg_0_}'
 }
 
