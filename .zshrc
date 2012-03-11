@@ -64,6 +64,15 @@ zstyle ':vcs_info:*' enable git svn
 autoload -Uz promptinit && promptinit
 prompt mike
 
+xterm_title_precmd() {
+  print -Pn "\e]0;%n@%M: %~\a"
+}
+
+case $TERM in
+  *xterm*)
+    add-zsh-hook precmd xterm_title_precmd
+esac
+
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
 fi
