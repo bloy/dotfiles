@@ -16,11 +16,19 @@ prompt_mike_setup () {
     vcs_staged='✚'
     vcs_unstaged='✭'
     vcs_untracked='✘'
+    vcs_equal_upstream='='
+    vcs_ahead_upstream='→'
+    vcs_behind_upstream='←'
+    vcs_diverged_upstream='↔'
   else
     prompt_terminators='%#'
     vcs_staged='+'
     vcs_unstaged='*'
     vcs_untracked='%'
+    vcs_equal_upstream='='
+    vcs_ahead_upstream='>'
+    vcs_behind_upstream='<'
+    vcs_diverged_upstream='<>'
   fi
 
   prompt_user="%F{green}%n%f"
@@ -29,16 +37,35 @@ prompt_mike_setup () {
   prompt_terminator="%B%F{white}${prompt_terminators}%f%b"
 
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' formats '%B%F{black}|%s:%b|%f%%b%F{red}%u%F{green}%c%f'
+  zstyle ':vcs_info:*' formats '%B%F{black}|%s:%b%m|%f%%b%F{red}%u%F{green}%c%f'
+  zstyle ':vcs_info:*' actionformats '%B%F{black}|%s:%b(%a)%m|%f%%b%F{red}%u%F{green}%c%f'
   zstyle ':vcs_info:*' stagedstr "$vcs_staged"
   zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged"
-#  zstyle ':vcs_info:*+*:*' debug true # hooks
-  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+  #zstyle ':vcs_info:*+*:*' debug true # hooks
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-remotedata
 
   +vi-git-untracked(){
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
       git status --porcelain | grep '??' &> /dev/null ; then
       hook_com[unstaged]+="%F{yellow}$vcs_untracked"
+    fi
+  }
+
+  +vi-git-remotedata(){
+    revcount=$(git rev-list --count --left-right \
+      ${hook_com[branch]}@{upstream}...HEAD 2>/dev/null)
+    if [[ -n $revcount ]]; then
+      left=$(echo $revcount | cut -f1)
+      right=$(echo $revcount | cut -f2)
+      if [[ $left == 0 && $right == 0 ]]; then
+        hook_com[misc]+=$vcs_equal_upstream
+      elif [[ $left == 0 ]]; then
+        hook_com[misc]+=$vcs_ahead_upstream
+      elif [[ $right == 0 ]]; then
+        hook_com[misc]+=$vcs_behind_upstream
+      else
+        hook_com[misc]+=$vcs_diverged_upstream
+      fi
     fi
   }
 
