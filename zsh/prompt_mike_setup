@@ -13,12 +13,14 @@ EOF
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* ]]; then
     prompt_terminators='%(!.#.ᐅ)'
-    vcs_staged_changes='✚'
-    vcs_unstaged_changes='✭'
+    vcs_staged='✚'
+    vcs_unstaged='✭'
+    vcs_untracked='✘'
   else
     prompt_terminators='%#'
-    vcs_staged_changes='+'
-    vcs_unstaged_changes='*'
+    vcs_staged='+'
+    vcs_unstaged='*'
+    vcs_untracked='%'
   fi
 
   prompt_user="%F{green}%n%f"
@@ -28,15 +30,26 @@ prompt_mike_setup () {
 
   zstyle ':vcs_info:*' check-for-changes true
   zstyle ':vcs_info:*' formats '%B%F{black}|%s:%b|%f%%b%F{red}%u%F{green}%c%f'
-  zstyle ':vcs_info:*' stagedstr "$vcs_staged_changes"
-  zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged_changes"
+  zstyle ':vcs_info:*' stagedstr "$vcs_staged"
+  zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged"
+#  zstyle ':vcs_info:*+*:*' debug true # hooks
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
+  +vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+      git status --porcelain | grep '??' &> /dev/null ; then
+      hook_com[unstaged]+="%F{yellow}$vcs_untracked"
+    fi
+  }
 
   PS1="${prompt_cwd}
 ${prompt_user}@${prompt_host} ${prompt_terminator} "
   RPS1='${vcs_info_msg_0_}'
 }
 
-precmd () { vcs_info }
+prompt_precmd() {
+  vcs_info
+}
+add-zsh-hook precmd prompt_precmd
 
 prompt_mike_setup "$@"
