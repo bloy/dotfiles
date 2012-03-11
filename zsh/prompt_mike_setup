@@ -1,0 +1,33 @@
+# mike prompt theme
+
+prompt_mike_help () {
+  cat <<'EOF'
+This prompt is color-scheme-able.  You can invoke it thus:
+
+  prompt mike [<color1> [<color2> [<color3>] [<color4>]]
+
+where the colors are for the time, current directory, user@host,
+and user input bits respectively.  The default colors are cyan, green,
+cyan, and white.  This theme works best with a dark background.
+EOF
+}
+
+prompt_mike_setup () {
+  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* ]]; then
+    prompt_terminators='%(!.#.ᐅ)'
+  else
+    prompt_terminators='%#'
+  fi
+
+  # Colour scheme
+  prompt_mike_color_host=${1:-'green'}    # host
+  prompt_mike_color_cwd=${2:-'cyan'}  # current directory
+  prompt_mike_color_terminator=${3:-'white'}   # user@host
+  prompt_host="%F{$prompt_mike_color_host}%m%f"
+  prompt_cwd="%F{$prompt_mike_color_cwd}%2~%f"
+  prompt_terminator="%B%F{$prompt_mike_color_terminator}${prompt_terminators}%f%b"
+
+  PS1="${prompt_host}:${prompt_cwd} ${prompt_terminator} "
+}
+
+prompt_mike_setup "$@"

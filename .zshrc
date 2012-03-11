@@ -1,4 +1,4 @@
-autoload Misc/colors
+fpath=(~/.dotfiles/zsh $fpath)
 
 # The following lines were added by compinstall
 
@@ -34,9 +34,6 @@ export PATH="$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH"
 export RSYNC_RSH=ssh
 export NCURSES_NO_UTF8_ACS=1
 
-PS1="%B%T%b %n@%m:%1~%B%#%b "
-RPS1="[%B%~%b]"
-
 # aliases
 
 alias ls='ls -bhF'
@@ -58,6 +55,9 @@ fi
 svndiff() {
   svn diff "${0}" | colordiff
 }
+
+autoload -Uz promptinit && promptinit
+prompt mike
 
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
