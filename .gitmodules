@@ -49,3 +49,6 @@
 [submodule "secure"]
 	path = secure
 	url = git@git.bloy.org:dotfiles-mike-secure.git
+[submodule "vim/bundle/vim-bundler"]
+	path = vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
