@@ -30,7 +30,7 @@ fi
 export PAGER=less
 export LESS='-m -R'
 export EDITOR=vi
-export VISUAL=EDITOR
+export VISUAL=$EDITOR
 export PATH="$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH"
 export RSYNC_RSH=ssh
 export NCURSES_NO_UTF8_ACS=1
