@@ -11,7 +11,7 @@ EOF
 }
 
 prompt_mike_setup () {
-  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* ]]; then
+  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
     prompt_terminators='%(!.#.ᐅ)'
     vcs_staged='✚'
     vcs_unstaged='✭'
@@ -71,12 +71,16 @@ prompt_mike_setup () {
 
   PS1="${prompt_cwd}
 ${prompt_user}@${prompt_host} ${prompt_terminator} "
-  RPS1='${vcs_info_msg_0_}'
+  if [[ -z $ZSH_NO_VCS ]]; then
+    RPS1='${vcs_info_msg_0_}'
+  fi
 }
 
-prompt_precmd() {
-  vcs_info
-}
-add-zsh-hook precmd prompt_precmd
+if [[ -z $ZSH_NO_VCS ]]; then
+  prompt_precmd() {
+    vcs_info
+  }
+  add-zsh-hook precmd prompt_precmd
+fi
 
 prompt_mike_setup "$@"

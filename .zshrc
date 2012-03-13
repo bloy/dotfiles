@@ -1,3 +1,7 @@
+if [ -f ~/.zshrc-local-pre ]; then
+  . ~/.zshrc-local-pre
+fi
+
 fpath=(~/.dotfiles/zsh $fpath)
 
 zstyle ':completion:*' completer _expand _complete _ignored
@@ -21,7 +25,7 @@ setopt incappendhistory sharehistory extendedhistory histallowclobber
 setopt histignoredups histexpiredupsfirst histsavenodups histfindnodups
 setopt notify noclobber promptsubst
 unsetopt beep
-bindkey -v
+bindkey -e
 
 if [[ -d ~/.keychain ]]; then
   eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
@@ -69,10 +73,12 @@ xterm_title_precmd() {
   print -Pn "\e]0;%n@%M: %~\a"
 }
 
-case $TERM in
-  *xterm*)
-    add-zsh-hook precmd xterm_title_precmd
-esac
+if [[ -z $ZSH_NO_PRECMD ]]; then
+  case $TERM in
+    *xterm*)
+      add-zsh-hook precmd xterm_title_precmd
+  esac
+fi
 
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
