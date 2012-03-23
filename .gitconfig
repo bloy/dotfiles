@@ -7,3 +7,5 @@
 	excludesfile = ~/.dotfiles/git-global-ignore
 [init]
 	templatedir = ~/.dotfiles/git_template
+[alias]
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
