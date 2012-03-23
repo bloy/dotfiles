@@ -96,9 +96,9 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
-set background=dark
-colorscheme solarized
 syntax on
+set background=dark
+colorscheme molokai
 filetype indent on
 filetype plugin on
 
