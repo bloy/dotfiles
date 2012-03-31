@@ -46,6 +46,6 @@
 [submodule "vim/bundle/vim-bundler"]
 	path = vim/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
-[submodule "vim/bundle/bufexplorer"]
-	path = vim/bundle/bufexplorer
-	url = https://github.com/vim-scripts/bufexplorer.zip
+[submodule "vim/bundle/bufexplorer_zip"]
+	path = vim/bundle/bufexplorer_zip
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
