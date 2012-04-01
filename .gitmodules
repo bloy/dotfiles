@@ -49,3 +49,6 @@
 [submodule "vim/bundle/bufexplorer_zip"]
 	path = vim/bundle/bufexplorer_zip
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "zsh-completions"]
+	path = zsh-completions
+	url = http://github.com/zsh-users/zsh-completions.git
