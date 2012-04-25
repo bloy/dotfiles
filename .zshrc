@@ -58,7 +58,7 @@ fi
 # functions
 
 svndiff() {
-  svn diff "${0}" | colordiff
+  svn diff "${*}" | colordiff
 }
 
 autoload -Uz colors && colors
