@@ -12,7 +12,7 @@ EOF
 
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
-    prompt_terminators='%(!.#.ᐅ)'
+    prompt_terminators='%#'
     vcs_staged='✚'
     vcs_unstaged='✭'
     vcs_untracked='✘'

@@ -97,3 +97,5 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 if [ -f ~/.bashrc-local ]; then
   . ~/.bashrc-local
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
