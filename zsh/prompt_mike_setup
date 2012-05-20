@@ -10,6 +10,12 @@ prompt_mike_help () {
 EOF
 }
 
+rvm_prompt_info() {
+  ruby_version=$(~/.rvm/bin/rvm-prompt 2>/dev/null) || return
+  echo " %{$fg[red]%}($ruby_version)%{$reset_color%}"
+}
+
+
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
     prompt_terminators='%#'
@@ -69,8 +75,8 @@ prompt_mike_setup () {
     fi
   }
 
-  PS1="${prompt_cwd}
-${prompt_user}@${prompt_host} ${prompt_terminator} "
+  PS1='${prompt_cwd} $(rvm_prompt_info)
+${prompt_user}@${prompt_host} ${prompt_terminator} '
   if [[ -z $ZSH_NO_VCS ]]; then
     RPS1='${vcs_info_msg_0_}'
   fi
