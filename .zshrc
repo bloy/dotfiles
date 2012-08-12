@@ -45,9 +45,9 @@ alias ls='ls -bhF'
 alias du='du -h'
 alias df='df -h'
 
-whence dircolors >& /dev/null
-if [[ $? -eq 0 ]]; then
-  eval `dircolors -b ~/.dircolors`
+if (whence dircolors >& /dev/null); then
+  eval `dircolors -b`
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
   alias ls='ls -bhF --color'
   alias rgrep='rgrep --color=auto'
   alias fgrep='fgrep --color=auto'
