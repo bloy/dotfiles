@@ -11,7 +11,7 @@ endif
 set t_Co=256
 
 call pathogen#infect()
-"call pathogen#helptags()
+call pathogen#helptags()
 
 " if we're on a GUI or in a good xterm, use the mouse
 set mouse=a
