@@ -35,6 +35,9 @@ let python_highlight_all = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
+" powerline
+let g:Powerline_symbols = 'unicode'
+
 map <Leader>tt :TlistToggle<CR>
 map <Leader>tn :NERDTreeToggle<CR>
 
