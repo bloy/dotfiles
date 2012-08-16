@@ -35,8 +35,6 @@ let python_highlight_all = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
-" powerline
-let g:Powerline_symbols = 'unicode'
 
 map <Leader>tt :TlistToggle<CR>
 map <Leader>tn :NERDTreeToggle<CR>
@@ -44,13 +42,13 @@ map <Leader>tn :NERDTreeToggle<CR>
 " functions 
 function! ReplaceSmartQuotes() " 
   :%s/&/\&amp;/ge " ampersand
-  :%s/‘/\&#8216;/ge " left single quote
-  :%s/’/\&#8217;/ge " right single quote
-  :%s/“/\&#8220;/ge " left double quote
-  :%s/”/\&#8221;/ge " right double quote
-  :%s/…/\&#8230;/ge " elipsis
-  :%s/–/\&#8212;/ge " en dash
-  :%s/—/\&#8211;/ge " em dash
+  :%s/Â‘/\&#8216;/ge " left single quote
+  :%s/Â’/\&#8217;/ge " right single quote
+  :%s/Â“/\&#8220;/ge " left double quote
+  :%s/Â”/\&#8221;/ge " right double quote
+  :%s/Â…/\&#8230;/ge " elipsis
+  :%s/Â–/\&#8212;/ge " en dash
+  :%s/Â—/\&#8211;/ge " em dash
 endfunction
 command! ReplaceSmartQuotes :call ReplaceSmartQuotes() " 
 
