@@ -5,7 +5,7 @@ let s:cur_rtp = &runtimepath
 let s:new_rtp = "~/.dotfiles/vim," . s:cur_rtp . ",~/.dotfiles/vim/after"
 let &runtimepath = s:new_rtp
 if has('win32') 
-	set shell=bash.exe
+  set shell=bash.exe
 endif
 
 set t_Co=256
@@ -35,6 +35,8 @@ let python_highlight_all = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
+" powerline
+let g:Powerline_stl_path_style = 'filename'
 
 map <Leader>tt :TlistToggle<CR>
 map <Leader>tn :NERDTreeToggle<CR>
