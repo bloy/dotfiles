@@ -2,7 +2,7 @@ if [ -f ~/.zshrc-local-pre ]; then
   . ~/.zshrc-local-pre
 fi
 
-fpath=(~/.dotfiles/zsh ~/.dotfiles/zsh-completions $fpath)
+fpath=(~/.dotfiles/zsh ~/.dotfiles/zsh-completions/src $fpath)
 
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' list-colors ''
