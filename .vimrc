@@ -105,3 +105,6 @@ colorscheme molokai
 filetype indent on
 filetype plugin on
 
+
+" autocmds
+autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
