@@ -2,3 +2,4 @@ Session.vim
 .*.swp
 tags
 .rvmrc
+.rbenv-version
