@@ -105,6 +105,9 @@ colorscheme molokai
 filetype indent on
 filetype plugin on
 
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
 
 " autocmds
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
