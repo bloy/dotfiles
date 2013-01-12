@@ -39,6 +39,10 @@ export PATH="$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH"
 export RSYNC_RSH=ssh
 export NCURSES_NO_UTF8_ACS=1
 
+# python
+export PIP_VIRTUALENV_BASE=~/python_envs
+export PIP_RESPECT_VIRTUALENV=true
+
 # aliases
 
 alias ls='ls -bhF'

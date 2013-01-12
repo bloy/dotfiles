@@ -7,6 +7,7 @@ bin/tmux-attach
 bin/tmux-clean-sessions
 bin/tmux-connect
 bin/tmux-default
+bin/pyve
 .cvsrc
 .dircolors
 etc/aimicon2.png

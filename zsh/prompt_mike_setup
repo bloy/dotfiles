@@ -10,9 +10,12 @@ prompt_mike_help () {
 EOF
 }
 
-rvm_prompt_info() {
-  ruby_version=$(~/.rvm/bin/rvm-prompt 2>/dev/null) || return
-  echo " %{$fg[red]%}($ruby_version)%{$reset_color%}"
+python_venv_prompt_info() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    echo " %{$fg[red]%}(`basename \"$VIRTUAL_ENV\"`)%{$reset_color%}"
+  else
+    return
+  fi
 }
 
 
@@ -75,7 +78,7 @@ prompt_mike_setup () {
     fi
   }
 
-  PS1='${prompt_cwd} $(rvm_prompt_info)
+  PS1='${prompt_cwd} $(python_venv_prompt_info)
 ${prompt_user}@${prompt_host} ${prompt_terminator} '
   if [[ -z $ZSH_NO_VCS ]]; then
     RPS1='${vcs_info_msg_0_}'
