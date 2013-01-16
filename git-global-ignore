@@ -4,3 +4,4 @@ tags
 .rvmrc
 .rbenv-version
 .pyvenv
+*.pyc
