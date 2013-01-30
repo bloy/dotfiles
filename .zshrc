@@ -103,6 +103,14 @@ if [[ -z $ZSH_NO_PRECMD ]]; then
   esac
 fi
 
+if [[ -d "$HOME/.rbenv/bin" ]]; then
+  prepend_path "$HOME/.rbenv/bin"
+  prepend_path "$HOME/.rbenv/shims"
+  prepend_path ".bundle/bunstubs"
+  source "$HOME/.rbenv/completions/rbenv.zsh"
+  rbenv rehash
+fi
+
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
 fi
