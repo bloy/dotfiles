@@ -35,9 +35,19 @@ export PAGER=less
 export LESS='-m -R'
 export EDITOR=vi
 export VISUAL=$EDITOR
-export PATH="$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH"
 export RSYNC_RSH=ssh
 export NCURSES_NO_UTF8_ACS=1
+
+prepend_path() {
+  if [[ ${path[(i)$1]} -gt ${#path} ]]; then
+    path[1]=($1 $path[1])
+  fi
+}
+
+prepend_path "/usr/local/sbin"
+prepend_path "/usr/sbin"
+prepend_path "/sbin"
+prepend_path "$HOME/bin"
 
 # python
 export PIP_VIRTUALENV_BASE=~/python_envs
