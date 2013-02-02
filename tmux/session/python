@@ -1,0 +1,23 @@
+# vim: ft=sh
+VENVDIR="$(dirname ~/python_envs/.)"
+VIRTUAL_ENV=$3
+if [ ! -n "$VIRTUAL_ENV" ]; then
+  if [ -e "$DIR/.pyvenv" ]; then
+    VIRTUAL_ENV=`cat "$DIR/.pyvenv"`
+  else
+    VIRTUAL_ENV="$VENVDIR/$PROJ"
+  fi
+fi
+
+tmux new-session -s $SESSION -n tmp -d
+tmux set-environment -t $SESSION VIRTUAL_ENV $VIRTUAL_ENV
+tmux set-environment -t $SESSION PATH "$VIRTUAL_ENV/bin:$PATH"
+tmux move-window -s ${SESSION}:1 -t ${SESSION}:0
+tmux new-window -t $SESSION -n editor -d
+tmux new-window -t $SESSION -n shell -d
+tmux split-window -t ${SESSION}:1 -d
+tmux send-keys -t ${SESSION}:1.0 'vim' C-m
+tmux select-pane -t ${SESSION}:1.0
+tmux select-layout -t ${SESSION}:1 main-horizontal
+tmux select-window -t ${SESSION}:1
+tmux kill-window -t ${SESSION}:0

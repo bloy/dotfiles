@@ -1,0 +1,33 @@
+#!/bin/sh
+PROJ="$1"
+SESSION="$PROJ"
+DIR=$(dirname ~/projects/$PROJ/.)
+SESSIONCFG="$HOME/.dotfiles/tmux/session"
+TYPE=$2
+
+if [ ! -n "$PROJ" ]; then
+  echo 'Usage: tmux-session <project-name>'
+  exit
+fi
+
+if (tmux has-session -t $SESSION > /dev/null 2>&1); then
+  echo "attaching to session $SESSION..."
+else
+  if [ ! -n "$TYPE" ]; then
+    if [ -e "$DIR/.tmux-session-type" ]; then
+      TYPE=`cat "$DIR/.tmux-session-type"`
+    else
+      TYPE=default
+    fi
+  fi
+  TMPPWD=$PWD
+  cd $DIR
+  if [ ! -e "$SESSIONCFG/$TYPE" ]; then
+    TYPE=default
+  fi
+  echo "setting up $TYPE session config"
+  . "$SESSIONCFG/$TYPE"
+  cd $TMPPWD
+fi
+
+tmux attach-session -t $SESSION

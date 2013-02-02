@@ -3,11 +3,7 @@
 .bash_logout
 .bash_profile
 .bashrc
-bin/tmux-attach
-bin/tmux-clean-sessions
-bin/tmux-connect
-bin/tmux-default
-bin/pyve
+bin/tmux-session
 .cvsrc
 .dircolors
 etc/aimicon2.png

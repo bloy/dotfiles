@@ -4,4 +4,5 @@ tags
 .rvmrc
 .rbenv-version
 .pyvenv
+.tmux-session-type
 *.pyc

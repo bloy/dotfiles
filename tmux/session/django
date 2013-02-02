@@ -1,0 +1,8 @@
+# vim: ft=sh
+. "$SESSIONCFG/python"
+
+tmux new-window -t $SESSION -n procs -d
+tmux split-window -t ${SESSION}:3 -d
+tmux send-keys -t ${SESSION}:3.0 './manage.py runserver' C-m
+tmux send-keys -t ${SESSION}:3.1 'compass watch' C-m
+tmux select-pane -t ${SESSION}:3.0
