@@ -108,7 +108,6 @@ if [[ -d "$HOME/.rbenv/bin" ]]; then
   prepend_path "$HOME/.rbenv/shims"
   prepend_path ".bundle/bunstubs"
   source "$HOME/.rbenv/completions/rbenv.zsh"
-  rbenv rehash
 fi
 
 if [ -f ~/.zshrc-local ]; then
