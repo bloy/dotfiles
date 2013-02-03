@@ -30,4 +30,4 @@ else
   cd $TMPPWD
 fi
 
-tmux attach-session -t $SESSION
+exec tmux attach-session -t $SESSION
