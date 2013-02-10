@@ -50,7 +50,7 @@ prepend_path "/sbin"
 prepend_path "$HOME/bin"
 
 # python
-export PIP_VIRTUALENV_BASE=~/python_envs
+export PIP_VIRTUALENV_BASE=~/.virtualenvs
 export PIP_RESPECT_VIRTUALENV=true
 
 # aliases
