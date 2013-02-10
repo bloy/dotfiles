@@ -30,6 +30,8 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " python 
 let python_highlight_all = 1
+let g:virtualenv_auto_activate = 1
+let g:virtualenv_stl_format = '[%n]'
 
 " NERDtree
 let NERDTreeDirArrows = 1
@@ -90,7 +92,7 @@ set smartcase
 
 " editing options 
 set laststatus=2
-set statusline=%f%m%r%h%w%=%l,%c/%L\ %y
+set statusline=%f%m%r%h%w%=%l,%c/%L\ %y%{virtualenv#statusline()}
 set showmatch
 set shiftwidth=2
 set softtabstop=2
