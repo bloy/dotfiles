@@ -1,4 +1,6 @@
 # vim: ft=sh
+tmux set-environment -t $SESSION DJANGO_SETTINGS_MODULE "$SESSION.settings"
+
 . "$SESSIONCFG/python"
 
 tmux new-window -t $SESSION -n procs -d

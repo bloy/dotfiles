@@ -9,7 +9,6 @@ if [ ! -n "$VIRTUAL_ENV" ]; then
   fi
 fi
 
-tmux new-session -s $SESSION -n tmp -d
 tmux set-environment -t $SESSION VIRTUAL_ENV $VIRTUAL_ENV
 tmux set-environment -t $SESSION PATH "$VIRTUAL_ENV/bin:$PATH"
 tmux move-window -s ${SESSION}:1 -t ${SESSION}:0

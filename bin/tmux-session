@@ -26,6 +26,7 @@ else
     TYPE=default
   fi
   echo "setting up $TYPE session config"
+  tmux new-session -s $SESSION -d
   . "$SESSIONCFG/$TYPE"
   cd $TMPPWD
 fi
