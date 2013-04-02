@@ -41,6 +41,9 @@ export NCURSES_NO_UTF8_ACS=1
 prepend_path() {
   if [[ ${path[(i)$1]} -gt ${#path} ]]; then
     path[1]=($1 $path[1])
+  else
+    path[${path[(i)$1]}]=()
+    path[1]=($1 $path[1])
   fi
 }
 
