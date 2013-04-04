@@ -41,7 +41,7 @@ let NERDTreeQuitOnOpen = 1
 let g:Powerline_stl_path_style = 'filename'
 
 map <Leader>tt :TlistToggle<CR>
-map <Leader>tn :NERDTreeToggle<CR>
+map <Leader>tn :NERDTreeTabsToggle<CR>
 
 " functions 
 function! ReplaceSmartQuotes() " 
