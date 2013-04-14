@@ -16,6 +16,7 @@ etc/LaTeX.Makefile
 .inputrc
 .irb-railsrc
 .irbrc
+.jrnl_config
 .perltidyrc
 .screenrc
 .ssh/config
