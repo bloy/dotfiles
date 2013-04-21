@@ -111,5 +111,12 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
-" autocmds
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+let g:rails_gem_projections = {
+      \ "fabrication": {
+      \   "spec/fabricators/*_fabricator.rb": {
+      \     "command": "fabricator",
+      \     "affinity": "model",
+      \     "alternate": "app/models/%s.rb",
+      \     "related": "db/schema.rb#%p",
+      \     "test": "spec/models/%s_spec.rb",
+      \     "template": "Fabricator(:%s) do\nend"}}}
