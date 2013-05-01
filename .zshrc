@@ -109,7 +109,7 @@ fi
 if [[ -d "$HOME/.rbenv/bin" ]]; then
   prepend_path "$HOME/.rbenv/bin"
   prepend_path "$HOME/.rbenv/shims"
-  prepend_path ".bundle/bunstubs"
+  prepend_path ".bundle/binstubs"
   source "$HOME/.rbenv/completions/rbenv.zsh"
 fi
 
