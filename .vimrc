@@ -92,7 +92,7 @@ set smartcase
 
 " editing options 
 set laststatus=2
-set statusline=%f%m%r%h%w%=%l,%c/%L\ %y%{virtualenv#statusline()}
+set statusline=%f%m%r%h%w%=%l,%c/%L\ %y%{fugitive#statusline()}%{virtualenv#statusline()}
 set showmatch
 set shiftwidth=2
 set softtabstop=2
