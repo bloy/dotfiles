@@ -25,7 +25,8 @@ setopt incappendhistory sharehistory extendedhistory histallowclobber
 setopt histignoredups histexpiredupsfirst histsavenodups histfindnodups
 setopt notify noclobber promptsubst
 unsetopt beep
-bindkey -e
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 if [[ -d ~/.keychain ]]; then
   eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`

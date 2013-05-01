@@ -1,4 +1,15 @@
+$include /etc/inputrc
+set editing-mode vi
 set show-all-if-ambiguous on
 set bell-style none
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+$if mode=vi
+  set keymap vi-command
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
+  "^R": reverse-search-history
+
+  set keymap vi-insert
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
+  "^R": reverse-search-history
+$endif
