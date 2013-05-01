@@ -113,6 +113,11 @@ if [[ -d "$HOME/.rbenv/bin" ]]; then
   source "$HOME/.rbenv/completions/rbenv.zsh"
 fi
 
+if [[ -d "$HOME/.rvm" ]]; then
+  prepend_path "$HOME/.rvm/bin"
+  source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi
+
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
 fi
