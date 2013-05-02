@@ -18,6 +18,19 @@ python_venv_prompt_info() {
   fi
 }
 
+ruby_prompt_info() {
+  local ruby_version
+  ruby_version=''
+  if [[ -d "$HOME/.rbenv/bin" ]]; then
+    ruby_version="rbenv $(rbenv version-name 2> /dev/null)"
+  elif [[ -d "$HOME/.rvm" ]]; then
+    ruby_version="rvm $(~/.rvm/bin/rvm-prompt)"
+  else
+    return
+  fi
+  echo " %{$fg[red]%}($ruby_version)%{$reset_color%}"
+}
+
 
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
@@ -29,6 +42,8 @@ prompt_mike_setup () {
     vcs_ahead_upstream='→'
     vcs_behind_upstream='←'
     vcs_diverged_upstream='↔'
+    vcs_marker_git='±'
+    vcs_marker_svn='⚡'
   else
     prompt_terminators='%#'
     vcs_staged='+'
@@ -38,6 +53,8 @@ prompt_mike_setup () {
     vcs_ahead_upstream='>'
     vcs_behind_upstream='<'
     vcs_diverged_upstream='<>'
+    vcs_marker_git='G'
+    vcs_marker_svn='S'
   fi
 
   prompt_user="%{$fg[green]%}%n%{$reset_color%}"
@@ -51,7 +68,16 @@ prompt_mike_setup () {
   zstyle ':vcs_info:*' stagedstr "$vcs_staged"
   zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged"
   #zstyle ':vcs_info:*+*:*' debug true # hooks
-  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-remotedata
+  zstyle ':vcs_info:svn*+set-message:*' hooks svn-symbol
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-remotedata git-symbol
+
+  +vi-svn-symbol() {
+    hook_com[vcs]=$vcs_marker_svn
+  }
+
+  +vi-git-symbol() {
+    hook_com[vcs]=$vcs_marker_git
+  }
 
   +vi-git-untracked(){
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -78,7 +104,7 @@ prompt_mike_setup () {
     fi
   }
 
-  PS1='${prompt_cwd} $(python_venv_prompt_info)
+  PS1='${prompt_cwd}$(python_venv_prompt_info)$(ruby_prompt_info)
 ${prompt_user}@${prompt_host} ${prompt_terminator} '
   if [[ -z $ZSH_NO_VCS ]]; then
     RPS1='${vcs_info_msg_0_}'
@@ -86,10 +112,10 @@ ${prompt_user}@${prompt_host} ${prompt_terminator} '
 }
 
 if [[ -z $ZSH_NO_VCS ]]; then
-  prompt_precmd() {
+  prompt_vcs_precmd() {
     vcs_info
   }
-  add-zsh-hook precmd prompt_precmd
+  add-zsh-hook precmd prompt_vcs_precmd
 fi
 
 prompt_mike_setup "$@"
