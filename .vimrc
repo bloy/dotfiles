@@ -111,6 +111,17 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+let home_wiki = {}
+let home_wiki.path = '~/Dropbox/Notes/wiki/'
+let home_wiki.path_html = '~/Dropbox/Notes/html/'
+let home_wiki.auto_export = 1
+let ccap_wiki = {}
+let ccap_wiki.path = '~/Dropbox/CCAP/wiki/'
+let ccap_wiki.path_html = '~/Dropbox/CCAP/html/'
+let ccap_wiki.auto_export = 1
+
+let g:vimwiki_list = [ home_wiki, ccap_wiki ]
+
 let g:rails_gem_projections = {
       \ "fabrication": {
       \   "spec/fabricators/*_fabricator.rb": {
