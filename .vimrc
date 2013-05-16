@@ -122,6 +122,12 @@ let ccap_wiki.auto_export = 1
 
 let g:vimwiki_list = [ home_wiki, ccap_wiki ]
 
+let g:tagbar_type_vimwiki = {
+      \ 'ctagstype' : 'vimwiki',
+      \ 'kinds' : [ 'h:header', ],
+      \ 'sort' : 0
+      \ }
+
 let g:rails_gem_projections = {
       \ "fabrication": {
       \   "spec/fabricators/*_fabricator.rb": {

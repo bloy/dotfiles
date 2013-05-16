@@ -10,6 +10,11 @@
 --regex-scala=/^[ \t]*case class[ \t]+([a-zA-Z0-9_]+)/\1/c,case classes/
 --regex-scala=/^[ \t]*object[ \t]+([a-zA-Z0-9_]+)/\1/o,objects/
 --regex-scala=/^[ \t]*abstract class[ \t]+([a-zA-Z0-9_]+)/\1/c,abstract classes/
---langdef=wiki
---langmap=wiki:.wiki
---regex-wiki=/^(={1,6})[ \t]+(.+)[ \t]+\1$/\2/h,header/
+--langdef=vimwiki
+--langmap=vimwiki:.wiki
+--regex-vimwiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header/
+--regex-vimwiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header/
+--regex-vimwiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
+--regex-vimwiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
+--regex-vimwiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
+--regex-vimwiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header/ 
