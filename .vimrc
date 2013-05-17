@@ -101,6 +101,7 @@ set expandtab
 set autoindent
 set smartindent
 set cinoptions=(0,W1s
+set showcmd
 syntax on
 set background=dark
 colorscheme molokai
