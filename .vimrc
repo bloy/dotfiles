@@ -33,15 +33,10 @@ let python_highlight_all = 1
 let g:virtualenv_auto_activate = 1
 let g:virtualenv_stl_format = '[%n]'
 
-" NERDtree
-let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
-
 " powerline
 let g:Powerline_stl_path_style = 'filename'
 
 map <Leader>tt :TlistToggle<CR>
-map <Leader>tn :NERDTreeTabsToggle<CR>
 
 " functions 
 function! ReplaceSmartQuotes() " 
