@@ -107,6 +107,8 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+let g:ctrlp_working_path_mode = 'raw'
+
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
 let home_wiki.path_html = '~/Dropbox/Notes/html/'
