@@ -3,7 +3,6 @@
 .bash_logout
 .bash_profile
 .bashrc
-bin/tmux-session
 .ctags
 .cvsrc
 .dircolors

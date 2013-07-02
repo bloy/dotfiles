@@ -51,6 +51,7 @@ prepend_path() {
 prepend_path "/usr/local/sbin"
 prepend_path "/usr/sbin"
 prepend_path "/sbin"
+prepend_path "$HOME/.dotfiles/bin"
 prepend_path "$HOME/bin"
 
 # python
