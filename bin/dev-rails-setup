@@ -1,0 +1,10 @@
+#!/bin/sh
+
+APPDEV="$HOME/.appdev"
+NAME=$(basename "$PWD")
+
+rm -f "$PWD/config/database.yml"
+rm -f "$PWD/.env"
+
+ln -s "$APPDEV/$NAME.database.yml" "$PWD/config/database.yml"
+ln -s "$APPDEV/$NAME.env" "$PWD/.env"
