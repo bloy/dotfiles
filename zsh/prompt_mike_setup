@@ -27,6 +27,9 @@ ruby_prompt_info() {
     fi
     ruby_version="rbenv $(rbenv version-name 2> /dev/null)"
   elif [[ -d "$HOME/.rvm" ]]; then
+    if [[ "$(rvm current)" == "system" ]]; then
+      return
+    fi
     ruby_version="rvm $(~/.rvm/bin/rvm-prompt)"
   else
     return
