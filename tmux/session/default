@@ -1,8 +1,10 @@
 # vim: ft=sh
-tmux rename-window -t ${SESSION}:1 editor
-tmux new-window -t $SESSION -n shell -d
-tmux split-window -t ${SESSION}:1 -d
+tmux new-window -t $SESSION -d
 tmux send-keys -t ${SESSION}:1.0 'vim' C-m
-tmux select-pane -t ${SESSION}:1.0
-tmux select-layout -t ${SESSION}:1 main-horizontal
+
+if [ -e "$DIR/Guardfile" -a -e "$DIR/Gemfile" ]; then
+  tmux new-window -t $SESSION -d
+  tmux send-keys -t $SESSION:3.0 'bundle exec guard' C-m
+fi
+
 tmux select-window -t ${SESSION}:1
