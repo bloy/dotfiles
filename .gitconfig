@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.dotfiles/git-global-ignore
+	attributesfile = /home/mbloy/.dotfiles/git-global-attributes
 [init]
 	templatedir = ~/.dotfiles/git_template
 [alias]

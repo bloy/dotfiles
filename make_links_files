@@ -4,12 +4,10 @@
 .bash_profile
 .bashrc
 .ctags
-.cvsrc
 .dircolors
 etc/aimicon2.png
 etc/aimicon.gif
 etc/LaTeX.Makefile
-.gitattributes
 .gitconfig
 .gnupg/gpg.conf
 .gvimrc
