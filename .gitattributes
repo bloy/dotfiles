@@ -1,0 +1,6 @@
+*.erb diff=html
+*.html diff=html
+*.java diff=java
+*.php diff=php
+*.rb diff=ruby
+*.tex diff=tex
