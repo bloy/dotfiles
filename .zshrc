@@ -55,7 +55,6 @@ prepend_path "$HOME/.dotfiles/bin"
 prepend_path "$HOME/bin"
 
 # python
-export PIP_VIRTUALENV_BASE=~/.virtualenvs
 export PIP_RESPECT_VIRTUALENV=true
 
 # aliases
@@ -111,13 +110,18 @@ fi
 if [[ -d "$HOME/.rbenv/bin" ]]; then
   prepend_path "$HOME/.rbenv/bin"
   prepend_path "$HOME/.rbenv/shims"
-  prepend_path ".bundle/binstubs"
   source "$HOME/.rbenv/completions/rbenv.zsh"
 fi
 
 if [[ -d "$HOME/.rvm" ]]; then
   prepend_path "$HOME/.rvm/bin"
   source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi
+
+if [[ -d "$HOME/.pyenv/bin" ]]; then
+  prepend_path "$HOME/.pyenv/bin"
+  prepend_path "$HOME/.pyenv/shims"
+  source "$HOME/.pyenv/completions/pyenv.zsh"
 fi
 
 if [ -f ~/.zshrc-local ]; then
