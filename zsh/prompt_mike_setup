@@ -28,12 +28,12 @@ ruby_prompt_info() {
     if [[ "$(rbenv version-origin)" == "$(rbenv root)/version" ]]; then
       return
     fi
-    ruby_version="rbenv $(rbenv version-name 2> /dev/null)"
+    ruby_version="$(rbenv version-name 2> /dev/null)"
   elif [[ -d "$HOME/.rvm" ]]; then
     if [[ "$(rvm current)" == "system" ]]; then
       return
     fi
-    ruby_version="rvm $(~/.rvm/bin/rvm-prompt)"
+    ruby_version="$(~/.rvm/bin/rvm-prompt i v g)"
   else
     return
   fi
