@@ -112,7 +112,7 @@ prompt_mike_setup () {
 
   prompt_user="%{$fg[green]%}%n%{$reset_color%}"
   prompt_host="%{$fg[green]%}%m%{$reset_color%}"
-  prompt_cwd="%{$fg[cyan]%}%24<$prompt_elipsis<%~%<<%{$reset_color%}"
+  prompt_cwd="%{$fg[cyan]%}%16<$prompt_elipsis<%~%<<%{$reset_color%}"
   prompt_terminator="%B%{$fg[white]%}${prompt_terminators}%{$reset_color%}%b"
 
   PS1='${prompt_cwd}$(python_prompt_info)$(ruby_prompt_info)
