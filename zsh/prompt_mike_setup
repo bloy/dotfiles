@@ -15,7 +15,7 @@ python_prompt_info() {
     if [[ "$(pyenv version-origin)" == "$(pyenv root)/version" ]]; then
       return
     fi
-    echo " %{$fg[red]%}py: $(pyenv version-name)%{$reset_color%}"
+    echo "%{$fg[red]%}py: $(pyenv version-name)%{$reset_color%} "
   else
     return
   fi
@@ -37,13 +37,14 @@ ruby_prompt_info() {
   else
     return
   fi
-  echo " %{$fg[red]%}rb: $ruby_version%{$reset_color%}"
+  echo "%{$fg[red]%}rb: $ruby_version%{$reset_color%} "
 }
 
 
 prompt_mike_setup () {
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
     prompt_terminators='%#'
+    prompt_elipsis='…'
     vcs_staged='✚'
     vcs_unstaged='✭'
     vcs_untracked='✘'
@@ -55,6 +56,7 @@ prompt_mike_setup () {
     vcs_marker_svn='⚡'
   else
     prompt_terminators='%#'
+    prompt_elipsis='...'
     vcs_staged='+'
     vcs_unstaged='*'
     vcs_untracked='%'
@@ -65,11 +67,6 @@ prompt_mike_setup () {
     vcs_marker_git='G'
     vcs_marker_svn='S'
   fi
-
-  prompt_user="%{$fg[green]%}%n%{$reset_color%}"
-  prompt_host="%{$fg[green]%}%m%{$reset_color%}"
-  prompt_cwd="%{$fg[cyan]%}[%~]%{$reset_color%}"
-  prompt_terminator="%B%{$fg[white]%}${prompt_terminators}%{$reset_color%}%b"
 
   zstyle ':vcs_info:*' check-for-changes true
   zstyle ':vcs_info:*' formats "%B%{$fg[black]%}|%s:%b%m|%{$reset_color%}%%b%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%}"
@@ -113,10 +110,17 @@ prompt_mike_setup () {
     fi
   }
 
+  prompt_user="%{$fg[green]%}%n%{$reset_color%}"
+  prompt_host="%{$fg[green]%}%m%{$reset_color%}"
+  prompt_cwd="%{$fg[cyan]%}%24<$prompt_elipsis<%~%<<%{$reset_color%}"
+  prompt_terminator="%B%{$fg[white]%}${prompt_terminators}%{$reset_color%}%b"
+
   PS1='${prompt_cwd}$(python_prompt_info)$(ruby_prompt_info)
 ${prompt_user}@${prompt_host} ${prompt_terminator} '
+  PS1='${prompt_user}@${prompt_host}:${prompt_cwd}${prompt_terminator} '
+  RPS1='$(python_prompt_info)$(ruby_prompt_info)'
   if [[ -z $ZSH_NO_VCS ]]; then
-    RPS1='${vcs_info_msg_0_}'
+    RPS1=$RPS1'${vcs_info_msg_0_}'
   fi
 }
 
