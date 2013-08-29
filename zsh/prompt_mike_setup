@@ -13,9 +13,9 @@ EOF
 
 python_prompt_info() {
   local python_prompt
-  python_prompt='py'
+  python_prompt='p'
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
-    python_prompt='🐍'
+    python_prompt='ᚹ'
   fi
   if [[ -d "$HOME/.pyenv/bin" ]]; then
     if [[ "$(pyenv version-origin)" == "$(pyenv root)/version" ]]; then
@@ -31,9 +31,9 @@ ruby_prompt_info() {
   local ruby_version
   local ruby_prompt
   ruby_version=''
-  ruby_prompt='rb'
+  ruby_prompt='r'
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
-    ruby_prompt='♦'
+    ruby_prompt='ᚱ'
   fi
   if [[ -d "$HOME/.rbenv/bin" ]]; then
     if [[ "$(rbenv version-origin)" == "$(rbenv root)/version" ]]; then
