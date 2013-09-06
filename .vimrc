@@ -59,7 +59,7 @@ map <F9> :new<CR>:read !git diff<CR>:set syntax=diff buftype=nofile<CR>gg
 set wildmenu
 set wildmode=longest,list:longest
 
-" file information 
+" file information
 set modeline
 set fileformats=unix,dos,mac
 set backupcopy=yes
@@ -87,6 +87,8 @@ set smartcase
 
 " editing options 
 set laststatus=2
+set title
+set titlestring=VIM\:\ %F%m%h
 set statusline=%f%m%r%h%w%=%l,%c/%L\ %y%{fugitive#statusline()}%{virtualenv#statusline()}
 set showmatch
 set shiftwidth=2

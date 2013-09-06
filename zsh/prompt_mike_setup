@@ -141,4 +141,18 @@ if [[ -z $ZSH_NO_VCS ]]; then
   add-zsh-hook precmd prompt_vcs_precmd
 fi
 
+prompt_title_precmd() {
+  case $TERM in
+    xterm*)
+      print -Pn "\e]0;%n@%m: %~\a"
+      ;;
+    screen*)
+      # in tmux we don't need as fancy a title
+      print -Pn "\e]0;%~\a"
+      ;;
+  esac
+}
+
+add-zsh-hook precmd prompt_title_precmd
+
 prompt_mike_setup "$@"
