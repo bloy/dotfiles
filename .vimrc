@@ -58,6 +58,7 @@ map <F9> :new<CR>:read !git diff<CR>:set syntax=diff buftype=nofile<CR>gg
 " tab complete
 set wildmenu
 set wildmode=longest,list:longest
+set wildignore+=*.pyc,*.pyo
 
 " file information
 set modeline
