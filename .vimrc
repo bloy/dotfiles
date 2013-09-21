@@ -31,6 +31,17 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_left = 1
 
+" airline
+if !exists('g:airline_symblos')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_theme='dark'
+
 " tab complete
 set wildmenu
 set wildmode=longest,list:longest
@@ -44,29 +55,28 @@ set nobackup
 set writebackup
 
 
-" viminfo 
+" viminfo
 "   200 files marks, global marks, 50 lines per register, no hlsearch
 "   10 search lines, all saved in ~/.viminfo
 set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 
 
-" session options  
+" session options
 set sessionoptions=buffers,curdir,folds,globals,help,localoptions
 set sessionoptions+=options,slash,unix,winsize
 
 
-" search options 
+" search options
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 
 
-" editing options 
+" editing options
 set laststatus=2
 set title
 set titlestring=VIM\:\ %F%m%h
-set statusline=%f%m%r%h%w%=%l,%c/%L\ %y%{fugitive#statusline()}%{virtualenv#statusline()}
 set showmatch
 set shiftwidth=2
 set softtabstop=2
