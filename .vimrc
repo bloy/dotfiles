@@ -25,7 +25,11 @@ let python_highlight_all = 1
 let g:virtualenv_auto_activate = 1
 let g:virtualenv_stl_format = '[%n]'
 
-map <Leader>tt :TlistToggle<CR>
+" tagbar
+map <Leader>tt :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_left = 1
 
 " tab complete
 set wildmenu
