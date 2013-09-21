@@ -17,44 +17,16 @@ call pathogen#helptags()
 set mouse=a
 set ttymouse=xterm2
 
-" taglist settings
-let Tlist_Close_On_Select = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Inc_Winwidth = 0
-let Tlist_Show_Menu = 1
-
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
 
-" python 
+" python
 let python_highlight_all = 1
 let g:virtualenv_auto_activate = 1
 let g:virtualenv_stl_format = '[%n]'
 
-" powerline
-let g:Powerline_stl_path_style = 'filename'
-
 map <Leader>tt :TlistToggle<CR>
 
-" functions 
-function! ReplaceSmartQuotes() " 
-  :%s/&/\&amp;/ge " ampersand
-  :%s//\&#8216;/ge " left single quote
-  :%s//\&#8217;/ge " right single quote
-  :%s//\&#8220;/ge " left double quote
-  :%s//\&#8221;/ge " right double quote
-  :%s//\&#8230;/ge " elipsis
-  :%s//\&#8212;/ge " en dash
-  :%s//\&#8211;/ge " em dash
-endfunction
-command! ReplaceSmartQuotes :call ReplaceSmartQuotes() " 
-
-
-" mappings 
-map <F9> :new<CR>:read !git diff<CR>:set syntax=diff buftype=nofile<CR>gg
- 
 " tab complete
 set wildmenu
 set wildmode=longest,list:longest
