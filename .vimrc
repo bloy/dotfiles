@@ -1,10 +1,10 @@
 " vim600: set foldmethod=marker:
 
-" general setup  
+" general setup
 let s:cur_rtp = &runtimepath
 let s:new_rtp = "~/.dotfiles/vim," . s:cur_rtp . ",~/.dotfiles/vim/after"
 let &runtimepath = s:new_rtp
-if has('win32') 
+if has('win32')
   set shell=bash.exe
 endif
 
