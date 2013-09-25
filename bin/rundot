@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" -o -z "$2" ]; then
+  echo "Usage: $0 [filetype] [dotfile]"
+  echo "where filetype is an output type dot supports (svg, png...)"
+  echo "and dotfile is the graphviz file to process"
+  exit
+fi
+outfile="`dirname $2`/`basename $2 .dot`.$1"
+
+dot "-T$1" $2 > $outfile
+echo wrote to $outfile
