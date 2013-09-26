@@ -31,17 +31,6 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_left = 1
 
-" airline
-if !exists('g:airline_symblos')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.whitespace = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.paste = 'ρ'
-let g:airline_theme='dark'
-
 " tab complete
 set wildmenu
 set wildmode=longest,list:longest
