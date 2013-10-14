@@ -85,23 +85,22 @@ function! StatusFugitive()
   return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
+function! StatusSyntastic()
+  return exists('*SyntasticStatuslineFlag') ? SyntasticStatuslineFlag() : ''
+endfunction
+
 let g:lightline = {
       \ 'colorscheme' : 'default',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ],
+      \   'right': [ [ 'lineinfo', 'syntastic' ],
       \              [ 'percent' ],
       \              [ 'filetype' ] ]
       \ },
       \ 'component_function' : {
       \   'fugitive': 'StatusFugitive',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
+      \   'syntastic': 'StatusSyntastic',
       \ },
       \ }
 
