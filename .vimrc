@@ -64,7 +64,7 @@ set smartcase
 " editing options
 set laststatus=2
 set title
-set titlestring=VIM\:\ %F%m%h
+set titlestring=VIM\:\ %f%m%h
 set showmatch
 set shiftwidth=2
 set softtabstop=2
