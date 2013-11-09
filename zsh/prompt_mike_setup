@@ -14,9 +14,6 @@ EOF
 python_prompt_info() {
   local python_prompt
   python_prompt='p'
-  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
-    python_prompt='ᚹ'
-  fi
   if [[ -d "$HOME/.pyenv/bin" ]]; then
     if [[ "$(pyenv version-origin)" == "$(pyenv root)/version" ]]; then
       return
@@ -32,9 +29,6 @@ ruby_prompt_info() {
   local ruby_prompt
   ruby_version=''
   ruby_prompt='r'
-  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
-    ruby_prompt='ᚱ'
-  fi
   if [[ -d "$HOME/.rbenv/bin" ]]; then
     if [[ "$(rbenv version-origin)" == "$(rbenv root)/version" ]]; then
       return
@@ -79,8 +73,8 @@ prompt_mike_setup () {
   fi
 
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' formats "%B%{$fg[black]%}|%s:%b%m|%{$reset_color%}%%b%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%}"
-  zstyle ':vcs_info:*' actionformats "%B%{$fg[black]%}|%s:%b(%a)%m|%{$reset_color%}%%b%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%}"
+  zstyle ':vcs_info:*' formats "%B%{$fg[black]%}|%b%m|%{$reset_color%}%%b%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%}"
+  zstyle ':vcs_info:*' actionformats "%B%{$fg[black]%}|%b(%a)%m|%{$reset_color%}%%b%{$fg[red]%}%u%{$fg[green]%}%c%{$reset_color%}"
   zstyle ':vcs_info:*' stagedstr "$vcs_staged"
   zstyle ':vcs_info:*' unstagedstr "$vcs_unstaged"
   #zstyle ':vcs_info:*+*:*' debug true # hooks
