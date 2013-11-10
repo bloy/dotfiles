@@ -1,0 +1,2 @@
+# vim: ft=sh
+tmux send-keys -t ${SESSION}:1.0 'vim' C-m
