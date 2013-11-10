@@ -10,17 +10,24 @@ prompt_mike_help () {
 EOF
 }
 
-
 python_prompt_info() {
   local python_prompt
   python_prompt='p'
+  python_version=''
   if [[ -d "$HOME/.pyenv/bin" ]]; then
     if [[ "$(pyenv version-origin)" == "$(pyenv root)/version" ]]; then
-      return
+      python_version=''
+    else
+      python_version="$(pyenv version-name)"
     fi
-    echo "%{$fg[green]%}$python_prompt:$(pyenv version-name)%{$reset_color%} "
-  else
+  fi
+  if [[ -n $VIRTUAL_ENV ]]; then
+    python_version="${python_version}($(basename $VIRTUAL_ENV))"
+  fi
+  if [[ $python_version == '' ]]; then
     return
+  else
+    echo "%{$fg[green]%}$python_prompt:$python_version%{$reset_color%} "
   fi
 }
 

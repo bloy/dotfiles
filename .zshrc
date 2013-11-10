@@ -124,6 +124,10 @@ if [[ -d "$HOME/.pyenv/bin" ]]; then
   source "$HOME/.pyenv/completions/pyenv.zsh"
 fi
 
+if [[ -d "$VIRTUAL_ENV/bin" ]]; then
+  prepend_path "$VIRTUAL_ENV/bin"
+fi
+
 if [ -f ~/.zshrc-local ]; then
   . ~/.zshrc-local
 fi
