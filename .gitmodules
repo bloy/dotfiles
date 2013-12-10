@@ -48,7 +48,7 @@
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
 [submodule "zsh-completions"]
 	path = zsh-completions
-	url = http://github.com/zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
@@ -57,7 +57,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
-	url = http://github.com/kchmck/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
