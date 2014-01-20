@@ -1,4 +1,4 @@
-bin
+.local/bin
 .ssh
 .subversion
 .gnupg
