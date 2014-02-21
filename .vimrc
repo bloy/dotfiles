@@ -60,9 +60,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" syntastic
-let g:syntastic_python_checkers=['flake8', 'python']
-
 " editing options
 set laststatus=2
 set title
