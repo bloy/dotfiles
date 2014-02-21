@@ -1,11 +1,7 @@
 # vim: ft=sh
-if [ -e "$DIR/.python-virtualenv" ]; then
-  VENVDIR=`dirname ~/.pyenv/versions/.`
-  VIRTUAL_ENV=$VENVDIR/`cat "$DIR/.python-virtualenv"`
-  PATH="$VIRTUAL_ENV/bin:$PATH"
-  export VIRTUAL_ENV PATH
-
+if pew ls | grep -q $SESSION; then
+  VIRTUAL_ENV=$(pew in $SESSION env | grep VIRTUAL_ENV | cut -d= -f 2)
+  export VIRTUAL_ENV
   tmux set-environment -t $SESSION VIRTUAL_ENV $VIRTUAL_ENV
-  tmux set-environment -t $SESSION PATH "$PATH"
   tmux new-window -t $SESSION:1 -k
 fi

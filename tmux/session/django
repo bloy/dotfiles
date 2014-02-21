@@ -1,8 +1,4 @@
 # vim: ft=sh
-#tmux set-environment -t $SESSION DJANGO_SETTINGS_MODULE "$SESSION.settings"
-
-. "$SESSIONCFG/python"
-
-tmux new-window -t $SESSION -n procs -d
-tmux send-keys -t ${SESSION}:3.0 './manage.py runserver' C-m
+tmux new-window -t $SESSION -n server -d
+tmux send-keys -t ${SESSION}:3.0 'fab server' C-m
 tmux select-pane -t ${SESSION}:3.0

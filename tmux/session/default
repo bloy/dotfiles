@@ -2,8 +2,11 @@
 . "$SESSIONCFG/_python-virtualenv" # check for python virtualenv
 . "$SESSIONCFG/_vim-window1" # start vim in window 1
 
-tmux new-window -t $SESSION -d
+tmux new-window -n shell -t $SESSION -d
 
 . "$SESSIONCFG/_guardfile" # start guard executing if appropriate
+if [ -e "$DIR/.tmux-session" ]; then
+  . "$DIR/.tmux-session"
+fi
 
 tmux select-window -t ${SESSION}:1
