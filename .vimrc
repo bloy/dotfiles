@@ -51,7 +51,7 @@ set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 
 
 " session options
-set sessionoptions=curdir,folds,globals,slash,unix
+set sessionoptions=curdir,folds,globals,slash,unix,tabpages
 
 
 " search options
