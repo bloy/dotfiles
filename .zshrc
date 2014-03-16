@@ -118,6 +118,12 @@ if [[ -d "$HOME/.rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
+if [[ -d "$HOME/.pyenv" ]]; then
+  prepend_path "$HOME/.pyenv/bin"
+  prepend_path "$HOME/.pyenv/shims"
+  source "$HOME/.pyenv/completions/pyenv.zsh"
+fi
+
 if [[ -d "$VIRTUAL_ENV" && -d "$VIRTUAL_ENV/bin" ]]; then
   prepend_path "$VIRTUAL_ENV/bin"
 fi
