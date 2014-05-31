@@ -1,7 +1,0 @@
-# vim: ft=sh
-if pew ls | grep -q $SESSION; then
-  VIRTUAL_ENV=$(pew in $SESSION env | grep VIRTUAL_ENV | cut -d= -f 2)
-  export VIRTUAL_ENV
-  tmux set-environment -t $SESSION VIRTUAL_ENV $VIRTUAL_ENV
-  tmux new-window -t $SESSION:1 -k
-fi
