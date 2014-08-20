@@ -94,3 +94,6 @@
 [submodule "tmuxifier"]
 	path = tmuxifier
 	url = https://github.com/jimeh/tmuxifier
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
