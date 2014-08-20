@@ -1,8 +1,8 @@
-session_root "~/projects/iplayrpg"
+session_root "~/projects/iplaysw"
 
-VIRTUAL_ENV=`pew in iplayrpg env | grep VIRTUAL_ENV | cut -d= -f 2`
+VIRTUAL_ENV=`pew in iplaysw env | grep VIRTUAL_ENV | cut -d= -f 2`
 
-if initialize_session "iplayrpg"; then
+if initialize_session "iplaysw"; then
 
   tmuxifier-tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
   load_window "vim_and_shell"
