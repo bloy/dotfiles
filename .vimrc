@@ -79,28 +79,10 @@ colorscheme molokai
 filetype indent on
 filetype plugin on
 
-function! StatusFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-function! StatusSyntastic()
-  return exists('*SyntasticStatuslineFlag') ? SyntasticStatuslineFlag() : ''
-endfunction
-
-let g:lightline = {
-      \ 'colorscheme' : 'default',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo', 'syntastic' ],
-      \              [ 'percent' ],
-      \              [ 'filetype' ] ]
-      \ },
-      \ 'component_function' : {
-      \   'fugitive': 'StatusFugitive',
-      \   'syntastic': 'StatusSyntastic',
-      \ },
-      \ }
+set statusline=%f%m%r%h%w%=%l,%c/%L\ %y
+set statusline+=%{fugitive#statusline()}
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{virtualenv#statusline()}
 
 if exists('+colorcolumn')
   set colorcolumn=80
