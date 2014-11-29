@@ -38,6 +38,7 @@ set wildignore+=*.pyc,*.pyo
 
 " file information
 set modeline
+set number
 set fileformats=unix,dos,mac
 set backupcopy=yes
 set nobackup
@@ -61,6 +62,7 @@ set ignorecase
 set smartcase
 
 " editing options
+set hidden
 set laststatus=2
 set title
 set titlestring=VIM\:\ %f%m%h
