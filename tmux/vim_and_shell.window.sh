@@ -1,5 +1,5 @@
 new_window 'vim'
-split_h 50
+split_v 25
 run_cmd "vim" 0
 
 # Paste text
