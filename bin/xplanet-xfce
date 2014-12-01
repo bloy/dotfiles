@@ -1,0 +1,33 @@
+#!/bin/bash
+
+DELAY=20m
+
+PREFIX="$HOME/Pictures/"
+OUTPUT=xplanet.png
+#don't forget to create a background list for the directory in the xfce 
+#display settings
+
+GEOMETRY=1920x1080
+LONGITUDE=0
+LATITUDE=0
+#default is no projection,i.e. render a globe
+#rectangular is the flat world map. also try ancient, azimuthal, 
+#mercator,..
+PROJECTION=rectangular
+
+if [ -z $PROJECTION ]; then
+  xplanet -num_times 1 \
+    -output "$PREFIX$OUTPUT" \
+    -geometry $GEOMETRY \
+    -longitude $LONGITUDE -latitude $LATITUDE
+else
+  xplanet -num_times 1 \
+    -output "$PREFIX$OUTPUT" \
+    -geometry $GEOMETRY \
+    -longitude $LONGITUDE -latitude $LATITUDE \
+    -projection $PROJECTION
+fi
+
+xfdesktop --reload
+sleep $DELAY
+exec $0
