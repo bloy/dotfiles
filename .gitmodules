@@ -64,9 +64,6 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/virtualenv"]
-	path = vim/bundle/virtualenv
-	url = https://github.com/jmcantrell/vim-virtualenv.git
 [submodule "vim/bundle/vim-tbone"]
 	path = vim/bundle/vim-tbone
 	url = https://github.com/tpope/vim-tbone.git
