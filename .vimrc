@@ -22,8 +22,6 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " python
 let python_highlight_all = 1
-let g:virtualenv_auto_activate = 1
-let g:virtualenv_stl_format = '[%n]'
 
 " tagbar
 map <Leader>tt :TagbarToggle<CR>
@@ -84,7 +82,6 @@ filetype plugin on
 set statusline=%f%m%r%h%w%=%l,%c/%L\ %y
 set statusline+=%{fugitive#statusline()}
 set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%{virtualenv#statusline()}
 
 if exists('+colorcolumn')
   set colorcolumn=80
