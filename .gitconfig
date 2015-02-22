@@ -22,4 +22,4 @@
 [url "git@git.bloy.org:"]
   insteadOf = bloy:
 [push]
-	default = simple
+	default = current
