@@ -17,6 +17,7 @@ etc/LaTeX.Makefile
 .perltidyrc
 .screenrc
 .ssh/config
+.ssh/rc
 .subversion/config
 .subversion/servers
 .tigrc
