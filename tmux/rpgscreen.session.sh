@@ -8,9 +8,9 @@ if initialize_session "rpgscreen"; then
   load_window "vim_and_shell"
 
   new_window "server"
-  run_cmd 'grunt'
+  run_cmd 'make watch'
   split_v 50
-  run_cmd './manage.py runserver'
+  run_cmd 'make serve'
 
   select_window 1
 
