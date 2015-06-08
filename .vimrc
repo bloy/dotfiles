@@ -87,7 +87,11 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+" CtrlP
 let g:ctrlp_working_path_mode = 'raw'
+nnoremap <Leader>pp :<C-U>CtrlP<CR>
+nnoremap <Leader>pt :<C-U>CtrlPTag<CR>
+nnoremap <Leader>pb :<C-U>CtrlPBuffer<CR>
 
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
