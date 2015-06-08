@@ -1,4 +1,4 @@
-session_root "~/projects/ansible-playbooks"
+session_root "~/ansible-playbooks"
 
 if initialize_session "ansible"; then
   load_window "vim_and_shell"
