@@ -89,6 +89,8 @@ endif
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'raw'
+" leaderpp is to help retrain away from that keystroke
+nnoremap <Leader>pp <Nop>
 nnoremap <Leader>ff :<C-U>CtrlP<CR>
 nnoremap <Leader>ft :<C-U>CtrlPTag<CR>
 nnoremap <Leader>fb :<C-U>CtrlPBuffer<CR>
