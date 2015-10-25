@@ -95,6 +95,8 @@ nnoremap <Leader>ff :<C-U>CtrlP<CR>
 nnoremap <Leader>ft :<C-U>CtrlPTag<CR>
 nnoremap <Leader>fb :<C-U>CtrlPBuffer<CR>
 
+let g:syntastic_python_checkers = ['python', 'prospector', 'pyflakes']
+
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
 let home_wiki.path_html = '~/Dropbox/Notes/html/'
