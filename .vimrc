@@ -84,7 +84,7 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=%{SyntasticStatuslineFlag()}
 
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=80,100,120
 endif
 
 " CtrlP
