@@ -46,7 +46,8 @@ ruby_prompt_info() {
 }
 
 prompt_mike_setup () {
-  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} = *UTF-8* && -z $ZSH_NO_UTF8 ]]; then
+  setopt EXTENDED_GLOB
+  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} =~ '(UTF|utf)[-_]?8' && -z $ZSH_NO_UTF8 ]]; then
     prompt_terminators='%#'
     prompt_elipsis='…'
     vcs_staged='✚'
