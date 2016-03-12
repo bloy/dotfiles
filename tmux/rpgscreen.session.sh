@@ -1,6 +1,6 @@
 session_root "~/projects/rpgscreen"
 
-export VIRTUAL_ENV="$HOME/.virtualenvs/rpgscreen"
+export VIRTUAL_ENV="$HOME/.local/share/virtualenvs/rpgscreen"
 
 if initialize_session "rpgscreen"; then
 
