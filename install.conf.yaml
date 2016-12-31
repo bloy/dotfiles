@@ -31,7 +31,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.Xresources: X11/Xresources
-    ~/.zshrc: zshrc
+    ~/.zshrc: zsh/zshrc
 
 - shell:
   - command: git submodule update --init --recursive
