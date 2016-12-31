@@ -31,12 +31,12 @@ let g:tagbar_left = 1
 
 " tab complete
 set wildmenu
-set wildmode=longest,list:longest
 set wildignore+=*.pyc,*.pyo
 
 " file information
 set modeline
 set number
+set relativenumber
 set fileformats=unix,dos,mac
 set backupcopy=yes
 set nobackup
@@ -101,33 +101,11 @@ let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
 let home_wiki.path_html = '~/Dropbox/Notes/html/'
 let home_wiki.auto_export = 1
-let ccap_wiki = {}
-let ccap_wiki.path = '~/Dropbox/CCAP/wiki/'
-let ccap_wiki.path_html = '~/Dropbox/CCAP/html/'
-let ccap_wiki.auto_export = 1
 
-let g:vimwiki_list = [ home_wiki, ccap_wiki ]
+let g:vimwiki_list = [ home_wiki ]
 
 let g:tagbar_type_vimwiki = {
       \ 'ctagstype' : 'vimwiki',
       \ 'kinds' : [ 'h:header', ],
       \ 'sort' : 0
       \ }
-
-let g:ctrlp_user_command = {
-      \ 'types': {
-      \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-      \ },
-      \ 'fallback': 'find %s -type f'
-      \ }
-
-let g:rails_gem_projections = {
-      \ "fabrication": {
-      \   "spec/fabricators/*_fabricator.rb": {
-      \     "command": "fabricator",
-      \     "affinity": "model",
-      \     "alternate": "app/models/%s.rb",
-      \     "related": "db/schema.rb#%p",
-      \     "test": "spec/models/%s_spec.rb",
-      \     "template": "Fabricator(:%s) do\nend"}}}
