@@ -61,3 +61,12 @@
 [submodule "tmux/tmuxifier"]
 	path = tmux/tmuxifier
 	url = https://github.com/jimeh/tmuxifier
+[submodule "vim/bundle/sensible"]
+	path = vim/bundle/sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/bundle/polyglot"]
+	path = vim/bundle/polyglot
+	url = https://github.com/sheerun/vim-polyglot
