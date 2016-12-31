@@ -114,18 +114,6 @@ prepend_path "$HOME/.dotfiles/tmuxifier/bin"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
 eval "$(tmuxifier init -)"
 
-if [[ -d "$HOME/.rbenv/bin" ]]; then
-  prepend_path "$HOME/.rbenv/bin"
-  prepend_path "$HOME/.rbenv/shims"
-  source "$HOME/.rbenv/completions/rbenv.zsh"
-fi
-
-if [[ -d "$HOME/.rvm" ]]; then
-  prepend_path "$HOME/.rvm/bin"
-  source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-fi
-
-
 if [[ -d "$HOME/.pyenv" ]]; then
   prepend_path "$HOME/.pyenv/bin"
   prepend_path "$HOME/.pyenv/shims"
