@@ -1,6 +1,6 @@
 ---
 - shell:
-  - command: mkdir -p ~/.local/bin ~/.ssh ~/.subversion ~/.gnupg
+  - command: mkdir -p ~/.local/bin ~/.ssh ~/.subversion ~/.gnupg ~/.tmuxifier
     description: Create directories
   - command: chmod 0700 ~/.ssh
     description: set ~/.ssh permissions
