@@ -24,6 +24,9 @@
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.gvimrc: gvimrc
     ~/.inputrc: inputrc
+    ~/.local/bin/git-cal: bin/git-cal
+    ~/.local/bin/pyve: bin/pyve
+    ~/.local/bin/rundot: bin/rundot
     ~/.perltidyrc: perltidyrc
     ~/.ssh/rc: ssh/rc
     ~/.subversion/config: subversion/config
