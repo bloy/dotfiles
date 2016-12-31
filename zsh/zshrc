@@ -31,9 +31,6 @@ bindkey '^R' history-incremental-search-backward
 if [[ -d ~/.keychain ]]; then
   eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
 fi
-if [[ -e ~/.ssh/pagent-socket ]]; then
-  eval $(ssh-pageant --reuse -a ~/.ssh/pagent-socket)
-fi
 
 export PAGER=less
 export LESS='-m -R'
