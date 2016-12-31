@@ -23,3 +23,7 @@
   insteadOf = bloy:
 [push]
 	default = current
+
+[tig]
+  line-graphics = utf-8
+  reference-format = (branch) <tag> [local-tag]
