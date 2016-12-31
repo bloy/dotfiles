@@ -106,7 +106,7 @@ if [[ -z $ZSH_NO_PRECMD ]]; then
   esac
 fi
 
-prepend_path "$HOME/.dotfiles/tmuxifier/bin"
+prepend_path "$HOME/.dotfiles/tmux/tmuxifier/bin"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
 eval "$(tmuxifier init -)"
 
