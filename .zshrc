@@ -111,7 +111,7 @@ if [[ -z $ZSH_NO_PRECMD ]]; then
 fi
 
 prepend_path "$HOME/.dotfiles/tmuxifier/bin"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.dotfiles/tmux"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
 eval "$(tmuxifier init -)"
 
 if [[ -d "$HOME/.rbenv/bin" ]]; then
