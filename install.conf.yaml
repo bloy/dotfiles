@@ -1,0 +1,42 @@
+---
+- shell:
+  - command: mkdir -p ~/.local/bin ~/.ssh ~/.subversion ~/.gnupg ~/.tmuxifier
+    description: Create directories
+  - command: chmod 0700 ~/.ssh
+    description: set ~/.ssh permissions
+
+- clean:
+  - "~"
+  - "~/.local/bin"
+  - "~/.ssh"
+  - "~/.subversion"
+  - "~/.gnupg"
+  - "~/.local/etc"
+
+- link:
+    ~/.astylerc: misc/astylerc
+    ~/.bash_completion: bash/completion
+    ~/.bash_logout: bash/logout
+    ~/.bash_profile: bash/profile
+    ~/.bashrc: bash/bashrc
+    ~/.ctags: misc/ctags
+    ~/.gitconfig: git/config
+    ~/.gnupg/gpg.conf: gnupg/gpg.conf
+    ~/.gvimrc: vim/gvimrc
+    ~/.inputrc: misc/inputrc
+    ~/.local/bin/git-cal: bin/git-cal
+    ~/.local/bin/pyve: bin/pyve
+    ~/.local/bin/rundot: bin/rundot
+    ~/.perltidyrc: misc/perltidyrc
+    ~/.ssh/rc: ssh/rc
+    ~/.subversion/config: subversion/config
+    ~/.tigrc: git/tigrc
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmuxifier/vim_and_shell.window.sh: tmux/layouts/vim_and_shell.window.sh
+    ~/.vimrc: vim/vimrc
+    ~/.Xresources: X11/Xresources
+    ~/.zshrc: zsh/zshrc
+
+- shell:
+  - command: git submodule update --init --recursive
+    description: Update submodules

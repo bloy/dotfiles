@@ -2,7 +2,7 @@ if [ -f ~/.zshrc-local-pre ]; then
   . ~/.zshrc-local-pre
 fi
 
-fpath=(~/.dotfiles/zsh ~/.dotfiles/zsh-completions/src $fpath)
+fpath=(~/.dotfiles/zsh/fpath ~/.dotfiles/zsh/zsh-completions/src $fpath)
 
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' list-colors ''
@@ -31,9 +31,6 @@ bindkey '^R' history-incremental-search-backward
 if [[ -d ~/.keychain ]]; then
   eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
 fi
-if [[ -e ~/.ssh/pagent-socket ]]; then
-  eval $(ssh-pageant --reuse -a ~/.ssh/pagent-socket)
-fi
 
 export PAGER=less
 export LESS='-m -R'
@@ -54,7 +51,6 @@ prepend_path() {
 prepend_path "/usr/local/sbin"
 prepend_path "/usr/sbin"
 prepend_path "/sbin"
-prepend_path "$HOME/.dotfiles/bin"
 prepend_path "$HOME/.local/bin"
 
 # python
@@ -110,27 +106,9 @@ if [[ -z $ZSH_NO_PRECMD ]]; then
   esac
 fi
 
-prepend_path "$HOME/.dotfiles/tmuxifier/bin"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.dotfiles/tmux"
+prepend_path "$HOME/.dotfiles/tmux/tmuxifier/bin"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
 eval "$(tmuxifier init -)"
-
-if [[ -d "$HOME/.rbenv/bin" ]]; then
-  prepend_path "$HOME/.rbenv/bin"
-  prepend_path "$HOME/.rbenv/shims"
-  source "$HOME/.rbenv/completions/rbenv.zsh"
-fi
-
-if [[ -d "$HOME/.rvm" ]]; then
-  prepend_path "$HOME/.rvm/bin"
-  source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-fi
-
-
-if [[ -d "$HOME/.pyenv" ]]; then
-  prepend_path "$HOME/.pyenv/bin"
-  prepend_path "$HOME/.pyenv/shims"
-  source "$HOME/.pyenv/completions/pyenv.zsh"
-fi
 
 if [[ -d "$VIRTUAL_ENV" && -d "$VIRTUAL_ENV/bin" ]]; then
   prepend_path "$VIRTUAL_ENV/bin"
