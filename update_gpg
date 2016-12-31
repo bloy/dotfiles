@@ -1,3 +1,0 @@
-#!/bin/bash
-. ${HOME}/.dotfiles/update_gpg_remote
-. ${HOME}/.dotfiles/update_gpg_local
