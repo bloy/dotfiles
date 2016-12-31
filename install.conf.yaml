@@ -22,7 +22,7 @@
     ~/.ctags: ctags
     ~/.gitconfig: git/config
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
-    ~/.gvimrc: gvimrc
+    ~/.gvimrc: vim/gvimrc
     ~/.inputrc: inputrc
     ~/.local/bin/git-cal: bin/git-cal
     ~/.local/bin/pyve: bin/pyve
@@ -33,7 +33,7 @@
     ~/.tigrc: git/tigrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmuxifier/vim_and_shell.window.sh: tmux/layouts/vim_and_shell.window.sh
-    ~/.vimrc: vimrc
+    ~/.vimrc: vim/vimrc
     ~/.Xresources: X11/Xresources
     ~/.zshrc: zsh/zshrc
 
