@@ -14,20 +14,20 @@
   - "~/.local/etc"
 
 - link:
-    ~/.astylerc: astylerc
+    ~/.astylerc: misc/astylerc
     ~/.bash_completion: bash/completion
     ~/.bash_logout: bash/logout
     ~/.bash_profile: bash/profile
     ~/.bashrc: bash/bashrc
-    ~/.ctags: ctags
+    ~/.ctags: misc/ctags
     ~/.gitconfig: git/config
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.gvimrc: vim/gvimrc
-    ~/.inputrc: inputrc
+    ~/.inputrc: misc/inputrc
     ~/.local/bin/git-cal: bin/git-cal
     ~/.local/bin/pyve: bin/pyve
     ~/.local/bin/rundot: bin/rundot
-    ~/.perltidyrc: perltidyrc
+    ~/.perltidyrc: misc/perltidyrc
     ~/.ssh/rc: ssh/rc
     ~/.subversion/config: subversion/config
     ~/.tigrc: git/tigrc
