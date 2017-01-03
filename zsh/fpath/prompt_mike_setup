@@ -24,27 +24,6 @@ python_prompt_info() {
   fi
 }
 
-ruby_prompt_info() {
-  local ruby_version
-  local ruby_prompt
-  ruby_version=''
-  ruby_prompt='r'
-  if [[ -d "$HOME/.rbenv/bin" ]]; then
-    if [[ "$(rbenv version-origin)" == "$(rbenv root)/version" ]]; then
-      return
-    fi
-    ruby_version="$(rbenv version-name 2> /dev/null)"
-  elif [[ -d "$HOME/.rvm" ]]; then
-    if [[ "$(rvm current)" == "system" ]]; then
-      return
-    fi
-    ruby_version="$(~/.rvm/bin/rvm-prompt i v g)"
-  else
-    return
-  fi
-  echo "%{$fg[green]%}$ruby_prompt:$ruby_version%{$reset_color%} "
-}
-
 prompt_mike_setup () {
   setopt EXTENDED_GLOB
   if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} =~ '(UTF|utf)[-_]?8' && -z $ZSH_NO_UTF8 ]]; then
@@ -120,10 +99,8 @@ prompt_mike_setup () {
   prompt_cwd="%{$fg[cyan]%}%16<$prompt_elipsis<%~%<<%{$reset_color%}"
   prompt_terminator="%B%{$fg[white]%}${prompt_terminators}%{$reset_color%}%b"
 
-  PS1='${prompt_cwd}$(python_prompt_info)$(ruby_prompt_info)
-${prompt_user}@${prompt_host} ${prompt_terminator} '
   PS1='${prompt_user}@${prompt_host}:${prompt_cwd}${prompt_terminator} '
-  RPS1='$(python_prompt_info)$(ruby_prompt_info)'
+  RPS1='$(python_prompt_info)'
   if [[ -z $ZSH_NO_VCS ]]; then
     RPS1=$RPS1'${vcs_info_msg_0_}'
   fi
