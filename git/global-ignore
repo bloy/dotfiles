@@ -1,7 +1,3 @@
 Session.vim
 .*.swp
 tags
-.pyvenv
-.tmux-session-type
-.tmux-session
-*.pyc
