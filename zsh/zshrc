@@ -28,10 +28,6 @@ unsetopt beep
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
-if [[ -d ~/.keychain ]]; then
-  eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
-fi
-
 export PAGER=less
 export LESS='-m -R'
 export EDITOR=vi
@@ -52,6 +48,10 @@ prepend_path "/usr/local/sbin"
 prepend_path "/usr/sbin"
 prepend_path "/sbin"
 prepend_path "$HOME/.local/bin"
+
+if [[ -d ~/.keychain ]]; then
+  eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
+fi
 
 # python
 export PIP_RESPECT_VIRTUALENV=true
