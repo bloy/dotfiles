@@ -1,8 +1,17 @@
 --langdef=vimwiki
 --langmap=vimwiki:.wiki
---regex-vimwiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header/
---regex-vimwiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header/
---regex-vimwiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
---regex-vimwiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
---regex-vimwiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
---regex-vimwiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header/ 
+--regex-vimwiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,heading,headings/
+--regex-vimwiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,heading,headings/
+--regex-vimwiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,heading,headings/
+--regex-vimwiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,heading,headings/
+--regex-vimwiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,heading,headings/
+--regex-vimwiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,heading,headings/
+
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^#[ \t](.*)/\1/h,heading,headings/
+--regex-markdown=/^##[ \t](.*)/.  \1/h,heading,headings/
+--regex-markdown=/^###[ \t](.*)/.   \1/h,heading,headings/
+--regex-markdown=/^####[ \t](.*)/.    \1/h,heading,headings/
+--regex-markdown=/^#####[ \t](.*)/.     \1/h,heading,headings/
+--regex-markdown=/^######[ \t](.*)/.      \1/h,heading,headings/
