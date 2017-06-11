@@ -99,13 +99,14 @@ let g:syntastic_python_checkers = ['python', 'prospector', 'pyflakes']
 
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
-let home_wiki.path_html = '~/Dropbox/Notes/html/'
-let home_wiki.auto_export = 1
+let home_wiki.syntax = 'markdown'
+let home_wiki.ext = '.md'
+let home_wiki.auto_export = 0
 
 let g:vimwiki_list = [ home_wiki ]
 
 let g:tagbar_type_vimwiki = {
-      \ 'ctagstype' : 'vimwiki',
+      \ 'ctagstype' : 'markdown',
       \ 'kinds' : [ 'h:header', ],
       \ 'sort' : 0
       \ }
