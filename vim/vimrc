@@ -89,6 +89,10 @@ endif
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'raw'
+let g:ctrlp_custom_ignore = {}
+let g:ctrlp_custom_ignore.dir = '\v[\/](\.git|node_modules|build|__pycache__|.*\.egg-info)$'
+let g:ctrlp_custom_ignore.file = '\v\.(pyc|pyo)$'
+
 " leaderpp is to help retrain away from that keystroke
 nnoremap <Leader>pp <Nop>
 nnoremap <Leader>ff :<C-U>CtrlP<CR>
