@@ -34,6 +34,7 @@
     ~/.tmuxifier/vim_and_shell.window.sh: tmux/layouts/vim_and_shell.window.sh
     ~/.vimrc: vim/vimrc
     ~/.Xresources: X11/Xresources
+    ~/.zprofile: zsh/zprofile
     ~/.zshrc: zsh/zshrc
 
 - shell:

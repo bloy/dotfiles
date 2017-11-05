@@ -12,10 +12,17 @@ EOF
 
 python_prompt_info() {
   local python_prompt
-  python_prompt='p'
+  if [[ ${LC_ALL:-${LC_CTYPE:-$LANG}} =~ '(UTF|utf)[-_]?8' && -z $ZSH_NO_UTF8 ]]; then
+    python_prompt='🐍'
+  else
+    python_prompt='p'
+  fi
   python_version=''
   if [[ -n $VIRTUAL_ENV ]]; then
     python_version="$(basename $VIRTUAL_ENV)"
+    if [[ $python_version == '.venv' ]]; then
+      python_version="$(basename $(dirname $VIRTUAL_ENV))"
+    fi
   fi
   if [[ $python_version == '' ]]; then
     return

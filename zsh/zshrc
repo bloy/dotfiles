@@ -32,29 +32,6 @@ export PAGER=less
 export LESS='-m -R'
 export EDITOR=vi
 export VISUAL=$EDITOR
-export RSYNC_RSH=ssh
-export NCURSES_NO_UTF8_ACS=1
-
-prepend_path() {
-  if [[ ${path[(i)$1]} -gt ${#path} ]]; then
-    path[1]=($1 $path[1])
-  else
-    path[${path[(i)$1]}]=()
-    path[1]=($1 $path[1])
-  fi
-}
-
-prepend_path "/usr/local/sbin"
-prepend_path "/usr/sbin"
-prepend_path "/sbin"
-prepend_path "$HOME/.local/bin"
-
-if [[ -d ~/.keychain ]]; then
-  eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
-fi
-
-# python
-export PIP_RESPECT_VIRTUALENV=true
 
 # aliases
 
@@ -106,12 +83,13 @@ if [[ -z $ZSH_NO_PRECMD ]]; then
   esac
 fi
 
-prepend_path "$HOME/.dotfiles/tmux/tmuxifier/bin"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
 eval "$(tmuxifier init -)"
 
-if [[ -d "$VIRTUAL_ENV" && -d "$VIRTUAL_ENV/bin" ]]; then
-  prepend_path "$VIRTUAL_ENV/bin"
+if (whence pipenv >& /dev/null); then
+  eval $(pipenv --completion)
+  export PIPENV_DEFAULT_PYTHON_VERSION="3.5"
+  export PIPENV_SHELL_FANCY=True
+  export PIPENV_VENV_IN_PROJECT=True
 fi
 
 if [ -f ~/.zshrc-local ]; then

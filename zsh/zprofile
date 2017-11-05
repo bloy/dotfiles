@@ -1,0 +1,38 @@
+# vim: ft=zsh
+if [ -f ~/.zprofile-local-pre ]; then
+  . ~/.zprofile-local-pre
+fi
+
+export RSYNC_RSH=ssh
+export NCURSES_NO_UTF8_ACS=1
+
+prepend_path() {
+  if [[ ${path[(i)$1]} -gt ${#path} ]]; then
+    path[1]=($1 $path[1])
+  else
+    path[${path[(i)$1]}]=()
+    path[1]=($1 $path[1])
+  fi
+}
+
+prepend_path "/usr/local/sbin"
+prepend_path "/usr/sbin"
+prepend_path "/sbin"
+prepend_path "$HOME/.local/bin"
+
+prepend_path "$HOME/.dotfiles/tmux/tmuxifier/bin"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
+
+if [[ -d ~/.keychain ]]; then
+  eval `keychain --eval --inherit local-once --noask --nolock --quick --quiet`
+fi
+#
+# python
+export PIP_RESPECT_VIRTUALENV=true
+if [[ -d "$VIRTUAL_ENV" && -d "$VIRTUAL_ENV/bin" ]]; then
+  prepend_path "$VIRTUAL_ENV/bin"
+fi
+
+if [ -f ~/.zprofile-local ]; then
+  . ~/.zprofile-local
+fi
