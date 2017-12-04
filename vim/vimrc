@@ -99,6 +99,10 @@ nnoremap <Leader>ff :<C-U>CtrlP<CR>
 nnoremap <Leader>ft :<C-U>CtrlPTag<CR>
 nnoremap <Leader>fb :<C-U>CtrlPBuffer<CR>
 
+" YouCompleteMe
+let g:ycm_python_binary_path = 'python'
+
+" Syntastic
 let g:syntastic_python_checkers = ['python', 'prospector', 'pyflakes']
 
 let home_wiki = {}
