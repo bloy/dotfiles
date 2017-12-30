@@ -48,6 +48,8 @@ set writebackup
 "   10 search lines, all saved in ~/.viminfo
 set viminfo='200,f1,\"50,h,/10,:0,@0,n~/.viminfo
 
+" HTML
+let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 
 " session options
 set sessionoptions=curdir,folds,globals,slash,unix,tabpages
