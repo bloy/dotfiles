@@ -83,11 +83,14 @@ filetype plugin on
 
 set statusline=%f%m%r%h%w%=%l,%c/%L\ %y
 set statusline+=%{fugitive#statusline()}
-set statusline+=%{SyntasticStatuslineFlag()}
 
 if exists('+colorcolumn')
   set colorcolumn=80,100,120
 endif
+
+let g:ale_linters = {
+      \'python': ['prospector'],
+\}
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'raw'
@@ -107,9 +110,6 @@ nnoremap <Leader>jd :<C-U>YcmCompleter GoTo<CR>
 nnoremap <Leader>jf :<C-U>YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>jc :<C-U>YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>jr :<C-U>YcmCompleter GoToReferences<CR>
-
-" Syntastic
-let g:syntastic_python_checkers = ['python', 'prospector', 'pyflakes']
 
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'

@@ -46,9 +46,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = github:bling/vim-airline.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
@@ -79,3 +76,6 @@
 [submodule "vim/bundle/vim-jinja"]
 	path = vim/bundle/vim-jinja
 	url = https://github.com/lepture/vim-jinja.git
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
