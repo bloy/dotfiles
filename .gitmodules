@@ -70,9 +70,6 @@
 [submodule "vim/bundle/pytest-vim-compiler"]
 	path = vim/bundle/pytest-vim-compiler
 	url = https://github.com/5long/pytest-vim-compiler.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
 [submodule "vim/bundle/vim-jinja"]
 	path = vim/bundle/vim-jinja
 	url = https://github.com/lepture/vim-jinja.git
