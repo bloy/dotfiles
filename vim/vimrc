@@ -88,10 +88,6 @@ if exists('+colorcolumn')
   set colorcolumn=80,100,120
 endif
 
-let g:ale_linters = {
-      \'python': ['prospector'],
-\}
-
 " CtrlP
 let g:ctrlp_working_path_mode = 'raw'
 let g:ctrlp_custom_ignore = {}
@@ -101,15 +97,6 @@ let g:ctrlp_custom_ignore.file = '\v\.(pyc|pyo)$'
 nnoremap <Leader>ff :<C-U>CtrlP<CR>
 nnoremap <Leader>ft :<C-U>CtrlPTag<CR>
 nnoremap <Leader>fb :<C-U>CtrlPBuffer<CR>
-
-" YouCompleteMe
-let g:ycm_python_binary_path = 'python'
-
-nnoremap <Leader>pd :<C-U>YcmCompleter GetDoc<CR>
-nnoremap <Leader>jd :<C-U>YcmCompleter GoTo<CR>
-nnoremap <Leader>jf :<C-U>YcmCompleter GoToDefinition<CR>
-nnoremap <Leader>jc :<C-U>YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader>jr :<C-U>YcmCompleter GoToReferences<CR>
 
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'
