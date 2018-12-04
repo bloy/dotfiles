@@ -42,7 +42,6 @@ set backupcopy=yes
 set nobackup
 set writebackup
 
-
 " viminfo
 "   200 files marks, global marks, 50 lines per register, no hlsearch
 "   10 search lines, all saved in ~/.viminfo
@@ -81,12 +80,23 @@ colorscheme molokai
 filetype indent on
 filetype plugin on
 
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
 set statusline=%f%m%r%h%w%=%l,%c/%L\ %y
 set statusline+=%{fugitive#statusline()}
 
 if exists('+colorcolumn')
   set colorcolumn=80,100,120
 endif
+
+let g:lsc_server_commands = {
+      \ 'python': 'pyls',
+      \ 'go': 'go-langserver'
+      \ }
+let g:lsc_auto_map = v:true
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'raw'

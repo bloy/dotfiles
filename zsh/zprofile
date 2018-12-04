@@ -19,6 +19,7 @@ prepend_path "/usr/local/sbin"
 prepend_path "/usr/sbin"
 prepend_path "/sbin"
 prepend_path "$HOME/.local/bin"
+prepend_path "$HOME/go/bin"
 
 prepend_path "$HOME/.dotfiles/tmux/tmuxifier/bin"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
