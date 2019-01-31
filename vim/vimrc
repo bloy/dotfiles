@@ -92,11 +92,6 @@ if exists('+colorcolumn')
   set colorcolumn=80,100,120
 endif
 
-let g:lsc_server_commands = {
-      \ 'python': 'pyls',
-      \ 'go': 'go-langserver'
-      \ }
-let g:lsc_auto_map = v:true
 
 let g:go_auto_sameids = 1
 
@@ -109,6 +104,25 @@ let g:ctrlp_custom_ignore.file = '\v\.(pyc|pyo)$'
 nnoremap <Leader>ff :<C-U>CtrlP<CR>
 nnoremap <Leader>ft :<C-U>CtrlPTag<CR>
 nnoremap <Leader>fb :<C-U>CtrlPBuffer<CR>
+
+" Language servers
+
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
+if (executable('pyls'))
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ 'workspace_config': {
+        \   'pyls': {
+        \     'plugins': {
+        \       'pydocstyle': {'enabled': v:true}
+        \     }
+        \   }}
+        \ })
+endif
 
 let home_wiki = {}
 let home_wiki.path = '~/Dropbox/Notes/wiki/'

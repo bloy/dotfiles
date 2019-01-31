@@ -79,3 +79,9 @@
 [submodule "vim/bundle/Jenkinsfile-vim-syntax"]
 	path = vim/bundle/Jenkinsfile-vim-syntax
 	url = https://github.com/martinda/Jenkinsfile-vim-syntax.git
+[submodule "vim/bundle/vim-lsp"]
+	path = vim/bundle/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule "vim/bundle/async"]
+	path = vim/bundle/async
+	url = https://github.com/prabirshrestha/async.vim.git
