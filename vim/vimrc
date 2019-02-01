@@ -115,6 +115,7 @@ if (executable('pyls'))
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
+        \ 'root_url': {server_info->lsp#utils#get_default_root_uri()},
         \ 'workspace_config': {
         \   'pyls': {
         \     'plugins': {
@@ -122,6 +123,7 @@ if (executable('pyls'))
         \     }
         \   }}
         \ })
+  au FileType python setlocal omnifunc=lsp#complete
 endif
 
 let home_wiki = {}
