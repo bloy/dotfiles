@@ -85,3 +85,6 @@
 [submodule "vim/bundle/async"]
 	path = vim/bundle/async
 	url = https://github.com/prabirshrestha/async.vim.git
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
