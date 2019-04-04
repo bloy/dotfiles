@@ -87,17 +87,26 @@ endif
 
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-      \ 'python': ['pyls', 'flake8', 'mypy'],
+      \   'python': ['pyls', 'flake8', 'mypy', 'pylint'],
       \ }
 
 let g:ale_fixers = {
-      \ 'python': ['yapf', 'isort'],
+      \   'python': ['yapf', 'isort'],
       \ }
 
 
 " python
 let python_highlight_all = 1
 let g:ale_python_auto_pipenv = 1
+let g:ale_python_pyls_config = {
+      \   'pyls': {
+      \     'plugins': {
+      \       'pylint': {
+      \         'enabled': v:false,
+      \       },
+      \     },
+      \   },
+      \ }
 
 " HTML
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
